@@ -282,6 +282,7 @@ void vypisJidelnicek()
 {
     for(Jidelnicek* jidelnicek : celyJidelnicek) {
         jidelnicek->vypis();
+        cout << endl << endl << endl;
     }
 }
 
