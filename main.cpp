@@ -115,7 +115,8 @@ void moznostiPokrmu()
         break;
     }
     case '9': {
-        generujJidelnicekDen();
+
+        // generujJidelnicekDen();
         moznostiPokrmu();
         break;
     }
@@ -191,6 +192,103 @@ void vytvorJidlo()
     }
 }
 
+Pokrm* vyberNahodneJidlo()
+{
+    Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
+    return nahodneJidlo;
+}
+
+/*
+void generujJidelnicekDen()
+{
+    int pocetjidel = 0;
+    vector<Pokrm*> den;
+
+    cout << "zvolte kolik bude jídel na den" << endl;
+    cin >> pocetjidel;
+    cout << endl;
+
+    for(int i = 0; i < pocetjidel; ++i) {
+        // vyberNahodneJidlo()->vypis();
+        den.push_back(vyberNahodneJidlo());
+
+    }
+    cout << endl << endl;
+    //return den;
+}
+
+void generujJidelnicek()
+{
+    Jidelnicek* jidelnicek = new Jidelnicek;
+    //jidelnicek->pondeli = generujJidelnicekDen();
+
+}
+*/
+
+vector<Pokrm*> vytvorJidelnicekproDen()
+{
+    int x = 0;
+    int velikostVectoru = seznamJidel.size();
+    vector<Pokrm*> den;
+    bool pokracovat = true;
+    char dalsi = 0;
+    int pocetJidel = 0;
+
+    cout << "kolik jidel bude na den?" << endl;
+    cin >> pocetJidel;
+    cout << endl;
+
+    while(pokracovat) {
+
+        cout << endl;
+
+        for(int i = 0; i < pocetJidel; ++i) {
+            den.push_back(vyberNahodneJidlo());
+        }
+
+        pokracovat = false;
+    }
+    return den;
+}
+
+void vytvorJidelnicek()
+{
+    int x = 0;
+    char vytvoritJidelnicek = 0;
+    char pridatJidlo = 0;
+    string den = " ";
+    bool pokracovat = true;
+    Jidelnicek* jidelnicek = new Jidelnicek;
+    // Pokrm* pokrm;
+
+    cout << "chcete vytvorit jidelnicek? a/n " << endl;
+    cin >> vytvoritJidelnicek;
+
+    if(vytvoritJidelnicek != 'a') {
+
+        return;
+    }
+
+    while(pokracovat) {
+
+        jidelnicek->pondeli = vytvorJidelnicekproDen();
+
+        jidelnicek->utery = vytvorJidelnicekproDen();
+
+        jidelnicek->streda = vytvorJidelnicekproDen();
+
+        jidelnicek->ctvrtek = vytvorJidelnicekproDen();
+
+        jidelnicek->patek = vytvorJidelnicekproDen();
+
+        pokracovat = false;
+    }
+
+    celyJidelnicek.push_back(jidelnicek);
+    vytvorJidelnicek();
+}
+
+/*
 vector<Pokrm*> vytvorJidelnicekproDen()
 {
     int x = 0;
@@ -276,6 +374,8 @@ void vytvorJidelnicek()
     celyJidelnicek.push_back(jidelnicek);
     vytvorJidelnicek();
 }
+
+*/
 
 void vypisJidelnicek()
 {
@@ -421,32 +521,3 @@ void vytiskniJidelnicek()
         outFile.close();
     }
 }
-
-Pokrm* vyberNahodneJidlo(){
-    Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
-    return nahodneJidlo;
-}
-void generujJidelnicekDen()
-{
-    int pocetjidel = 0;
-
-    cout << "zvolte kolik bude jídel na den" << endl;
-    cin >> pocetjidel;
-    cout << endl;
-    
-
-    for(int i = 0; i < pocetjidel; ++i) {
-        vyberNahodneJidlo()->vypis();
-        cout << endl;
-    }
-    cout << endl << endl;
-}
-
-void generujJidelnicek()
-{
-    cout << "Přejete si vygenerovat jídelníček na týden?" << endl;
-}
-
-
-
-
