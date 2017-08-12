@@ -35,18 +35,18 @@ vector<Jidelnicek*> celyJidelnicek;
 
 int idPokrm = 0;
 
-template <typename Iter, typename RandomGenerator> Iter select_randomly(Iter start, Iter end, RandomGenerator& g)
+template <typename Iterator, typename NahodnyGenerator> Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
-    std::uniform_int_distribution<> dis(0, std::distance(start, end) - 1);
-    std::advance(start, dis(g));
+    uniform_int_distribution<> dis(0, distance(start, end) - 1);
+    advance(start, dis(g));
     return start;
 }
 
-template <typename Iter> Iter select_randomly(Iter start, Iter end)
+template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
 {
-    static std::random_device rd;
-    static std::mt19937 gen(rd());
-    return select_randomly(start, end, gen);
+    static random_device rd;
+    static mt19937 gen(rd());
+    return nahodnyVyber(start, end, gen);
 }
 
 int main(int argc, char** argv)
@@ -419,7 +419,7 @@ void vytiskniJidelnicek()
 
 Pokrm* vyberNahodneJidlo()
 {
-    Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
+    Pokrm* nahodneJidlo = *nahodnyVyber(seznamJidel.begin(), seznamJidel.end());
     return nahodneJidlo;
 }
 
