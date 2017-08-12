@@ -192,7 +192,7 @@ void vytvorJidlo()
     }
 }
 
-vector<Pokrm*> vytvorJidelnicekproDen()
+vector<Pokrm*> vytvorJidelnicekProDen()
 {
     int x = 0;
     int velikostVectoru = seznamJidel.size();
@@ -247,23 +247,23 @@ void vytvorJidelnicek()
 
         if(den == "po") {
             cout << "vytvarim jidelnicek pro pondeli" << endl;
-            jidelnicek->pondeli = vytvorJidelnicekproDen();
+            jidelnicek->pondeli = vytvorJidelnicekProDen();
         }
         if(den == "ut") {
             cout << "vytvarim jidelnicek pro utery" << endl;
-            jidelnicek->utery = vytvorJidelnicekproDen();
+            jidelnicek->utery = vytvorJidelnicekProDen();
         }
         if(den == "st") {
             cout << "vytvarim jidelnicek pro streda" << endl;
-            jidelnicek->streda = vytvorJidelnicekproDen();
+            jidelnicek->streda = vytvorJidelnicekProDen();
         }
         if(den == "ct") {
             cout << "vytvarim jidelnicek pro ctvrtek" << endl;
-            jidelnicek->ctvrtek = vytvorJidelnicekproDen();
+            jidelnicek->ctvrtek = vytvorJidelnicekProDen();
         }
         if(den == "pa") {
             cout << "vytvarim jidelnicek pro patek" << endl;
-            jidelnicek->patek = vytvorJidelnicekproDen();
+            jidelnicek->patek = vytvorJidelnicekProDen();
         }
 
         cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
