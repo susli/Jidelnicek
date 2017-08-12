@@ -393,7 +393,7 @@ void nahodneRazeni()
 void nacteniJidelZeSouboru()
 {
     seznamJidel.clear(); // smazaní seznamu jidel
-    idPokrm = 0; // vynulování počtu jidel při načtení
+    idPokrm = 0;         // vynulování počtu jidel při načtení
     ifstream inJidlo;
     inJidlo.open("jidlo.csv");
 
@@ -451,7 +451,6 @@ void generujJidelnicekDen()
 
     for(int i = 0; i < pocetjidel; ++i) {
         Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
-
         nahodneJidlo->vypis();
         cout << endl;
     }
