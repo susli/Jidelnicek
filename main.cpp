@@ -26,6 +26,7 @@ void vypisJidlo();
 void zapisJidelDoSouboru();
 void nacteniJidelZeSouboru();
 void vytvorJidelnicek();
+void generujJidelnicek();
 void vypisJidelnicek();
 void vytiskniJidelnicek();
 void nahodneRazeni();
@@ -116,7 +117,7 @@ void moznostiPokrmu()
     }
     case '9': {
 
-        // generujJidelnicekDen();
+        generujJidelnicek();
         moznostiPokrmu();
         break;
     }
@@ -225,7 +226,7 @@ void generujJidelnicek()
 }
 */
 
-vector<Pokrm*> vytvorJidelnicekproDen()
+vector<Pokrm*> generujJidelnicekproDen()
 {
     int x = 0;
     int velikostVectoru = seznamJidel.size();
@@ -251,7 +252,7 @@ vector<Pokrm*> vytvorJidelnicekproDen()
     return den;
 }
 
-void vytvorJidelnicek()
+void generujJidelnicek()
 {
     int x = 0;
     char vytvoritJidelnicek = 0;
@@ -271,24 +272,24 @@ void vytvorJidelnicek()
 
     while(pokracovat) {
 
-        jidelnicek->pondeli = vytvorJidelnicekproDen();
+        jidelnicek->pondeli = generujJidelnicekproDen();
 
-        jidelnicek->utery = vytvorJidelnicekproDen();
+        jidelnicek->utery = generujJidelnicekproDen();
 
-        jidelnicek->streda = vytvorJidelnicekproDen();
+        jidelnicek->streda = generujJidelnicekproDen();
 
-        jidelnicek->ctvrtek = vytvorJidelnicekproDen();
+        jidelnicek->ctvrtek = generujJidelnicekproDen();
 
-        jidelnicek->patek = vytvorJidelnicekproDen();
+        jidelnicek->patek = generujJidelnicekproDen();
 
         pokracovat = false;
     }
 
     celyJidelnicek.push_back(jidelnicek);
-    vytvorJidelnicek();
+    generujJidelnicek();
 }
 
-/*
+
 vector<Pokrm*> vytvorJidelnicekproDen()
 {
     int x = 0;
@@ -375,7 +376,7 @@ void vytvorJidelnicek()
     vytvorJidelnicek();
 }
 
-*/
+
 
 void vypisJidelnicek()
 {
