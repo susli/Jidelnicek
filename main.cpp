@@ -289,7 +289,6 @@ void generujJidelnicek()
     generujJidelnicek();
 }
 
-
 vector<Pokrm*> vytvorJidelnicekproDen()
 {
     int x = 0;
@@ -375,8 +374,6 @@ void vytvorJidelnicek()
     celyJidelnicek.push_back(jidelnicek);
     vytvorJidelnicek();
 }
-
-
 
 void vypisJidelnicek()
 {
