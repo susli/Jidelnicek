@@ -20,40 +20,35 @@ public:
         string jidelnicek = " ";
         if(pondeli.size() != NULL) {
             cout << "Pondeli: " << endl;
-            for(int i; i < pondeli.size(); i++) {
-                // cout << "pondeli" << endl;
+            for(unsigned int i; i < pondeli.size(); i++) {
                 pondeli[i]->vypis();
                 cout << endl;
             }
         }
         if(utery.size() != NULL) {
             cout << "Utery: " << endl;
-            for(int i; i < utery.size(); i++) {
-                // cout << "utery" << endl;
+            for(unsigned int i; i < utery.size(); i++) {
                 utery[i]->vypis();
                 cout << endl;
             }
         }
         if(streda.size() != NULL) {
             cout << "Streda: " << endl;
-            for(int i; i < streda.size(); i++) {
-                // cout << "streda" << endl;
+            for(unsigned int i; i < streda.size(); i++) {
                 streda[i]->vypis();
                 cout << endl;
             }
         }
         if(ctvrtek.size() != NULL) {
             cout << "Ctvrtek: " << endl;
-            for(int i; i < ctvrtek.size(); i++) {
-                // cout << "ctvrtek" << endl;
+            for(unsigned int i; i < ctvrtek.size(); i++) {
                 ctvrtek[i]->vypis();
                 cout << endl;
             }
         }
         if(patek.size() != NULL) {
             cout << "Patek: " << endl;
-            for(int i; i < patek.size(); i++) {
-                // cout << "patek" << endl;
+            for(unsigned int i; i < patek.size(); i++) {
                 patek[i]->vypis();
                 cout << endl;
             }

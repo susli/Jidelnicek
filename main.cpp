@@ -223,13 +223,12 @@ vector<Pokrm*> vytvorJidelnicekProDen()
 
 void vytvorJidelnicek()
 {
-    int x = 0;
+
     char vytvoritJidelnicek = 0;
-    char pridatJidlo = 0;
+
     string den = " ";
     bool pokracovat = true;
     Jidelnicek* jidelnicek = new Jidelnicek;
-    Pokrm* pokrm;
 
     cout << "chcete vytvorit jidelnicek? a/n " << endl;
     cin >> vytvoritJidelnicek;
