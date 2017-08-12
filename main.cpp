@@ -29,7 +29,6 @@ void vytvorJidelnicek();
 void generujJidelnicek();
 void vypisJidelnicek();
 void vytiskniJidelnicek();
-void nahodneRazeni();
 void generujJidelnicekDen();
 vector<Pokrm*> seznamJidel;
 vector<Jidelnicek*> celyJidelnicek;
@@ -69,8 +68,8 @@ void moznostiPokrmu()
     cout << "Zadej 5, pro ulozeni seznamu Jidel" << endl;
     cout << "Zadej 6, pro nacteni jidel ze souboru" << endl;
     cout << "Zadej 7, po vytisknuti Jidelnicku" << endl;
-    cout << "Zadej 8, po nahodne serazeni seznamu jidel" << endl;
-    cout << "Zadej 9, pro nahodne generovani" << endl;
+    // cout << "Zadej 8, po nahodne serazeni seznamu jidel" << endl;
+    cout << "Zadej 9, pro vygenerovani jidelnicku na tyden" << endl;
     cout << "Zadej Q, pro konec programu" << endl;
     cin >> volba;
 
@@ -111,7 +110,7 @@ void moznostiPokrmu()
         break;
     }
     case '8': {
-        nahodneRazeni();
+
         moznostiPokrmu();
         break;
     }
@@ -384,12 +383,6 @@ nactiRadekSouboruJidlo(string* radka)
             }
         }
     }
-}
-
-void nahodneRazeni()
-{
-    // using built-in random generator:
-    random_shuffle(seznamJidel.begin(), seznamJidel.end());
 }
 
 void nacteniJidelZeSouboru()
