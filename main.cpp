@@ -422,25 +422,6 @@ void vytiskniJidelnicek()
     }
 }
 
-void generujJidelnicek()
-{
-    cout << "Přejete si vygenerovat jídelníček na týden?" << endl;
-}
-
-struct rangegenerator {
-    rangegenerator(int init)
-        : start(init)
-    {
-    }
-
-    int operator()()
-    {
-        return start++;
-    }
-
-    int start;
-};
-
 Pokrm* vyberNahodneJidlo(){
     Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
     return nahodneJidlo;
@@ -452,6 +433,7 @@ void generujJidelnicekDen()
     cout << "zvolte kolik bude jídel na den" << endl;
     cin >> pocetjidel;
     cout << endl;
+    
 
     for(int i = 0; i < pocetjidel; ++i) {
         vyberNahodneJidlo()->vypis();
@@ -459,5 +441,12 @@ void generujJidelnicekDen()
     }
     cout << endl << endl;
 }
+
+void generujJidelnicek()
+{
+    cout << "Přejete si vygenerovat jídelníček na týden?" << endl;
+}
+
+
 
 
