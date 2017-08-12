@@ -5,16 +5,18 @@
 #include <istream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <random>
+#include <iterator>
 
 #include <Pokrm.h>
 #include <Jidlo.h>
 #include <Napoj.h>
 #include <Jidelnicek.h>
 
-
-#include <ctime>        // std::time
-#include <cstdlib>      // std::rand, std::srand
-#include <algorithm>    // std::random_shuffle
+#include <ctime>     // std::time
+#include <cstdlib>   // std::rand, std::srand
+#include <algorithm> // std::random_shuffle
 
 using namespace std;
 
@@ -27,11 +29,25 @@ void vytvorJidelnicek();
 void vypisJidelnicek();
 void vytiskniJidelnicek();
 void nahodneRazeni();
-
+void generujJidelnicekDen();
 vector<Pokrm*> seznamJidel;
 vector<Jidelnicek*> celyJidelnicek;
 
 int idPokrm = 0;
+
+template <typename Iter, typename RandomGenerator> Iter select_randomly(Iter start, Iter end, RandomGenerator& g)
+{
+    std::uniform_int_distribution<> dis(0, std::distance(start, end) - 1);
+    std::advance(start, dis(g));
+    return start;
+}
+
+template <typename Iter> Iter select_randomly(Iter start, Iter end)
+{
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    return select_randomly(start, end, gen);
+}
 
 int main(int argc, char** argv)
 {
@@ -39,8 +55,6 @@ int main(int argc, char** argv)
     moznostiPokrmu();
     return 0;
 }
-
-
 
 void moznostiPokrmu()
 {
@@ -55,6 +69,7 @@ void moznostiPokrmu()
     cout << "Zadej 6, pro nacteni jidel ze souboru" << endl;
     cout << "Zadej 7, po vytisknuti Jidelnicku" << endl;
     cout << "Zadej 8, po nahodne serazeni seznamu jidel" << endl;
+    cout << "Zadej 9, pro nahodne generovani" << endl;
     cout << "Zadej Q, pro konec programu" << endl;
     cin >> volba;
 
@@ -99,6 +114,11 @@ void moznostiPokrmu()
         moznostiPokrmu();
         break;
     }
+    case '9': {
+        generujJidelnicekDen();
+        moznostiPokrmu();
+        break;
+    }
     case 'Q': {
         zapisJidelDoSouboru();
         break;
@@ -125,7 +145,7 @@ void vytvorJidlo()
 
         cout << "chcete vytvorit dalsi pokrm? a/n " << endl;
         cin >> vytvoritJidlo;
-        
+
         trida = 0;
 
         if(vytvoritJidlo == 'a') {
@@ -154,7 +174,7 @@ void vytvorJidlo()
 
                 cout << " zadejte cenu: ";
                 cin >> cena;
-                
+
                 cout << " zadejte tridu: ";
                 cin >> trida;
 
@@ -170,7 +190,6 @@ void vytvorJidlo()
         }
     }
 }
-
 
 vector<Pokrm*> vytvorJidelnicekproDen()
 {
@@ -245,7 +264,6 @@ void vytvorJidelnicek()
             cout << "vytvarim jidelnicek pro patek" << endl;
             jidelnicek->patek = vytvorJidelnicekproDen();
         }
-        
 
         cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
         char dalsiDen;
@@ -292,7 +310,6 @@ void zapisJidelDoSouboru()
         outFile.close();
     }
 }
-
 
 nactiRadekSouboruJidlo(string* radka)
 {
@@ -367,17 +384,16 @@ nactiRadekSouboruJidlo(string* radka)
     }
 }
 
-void nahodneRazeni(){
+void nahodneRazeni()
+{
     // using built-in random generator:
-    random_shuffle ( seznamJidel.begin(), seznamJidel.end() );
+    random_shuffle(seznamJidel.begin(), seznamJidel.end());
 }
-
-
 
 void nacteniJidelZeSouboru()
 {
-    seznamJidel.clear(); //smazaní seznamu jidel
-    idPokrm = 0; //vynulování počtu jidel při načtení
+    seznamJidel.clear(); // smazaní seznamu jidel
+    idPokrm = 0; // vynulování počtu jidel při načtení
     ifstream inJidlo;
     inJidlo.open("jidlo.csv");
 
@@ -399,9 +415,45 @@ void vytiskniJidelnicek()
 
         for(Jidelnicek* jidelnicek : celyJidelnicek) {
             outFile << jidelnicek->vypis();
-            //ss >>outFile;
+            // ss >>outFile;
         }
 
         outFile.close();
     }
+}
+
+void generujJidelnicek()
+{
+    cout << "Přejete si vygenerovat jídelníček na týden?" << endl;
+}
+
+struct rangegenerator {
+    rangegenerator(int init)
+        : start(init)
+    {
+    }
+
+    int operator()()
+    {
+        return start++;
+    }
+
+    int start;
+};
+
+void generujJidelnicekDen()
+{
+    int pocetjidel = 0;
+
+    cout << "zvolte kolik bude jídel na den" << endl;
+    cin >> pocetjidel;
+    cout << endl;
+
+    for(int i = 0; i < pocetjidel; ++i) {
+        Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
+
+        nahodneJidlo->vypis();
+        cout << endl;
+    }
+    cout << endl << endl;
 }
