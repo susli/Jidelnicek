@@ -441,6 +441,10 @@ struct rangegenerator {
     int start;
 };
 
+Pokrm* vyberNahodneJidlo(){
+    Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
+    return nahodneJidlo;
+}
 void generujJidelnicekDen()
 {
     int pocetjidel = 0;
@@ -450,9 +454,10 @@ void generujJidelnicekDen()
     cout << endl;
 
     for(int i = 0; i < pocetjidel; ++i) {
-        Pokrm* nahodneJidlo = *select_randomly(seznamJidel.begin(), seznamJidel.end());
-        nahodneJidlo->vypis();
+        vyberNahodneJidlo()->vypis();
         cout << endl;
     }
     cout << endl << endl;
 }
+
+
