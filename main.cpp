@@ -32,8 +32,8 @@ void vytiskniJidelnicek();
 void generujJidelnicekDen();
 vector<Pokrm*> seznamJidel;
 vector<Jidelnicek*> celyJidelnicek;
-vector<Pokrm*> seznamPokrmuNaJidelnicku;
 vector<int> pouzitePokrmy;
+int pocetGenerovaniJidelnicku = 0;
 
 int idPokrm = 0;
 
@@ -426,13 +426,29 @@ Pokrm* vyberNahodneJidlo()
 }
 
 bool kontrolaPokrmu(Pokrm* nahodneJidlo){
-    for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+    if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2){
+        pouzitePokrmy.clear();
+        pocetGenerovaniJidelnicku = 0;
+        
+        for(int i = 0; i < pouzitePokrmy.size(); ++i) {
         if(pouzitePokrmy[i] == nahodneJidlo->getId()){
             return false;
         }else {
           return true;
          }
 }
+    }else{
+                for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+        if(pouzitePokrmy[i] == nahodneJidlo->getId()){
+            return false;
+        }else {
+          return true;
+         }
+}
+    }
+        
+    
+    
 return true;
 }
 vector<Pokrm*> generujJidelnicekproDen()
@@ -500,4 +516,6 @@ void generujJidelnicek()
     }
 
     celyJidelnicek.push_back(jidelnicek);
+    pocetGenerovaniJidelnicku++;
+    cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
 }
