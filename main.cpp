@@ -32,6 +32,8 @@ void vytiskniJidelnicek();
 void generujJidelnicekDen();
 vector<Pokrm*> seznamJidel;
 vector<Jidelnicek*> celyJidelnicek;
+vector<Pokrm*> seznamPokrmuNaJidelnicku;
+vector<int> pouzitePokrmy;
 
 int idPokrm = 0;
 
@@ -423,6 +425,14 @@ Pokrm* vyberNahodneJidlo()
     return nahodneJidlo;
 }
 
+bool kontrolaPokrmu(){
+    bool kontrola = true;
+    for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+        pouzitePokrmy[i] == vyberNahodneJidlo()->getId();
+        kontrola = false;
+        }
+        return kontrola;
+}
 vector<Pokrm*> generujJidelnicekproDen()
 {
 
@@ -439,14 +449,21 @@ vector<Pokrm*> generujJidelnicekproDen()
 
         cout << endl;
 
-        for(int i = 0; i < pocetJidel; ++i) {
+        
+            if(kontrolaPokrmu()==true){
             den.push_back(vyberNahodneJidlo());
+            pouzitePokrmy.push_back(vyberNahodneJidlo()->getId());
+            
+            }
+            
+            
         }
 
         pokracovat = false;
+        return den;
     }
-    return den;
-}
+    
+
 
 void generujJidelnicek()
 {
