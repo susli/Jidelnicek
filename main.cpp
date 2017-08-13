@@ -449,21 +449,20 @@ vector<Pokrm*> generujJidelnicekproDen()
 
         cout << endl;
 
-        
+        for(int i = 0; i < pocetJidel; ++i) {
             if(kontrolaPokrmu()==true){
             den.push_back(vyberNahodneJidlo());
             pouzitePokrmy.push_back(vyberNahodneJidlo()->getId());
             
+            }else{
+                i--;
             }
-            
-            
         }
 
         pokracovat = false;
-        return den;
     }
-    
-
+    return den;
+}
 
 void generujJidelnicek()
 {
