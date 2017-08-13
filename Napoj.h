@@ -27,16 +27,14 @@ public:
     {
         return cena;
     }
-    int getTrida(){
+    int getTrida()
+    {
         return trida;
     }
     int getObjem()
     {
         return objem;
     }
-    
-    
-    
 
     ~Napoj()
     {

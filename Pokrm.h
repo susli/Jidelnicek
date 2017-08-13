@@ -5,23 +5,22 @@ using namespace std;
 
 class Pokrm
 {
-    
+
     int nic = 0;
+
 public:
     int id;
     string nazev;
     int cena;
     int trida;
-    
-   
-   // virtual int getPrice(){};
-    
-    
+
+    // virtual int getPrice(){};
+
     int getId()
     {
         return id;
     }
-    
+
     string getNazev()
     {
         return nazev;
@@ -31,7 +30,8 @@ public:
     {
         return cena;
     }
-      int getTrida(){
+    int getTrida()
+    {
         return trida;
     }
 
