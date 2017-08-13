@@ -10,7 +10,7 @@ class Napoj : public Jidlo
     int objem;
 
 public:
-    Napoj(int id, string nazev, int cena, int trida,string ingredience, int objem)
+    Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
         : Jidlo(id, nazev, cena, trida, ingredience)
         , objem(objem)
     {

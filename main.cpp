@@ -134,8 +134,6 @@ void moznostiPokrmu()
     }
 }
 
-
-
 void vytvorJidlo()
 {
     char vytvoritJidlo;
@@ -184,7 +182,7 @@ void vytvorJidlo()
 
                 cout << " zadejte tridu: ";
                 cin >> trida;
-                
+
                 cout << "zadejte zakladni ingredience oddelene carkou: ";
                 cin >> ingredience;
 
@@ -299,6 +297,8 @@ void vypisJidlo()
     cout << "Dostupna jidla" << endl;
     for(Pokrm* pokrm : seznamJidel) {
         pokrm->vypis();
+        cout << "ulozene Ingredience" << endl;
+        cout << pokrm->vypisIngredience() << endl;
         cout << endl;
     }
 }

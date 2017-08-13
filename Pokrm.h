@@ -18,10 +18,10 @@ public:
 
     // virtual int getPrice(){};
 
-    void ulozIngredience(string* ingredience)
+    void ulozIngredience(string ingredience)
     {
 
-        string retezec = *ingredience;
+        string retezec = ingredience;
         string oddelovac = ",";
 
         stringstream ss;
@@ -34,6 +34,16 @@ public:
             seznamIngredienci.push_back(slovo);
             retezec.erase(0, pozice + oddelovac.length());
         }
+    }
+
+    string vypisIngredience()
+    {
+        stringstream ss;
+        string ingred;
+        for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i)
+            ss << *i << ',';
+        ss >> ingred;
+        return ingred;
     }
 
     int getId()
@@ -69,7 +79,8 @@ public:
         cout << "Id: " << id << "    "
              << "Nazev Jidla: " << nazev << "   "
              << "Cena: " << cena << "   "
-             << "Trida: " << trida << "   ";
+             << "Trida: " << trida << "   "
+             << "Ingredience: " << vypisIngredience() << " ";
     }
 };
 
