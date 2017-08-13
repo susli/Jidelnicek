@@ -426,13 +426,14 @@ Pokrm* vyberNahodneJidlo()
 }
 
 bool kontrolaPokrmu(Pokrm* nahodneJidlo){
-    
     for(int i = 0; i < pouzitePokrmy.size(); ++i) {
         if(pouzitePokrmy[i] == nahodneJidlo->getId()){
             return false;
         }else {
-            return true;
-        }
+          return true;
+         }
+}
+return true;
 }
 vector<Pokrm*> generujJidelnicekproDen()
 {
@@ -441,6 +442,7 @@ vector<Pokrm*> generujJidelnicekproDen()
     bool pokracovat = true;
 
     int pocetJidel = 0;
+    Pokrm* ulozJidlo;
 
     cout << "kolik jidel bude na den?" << endl;
     cin >> pocetJidel;
@@ -451,15 +453,14 @@ vector<Pokrm*> generujJidelnicekproDen()
         cout << endl;
 
         for(int i = 0; i < pocetJidel; ++i) {
+            ulozJidlo = vyberNahodneJidlo();
+            if(kontrolaPokrmu(ulozJidlo)==true){
+            den.push_back(ulozJidlo);
+            pouzitePokrmy.push_back(ulozJidlo->getId());
             
-            if (kontrolaPokrmu(vyberNahodneJidlo()) != false){
-               den.push_back(vyberNahodneJidlo());
-            pouzitePokrmy.push_back(vyberNahodneJidlo()->getId()); 
+            }else{
+               continue;
             }
-           
-            
-            
-           
         }
 
         pokracovat = false;
