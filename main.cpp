@@ -152,6 +152,7 @@ void vytvorJidlo()
         cin >> vytvoritJidlo;
 
         trida = 0;
+        ingredience = "";
 
         if(vytvoritJidlo == 'a') {
 
@@ -184,10 +185,11 @@ void vytvorJidlo()
                 cin >> trida;
 
                 cout << "zadejte zakladni ingredience oddelene carkou: ";
-                cin >> ingredience;
+                cin.ignore();
+                getline(cin, ingredience);
 
-                Jidlo* pokrm = new Jidlo(idPokrm, nazev, cena, trida, ingredience);
-                seznamJidel.push_back(pokrm);
+                Jidlo* jidlo = new Jidlo(idPokrm, nazev, cena, trida, ingredience);
+                seznamJidel.push_back(jidlo);
                 idPokrm++;
             } else {
                 cout << "spatne zadani";
@@ -297,8 +299,7 @@ void vypisJidlo()
     cout << "Dostupna jidla" << endl;
     for(Pokrm* pokrm : seznamJidel) {
         pokrm->vypis();
-        cout << "ulozene Ingredience" << endl;
-        cout << pokrm->vypisIngredience() << endl;
+        //        cout << pokrm->vypisIngredience();
         cout << endl;
     }
 }
@@ -315,7 +316,7 @@ void zapisJidelDoSouboru()
 
         for(Pokrm*& pokrm : seznamJidel) {
             outFile << pokrm->getId() << ";" << pokrm->getNazev() << ";" << pokrm->getCena() << ";" << pokrm->getTrida()
-                    << ";" << pokrm->getObjem() << ";" << endl;
+                    << ";" << pokrm->getIngredience() << ";" << pokrm->getObjem() << ";" << endl;
         }
         outFile.close();
     }
@@ -371,6 +372,13 @@ nactiRadekSouboruJidlo(string* radka)
         }
         case 4: {
             ss << slovo;
+            ss >> ingredience;
+            ss.clear();
+            retezec.erase(0, pozice + oddelovac.length());
+            break;
+        }
+        case 5: {
+            ss << slovo;
             ss >> intObsah;
             ss.clear();
             retezec.erase(0, pozice + oddelovac.length());
@@ -378,7 +386,7 @@ nactiRadekSouboruJidlo(string* radka)
         }
         }
 
-        if(i == 4) {
+        if(i == 5) {
             Pokrm* pokrm;
 
             if(intObsah == 0) {

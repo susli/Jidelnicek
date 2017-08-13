@@ -31,6 +31,10 @@ public:
     {
         return trida;
     }
+    string getIngredience()
+    {
+        return ingredience;
+    }
     int getObjem()
     {
         return objem;

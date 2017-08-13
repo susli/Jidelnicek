@@ -40,8 +40,10 @@ public:
     {
         stringstream ss;
         string ingred;
-        for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i)
+        for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
             ss << *i << ',';
+        }
+
         ss >> ingred;
         return ingred;
     }
@@ -64,11 +66,17 @@ public:
     {
         return trida;
     }
-
-    vector<string> getIngredience()
+    string getIngredience()
     {
-        return seznamIngredienci;
+        return ingredience;
     }
+
+    /*
+        vector<string> getIngredience()
+        {
+            return seznamIngredienci;
+        }
+    */
 
     virtual int getObjem()
     {
@@ -80,7 +88,7 @@ public:
              << "Nazev Jidla: " << nazev << "   "
              << "Cena: " << cena << "   "
              << "Trida: " << trida << "   "
-             << "Ingredience: " << vypisIngredience() << " ";
+             << "Ingredience: " << /*vypisIngredience()*/ ingredience << " ";
     }
 };
 
