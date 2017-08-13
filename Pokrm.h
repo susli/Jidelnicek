@@ -14,40 +14,40 @@ public:
     int cena;
     int trida;
     string ingredience;
-    //vector<string> seznamIngredienci;
+    // vector<string> seznamIngredienci;
 
     // virtual int getPrice(){};
-/*
-    void ulozIngredience(string ingredience)
-    {
+    /*
+        void ulozIngredience(string ingredience)
+        {
 
-        string retezec = ingredience;
-        string oddelovac = ",";
+            string retezec = ingredience;
+            string oddelovac = ",";
 
-        stringstream ss;
+            stringstream ss;
 
-        size_t pozice = 0;
-        string slovo;
+            size_t pozice = 0;
+            string slovo;
 
-        for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
-            slovo = retezec.substr(0, pozice);
-            seznamIngredienci.push_back(slovo);
-            retezec.erase(0, pozice + oddelovac.length());
-        }
-    }
-
-    string vypisIngredience()
-    {
-        stringstream ss;
-        string ingred;
-        for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
-            ss << *i << ',';
+            for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
+                slovo = retezec.substr(0, pozice);
+                seznamIngredienci.push_back(slovo);
+                retezec.erase(0, pozice + oddelovac.length());
+            }
         }
 
-        ss >> ingred;
-        return ingred;
-    }
-    */
+        string vypisIngredience()
+        {
+            stringstream ss;
+            string ingred;
+            for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
+                ss << *i << ',';
+            }
+
+            ss >> ingred;
+            return ingred;
+        }
+        */
 
     int getId()
     {

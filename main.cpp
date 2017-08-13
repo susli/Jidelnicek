@@ -352,7 +352,7 @@ nactiRadekSouboruJidlo(string* radka)
         }
         case 1: {
             ss << slovo;
-            ss >> nazev;
+            getline(ss, nazev);
             ss.clear();
             retezec.erase(0, pozice + oddelovac.length());
             break;
@@ -373,7 +373,7 @@ nactiRadekSouboruJidlo(string* radka)
         }
         case 4: {
             ss << slovo;
-            ss >> ingredience;
+            getline(ss, ingredience);
             ss.clear();
             retezec.erase(0, pozice + oddelovac.length());
             break;

@@ -10,9 +10,9 @@ using namespace std;
 class Jidlo : public Pokrm
 {
 public:
-vector<string> seznamIngredienci;
+    vector<string> seznamIngredienci;
 
-void ulozIngredience(string ingredience)
+    void ulozIngredience(string ingredience)
     {
 
         string retezec = ingredience;
@@ -49,11 +49,11 @@ void ulozIngredience(string ingredience)
         this->trida = trida;
         this->ingredience = ingredience;
     }
-    
+
     vector<string> getIngredience()
-        {
-            return seznamIngredienci;
-        }
+    {
+        return seznamIngredienci;
+    }
 };
 
 #endif // JIDLO_H
