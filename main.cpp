@@ -426,18 +426,26 @@ Pokrm* vyberNahodneJidlo()
 }
 
 bool kontrolaPokrmu(Pokrm* nahodneJidlo){
-    if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2){
+    if(seznamJidel.size() >= 15 && seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4){
+        goto provedGenerovani;
+    }
+    else if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2){
+        provedGenerovani:
         pouzitePokrmy.clear();
         pocetGenerovaniJidelnicku = 0;
         
         for(int i = 0; i < pouzitePokrmy.size(); ++i) {
         if(pouzitePokrmy[i] == nahodneJidlo->getId()){
             return false;
+            
         }else {
           return true;
          }
 }
-    }else{
+    }
+    
+        else{
+    
                 for(int i = 0; i < pouzitePokrmy.size(); ++i) {
         if(pouzitePokrmy[i] == nahodneJidlo->getId()){
             return false;
@@ -445,6 +453,7 @@ bool kontrolaPokrmu(Pokrm* nahodneJidlo){
           return true;
          }
 }
+        
     }
         
     
