@@ -37,7 +37,8 @@ int pocetGenerovaniJidelnicku = 0;
 
 int idPokrm = 0;
 
-template <typename Iterator, typename NahodnyGenerator> Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
+template <typename Iterator, typename NahodnyGenerator>
+Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
     uniform_int_distribution<> dis(0, distance(start, end) - 1);
     advance(start, dis(g));
@@ -425,40 +426,37 @@ Pokrm* vyberNahodneJidlo()
     return nahodneJidlo;
 }
 
-bool kontrolaPokrmu(Pokrm* nahodneJidlo){
-    if(seznamJidel.size() >= 15 && seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4){
+bool kontrolaPokrmu(Pokrm* nahodneJidlo)
+{
+    if(seznamJidel.size() >= 15 && seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
         goto provedGenerovani;
-    }
-    else if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2){
-        provedGenerovani:
+    } else if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
+    provedGenerovani:
         pouzitePokrmy.clear();
         pocetGenerovaniJidelnicku = 0;
-        
+
         for(int i = 0; i < pouzitePokrmy.size(); ++i) {
-        if(pouzitePokrmy[i] == nahodneJidlo->getId()){
-            return false;
-            
-        }else {
-          return true;
-         }
-}
+            if(pouzitePokrmy[i] == nahodneJidlo->getId()) {
+                return false;
+
+            } else {
+                return true;
+            }
+        }
     }
-    
-        else{
-    
-                for(int i = 0; i < pouzitePokrmy.size(); ++i) {
-        if(pouzitePokrmy[i] == nahodneJidlo->getId()){
-            return false;
-        }else {
-          return true;
-         }
-}
-        
+
+    else {
+
+        for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+            if(pouzitePokrmy[i] == nahodneJidlo->getId()) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
-        
-    
-    
-return true;
+
+    return true;
 }
 vector<Pokrm*> generujJidelnicekproDen()
 {
@@ -479,12 +477,12 @@ vector<Pokrm*> generujJidelnicekproDen()
 
         for(int i = 0; i < pocetJidel; ++i) {
             ulozJidlo = vyberNahodneJidlo();
-            if(kontrolaPokrmu(ulozJidlo)==true){
-            den.push_back(ulozJidlo);
-            pouzitePokrmy.push_back(ulozJidlo->getId());
-            
-            }else{
-               continue;
+            if(kontrolaPokrmu(ulozJidlo) == true) {
+                den.push_back(ulozJidlo);
+                pouzitePokrmy.push_back(ulozJidlo->getId());
+
+            } else {
+                continue;
             }
         }
 
