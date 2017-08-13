@@ -10,12 +10,13 @@ using namespace std;
 class Jidlo : public Pokrm
 {
 public:
-    Jidlo(int id, string nazev, int cena, int trida)
+    Jidlo(int id, string nazev, int cena, int trida, string ingredience)
     {
         this->id = id;
         this->nazev = nazev;
         this->cena = cena;
         this->trida = trida;
+        this->ingredience = ingredience;
     }
 };
 

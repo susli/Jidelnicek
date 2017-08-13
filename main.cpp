@@ -134,6 +134,8 @@ void moznostiPokrmu()
     }
 }
 
+
+
 void vytvorJidlo()
 {
     char vytvoritJidlo;
@@ -144,6 +146,7 @@ void vytvorJidlo()
     int obsah;
     double cena;
     int trida;
+    string ingredience;
 
     while(pokracovat) {
 
@@ -168,7 +171,7 @@ void vytvorJidlo()
 
                 cout << " zadejte obsah: ";
                 cin >> obsah;
-                Napoj* napoj = new Napoj(idPokrm, nazev, cena, trida, obsah);
+                Napoj* napoj = new Napoj(idPokrm, nazev, cena, trida, ingredience, obsah);
                 seznamJidel.push_back(napoj);
                 idPokrm++;
             } else if(jeNapoj == 'n') {
@@ -181,8 +184,11 @@ void vytvorJidlo()
 
                 cout << " zadejte tridu: ";
                 cin >> trida;
+                
+                cout << "zadejte zakladni ingredience oddelene carkou: ";
+                cin >> ingredience;
 
-                Jidlo* pokrm = new Jidlo(idPokrm, nazev, cena, trida);
+                Jidlo* pokrm = new Jidlo(idPokrm, nazev, cena, trida, ingredience);
                 seznamJidel.push_back(pokrm);
                 idPokrm++;
             } else {
@@ -326,6 +332,7 @@ nactiRadekSouboruJidlo(string* radka)
     string nazev;
     int intCena;
     int trida;
+    string ingredience;
     int intObsah;
 
     size_t pozice = 0;
@@ -375,12 +382,12 @@ nactiRadekSouboruJidlo(string* radka)
             Pokrm* pokrm;
 
             if(intObsah == 0) {
-                pokrm = new Jidlo(idPokrm, nazev, intCena, trida);
+                pokrm = new Jidlo(idPokrm, nazev, intCena, trida, ingredience);
                 seznamJidel.push_back(pokrm);
                 idPokrm++;
 
             } else {
-                pokrm = new Napoj(idPokrm, nazev, intCena, trida, intObsah);
+                pokrm = new Napoj(idPokrm, nazev, intCena, trida, ingredience, intObsah);
                 seznamJidel.push_back(pokrm);
                 idPokrm++;
             }

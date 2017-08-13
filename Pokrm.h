@@ -13,8 +13,28 @@ public:
     string nazev;
     int cena;
     int trida;
+    string ingredience;
+    vector<string> seznamIngredienci;
 
     // virtual int getPrice(){};
+
+    void ulozIngredience(string* ingredience)
+    {
+
+        string retezec = *ingredience;
+        string oddelovac = ",";
+
+        stringstream ss;
+
+        size_t pozice = 0;
+        string slovo;
+
+        for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
+            slovo = retezec.substr(0, pozice);
+            seznamIngredienci.push_back(slovo);
+            retezec.erase(0, pozice + oddelovac.length());
+        }
+    }
 
     int getId()
     {
@@ -33,6 +53,11 @@ public:
     int getTrida()
     {
         return trida;
+    }
+
+    vector<string> getIngredience()
+    {
+        return seznamIngredienci;
     }
 
     virtual int getObjem()
