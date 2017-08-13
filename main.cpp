@@ -189,6 +189,7 @@ void vytvorJidlo()
                 getline(cin, ingredience);
 
                 Jidlo* jidlo = new Jidlo(idPokrm, nazev, cena, trida, ingredience);
+                jidlo->ulozIngredience(ingredience);
                 seznamJidel.push_back(jidlo);
                 idPokrm++;
             } else {

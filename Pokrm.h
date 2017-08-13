@@ -14,10 +14,10 @@ public:
     int cena;
     int trida;
     string ingredience;
-    vector<string> seznamIngredienci;
+    //vector<string> seznamIngredienci;
 
     // virtual int getPrice(){};
-
+/*
     void ulozIngredience(string ingredience)
     {
 
@@ -47,6 +47,7 @@ public:
         ss >> ingred;
         return ingred;
     }
+    */
 
     int getId()
     {
