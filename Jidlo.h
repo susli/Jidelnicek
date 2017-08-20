@@ -51,7 +51,7 @@ public:
         }
 
         ss >> ingred;
-        cout << ingred;
+        //cout << ingred;
         return ingred;
     }
 

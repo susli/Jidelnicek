@@ -325,9 +325,9 @@ void zapisJidelDoSouboru()
     if(!outFileJidlo || !outFileNapoje) {
         cout << "Chyba" << endl;
     } else {
-        for(Pokrm* jidlo : seznamJidel) {
+        for(Jidlo* jidlo : seznamJidel) {
             outFileJidlo << jidlo->getId() << ";" << jidlo->getNazev() << ";" << jidlo->getCena() << ";"
-                         << jidlo->getTrida() << ";" << jidlo->getIngredience() << ";" << jidlo->getObjem() << ";"
+                         << jidlo->getTrida() << ";" << jidlo->vypisIngredience() << ";" << jidlo->getObjem() << ";"
                          << endl;
         }
         outFileJidlo.close();
