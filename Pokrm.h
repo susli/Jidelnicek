@@ -43,12 +43,10 @@ public:
             string ingred;
             for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
                 ss << *i << ',';
-                ss >> ingred;
                 cout << ingred << endl;
             }
-
-            ss >> ingred;
-            return ingred;
+ss >> ingred;
+return ingred;
         }
         
 
