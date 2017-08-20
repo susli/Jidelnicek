@@ -297,7 +297,7 @@ void vypisJidelnicek()
 
 void vypisJidlo()
 {
-    cout << "Dostupna jidla" << endl;
+    cout << "Dostupna jidla" << endl << endl;
     for(Pokrm* pokrm : seznamJidel) {
         pokrm->vypis();
         //        cout << pokrm->vypisIngredience();
