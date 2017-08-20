@@ -30,7 +30,7 @@ public:
             retezec.erase(0, pozice + oddelovac.length());
         }
     }
-
+/*
     string vypisIngredience()
     {
         stringstream ss;
@@ -42,7 +42,7 @@ public:
         ss >> ingred;
         return ingred;
     }
-    
+    */
     Jidlo(int id, string nazev, int cena, int trida, string ingredience)
     {
         this->id = id;

@@ -14,7 +14,7 @@ public:
     int cena;
     int trida;
     string ingredience;
-     //vector<string> seznamIngredienci;
+     vector<string> seznamIngredienci;
 
     // virtual int getPrice(){};
     /*
@@ -36,7 +36,7 @@ public:
             }
         }
 */
-/*
+
         string vypisIngredience()
         {
             stringstream ss;
@@ -50,7 +50,7 @@ public:
             ss >> ingred;
             return ingred;
         }
-*/        
+        
 
     int getId()
     {

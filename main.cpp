@@ -302,6 +302,9 @@ void vypisJidlo()
     cout << "Dostupna jidla" << endl << endl;
     for(Pokrm* pokrm : seznamJidel) {
         pokrm->vypis();
+        cout << "ingredience" <<endl;
+        pokrm->vypisIngredience();
+        
         
         cout << endl;
     }
