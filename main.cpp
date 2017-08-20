@@ -172,7 +172,7 @@ void vytvorJidlo()
                 cout << " zadejte obsah: ";
                 cin >> obsah;
                 Napoj* napoj = new Napoj(idPokrm, nazev, cena, trida, ingredience, obsah);
-                //seznamJidel.push_back(napoj);
+                // seznamJidel.push_back(napoj);
                 seznamNapoju.push_back(napoj);
                 idPokrm++;
             } else if(jeNapoj == 'n') {
@@ -302,15 +302,14 @@ void vypisJidlo()
     cout << "Dostupna jidla" << endl << endl;
     for(Pokrm* pokrm : seznamJidel) {
         pokrm->vypis();
-        cout << "ingredience" <<endl;
+        cout << "ingredience" << endl;
         pokrm->vypisIngredience();
-        
+
         cout << endl;
     }
-    for (Pokrm* pokrm : seznamNapoju){
-       // pokrm->vypis();
+    for(Pokrm* pokrm : seznamNapoju) {
+        // pokrm->vypis();
     }
-   
 }
 
 void zapisJidelDoSouboru()

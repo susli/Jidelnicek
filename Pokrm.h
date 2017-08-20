@@ -14,7 +14,7 @@ public:
     int cena;
     int trida;
     string ingredience;
-     vector<string> seznamIngredienci;
+    vector<string> seznamIngredienci;
 
     // virtual int getPrice(){};
     /*
@@ -37,18 +37,17 @@ public:
         }
 */
 
-        string vypisIngredience()
-        {
-            stringstream ss;
-            string ingred;
-            for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
-                ss << *i << ',';
-                cout << ingred << endl;
-            }
-ss >> ingred;
-return ingred;
+    string vypisIngredience()
+    {
+        stringstream ss;
+        string ingred;
+        for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
+            ss << *i << ',';
+            cout << ingred << endl;
         }
-        
+        ss >> ingred;
+        return ingred;
+    }
 
     int getId()
     {

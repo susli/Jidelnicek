@@ -10,7 +10,6 @@ using namespace std;
 class Jidlo : public Pokrm
 {
 public:
-
     vector<string> seznamIngredienci;
 
     void ulozIngredience(string ingredience)
@@ -30,19 +29,19 @@ public:
             retezec.erase(0, pozice + oddelovac.length());
         }
     }
-/*
-    string vypisIngredience()
-    {
-        stringstream ss;
-        string ingred;
-        for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
-            ss << *i << ',';
-        }
+    /*
+        string vypisIngredience()
+        {
+            stringstream ss;
+            string ingred;
+            for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
+                ss << *i << ',';
+            }
 
-        ss >> ingred;
-        return ingred;
-    }
-    */
+            ss >> ingred;
+            return ingred;
+        }
+        */
     Jidlo(int id, string nazev, int cena, int trida, string ingredience)
     {
         this->id = id;
