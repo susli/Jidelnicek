@@ -29,7 +29,7 @@ void generujJidelnicek();
 void vypisJidelnicek();
 void vytiskniJidelnicek();
 void generujJidelnicekDen();
-vector<Pokrm*> seznamJidel;
+vector<Jidlo*> seznamJidel;
 vector<Napoj*> seznamNapoju;
 vector<Jidelnicek*> celyJidelnicek;
 vector<int> pouzitePokrmy;
@@ -301,7 +301,7 @@ void vypisJidelnicek()
 void vypisJidlo()
 {
     cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
-    for(Pokrm* jidlo : seznamJidel) {
+    for(Jidlo* jidlo : seznamJidel) {
         jidlo->vypis();
         cout << "ingredience" << endl;
         jidlo->vypisIngredience();
@@ -309,7 +309,7 @@ void vypisJidlo()
         cout << endl;
     }
     cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
-    for(Pokrm* napoj : seznamNapoju) {
+    for(Napoj* napoj : seznamNapoju) {
         napoj->vypis();
         cout << endl;
     }
@@ -405,7 +405,7 @@ nactiRadekSouboru(string* radka)
         }
 
         if(i == 5) {
-            //Pokrm* pokrm;
+            // Pokrm* pokrm;
 
             if(intObsah == 0) {
                 Jidlo* jidlo;
