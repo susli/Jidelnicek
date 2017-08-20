@@ -1,7 +1,6 @@
 //#include <stdio.h>
 #include <iostream>
 #include <fstream>
-//#include <ostream>
 #include <istream>
 #include <string>
 #include <vector>
@@ -36,7 +35,8 @@ vector<Jidelnicek*> celyJidelnicek;
 vector<int> pouzitePokrmy;
 int pocetGenerovaniJidelnicku = 0;
 
-int idPokrm = 0;
+int idJidlo = 0;
+int idNapoj = 0;
 
 template <typename Iterator, typename NahodnyGenerator>
 Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
@@ -147,13 +147,13 @@ void vytvorJidlo()
     int trida;
     string ingredience;
 
+    trida = 0;
+    ingredience = "";
+
     while(pokracovat) {
 
         cout << "chcete vytvorit dalsi pokrm? a/n " << endl;
         cin >> vytvoritJidlo;
-
-        trida = 0;
-        ingredience = "";
 
         if(vytvoritJidlo == 'a') {
 
@@ -171,10 +171,11 @@ void vytvorJidlo()
 
                 cout << " zadejte obsah: ";
                 cin >> obsah;
-                Napoj* napoj = new Napoj(idPokrm, nazev, cena, trida, ingredience, obsah);
+                Napoj* napoj = new Napoj(idNapoj, nazev, cena, trida, ingredience, obsah);
                 // seznamJidel.push_back(napoj);
                 seznamNapoju.push_back(napoj);
-                idPokrm++;
+                // idJidlo++;
+                idNapoj++;
             } else if(jeNapoj == 'n') {
                 cout << "zadejte nazev pokrmu: ";
                 cin.ignore();
@@ -190,10 +191,10 @@ void vytvorJidlo()
                 cin.ignore();
                 getline(cin, ingredience);
 
-                Jidlo* jidlo = new Jidlo(idPokrm, nazev, cena, trida, ingredience);
+                Jidlo* jidlo = new Jidlo(idJidlo, nazev, cena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
                 seznamJidel.push_back(jidlo);
-                idPokrm++;
+                idJidlo++;
             } else {
                 cout << "spatne zadani";
             }
@@ -238,7 +239,7 @@ void vytvorJidelnicek()
 
     char vytvoritJidelnicek = 0;
 
-    string den = " ";
+    string den = "";
     bool pokracovat = true;
     Jidelnicek* jidelnicek = new Jidelnicek;
 
@@ -286,7 +287,7 @@ void vytvorJidelnicek()
     }
 
     celyJidelnicek.push_back(jidelnicek);
-    vytvorJidelnicek();
+    // vytvorJidelnicek();
 }
 
 void vypisJidelnicek()
@@ -299,38 +300,47 @@ void vypisJidelnicek()
 
 void vypisJidlo()
 {
-    cout << "Dostupna jidla" << endl << endl;
-    for(Pokrm* pokrm : seznamJidel) {
-        pokrm->vypis();
+    cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
+    for(Pokrm* jidlo : seznamJidel) {
+        jidlo->vypis();
         cout << "ingredience" << endl;
-        pokrm->vypisIngredience();
+        jidlo->vypisIngredience();
 
         cout << endl;
     }
-    for(Pokrm* pokrm : seznamNapoju) {
-        // pokrm->vypis();
+    cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
+    for(Pokrm* napoj : seznamNapoju) {
+        napoj->vypis();
+        cout << endl;
     }
 }
 
 void zapisJidelDoSouboru()
 {
 
-    ofstream outFile("jidlo.csv", ios::out);
+    ofstream outFileJidlo("jidlo.csv", ios::out);
+    ofstream outFileNapoje("napoj.csv", ios::out);
 
-    if(!outFile) {
+    if(!outFileJidlo || !outFileNapoje) {
         cout << "Chyba" << endl;
     } else {
-        int size = seznamJidel.size();
-
-        for(Pokrm*& pokrm : seznamJidel) {
-            outFile << pokrm->getId() << ";" << pokrm->getNazev() << ";" << pokrm->getCena() << ";" << pokrm->getTrida()
-                    << ";" << pokrm->getIngredience() << ";" << pokrm->getObjem() << ";" << endl;
+        for(Pokrm* jidlo : seznamJidel) {
+            outFileJidlo << jidlo->getId() << ";" << jidlo->getNazev() << ";" << jidlo->getCena() << ";"
+                         << jidlo->getTrida() << ";" << jidlo->getIngredience() << ";" << jidlo->getObjem() << ";"
+                         << endl;
         }
-        outFile.close();
+        outFileJidlo.close();
+
+        for(Pokrm* napoj : seznamNapoju) {
+            outFileNapoje << napoj->getId() << ";" << napoj->getNazev() << ";" << napoj->getCena() << ";"
+                          << napoj->getTrida() << ";" << napoj->getIngredience() << ";" << napoj->getObjem() << ";"
+                          << endl;
+        }
+        outFileNapoje.close();
     }
 }
 
-nactiRadekSouboruJidlo(string* radka)
+nactiRadekSouboru(string* radka)
 {
     string retezec = *radka;
     string oddelovac = ";";
@@ -395,17 +405,19 @@ nactiRadekSouboruJidlo(string* radka)
         }
 
         if(i == 5) {
-            Pokrm* pokrm;
+            //Pokrm* pokrm;
 
             if(intObsah == 0) {
-                pokrm = new Jidlo(idPokrm, nazev, intCena, trida, ingredience);
-                seznamJidel.push_back(pokrm);
-                idPokrm++;
+                Jidlo* jidlo;
+                jidlo = new Jidlo(idJidlo, nazev, intCena, trida, ingredience);
+                seznamJidel.push_back(jidlo);
+                idJidlo++;
 
             } else {
-                pokrm = new Napoj(idPokrm, nazev, intCena, trida, ingredience, intObsah);
-                seznamJidel.push_back(pokrm);
-                idPokrm++;
+                Napoj* napoj;
+                napoj = new Napoj(idNapoj, nazev, intCena, trida, ingredience, intObsah);
+                seznamNapoju.push_back(napoj);
+                idNapoj++;
             }
         }
     }
@@ -414,14 +426,22 @@ nactiRadekSouboruJidlo(string* radka)
 void nacteniJidelZeSouboru()
 {
     seznamJidel.clear(); // smazaní seznamu jidel
-    idPokrm = 0;         // vynulování počtu jidel při načtení
+    idJidlo = 0;         // vynulování počtu jidel při načtení
+    idNapoj = 0;
     ifstream inJidlo;
+    ifstream inNapoj;
     inJidlo.open("jidlo.csv");
 
-    for(string radka = " "; getline(inJidlo, radka);) {
-        nactiRadekSouboruJidlo(&radka);
+    for(string radka = ""; getline(inJidlo, radka);) {
+        nactiRadekSouboru(&radka);
     }
     inJidlo.close();
+
+    inNapoj.open("napoj.csv");
+    for(string radka = ""; getline(inNapoj, radka);) {
+        nactiRadekSouboru(&radka);
+    }
+    inNapoj.close();
 }
 
 void vytiskniJidelnicek()
