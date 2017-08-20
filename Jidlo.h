@@ -11,8 +11,8 @@ class Jidlo : public Pokrm
 {
     vector<string> seznamIngredienci;
     string seznamIngr;
-public:
 
+public:
     Jidlo(int id, string nazev, int cena, int trida, string ingredience)
     {
         this->id = id;
@@ -24,8 +24,6 @@ public:
 
     void ulozIngredience(string ingredience)
     {
-        cout << "ukladani ingredienci v tride Jidlo" << endl;
-
         string retezec = ingredience;
         string oddelovac = ",";
 
@@ -35,10 +33,8 @@ public:
         string slovo;
 
         for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
-            cout << "for cyklus pruchod: " << i << endl;
             slovo = retezec.substr(0, pozice);
             seznamIngredienci.push_back(slovo);
-            cout << "Vložena ingredience: " << slovo << endl;
             retezec.erase(0, pozice + oddelovac.length());
         }
     }
@@ -52,8 +48,7 @@ public:
         }
 
         ss >> ingred;
-        //cout << ingred;
-        seznamIngr=ingred;
+        seznamIngr = ingred;
         return ingred;
     }
 
