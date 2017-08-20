@@ -193,6 +193,7 @@ void vytvorJidlo()
 
                 Jidlo* jidlo = new Jidlo(idJidlo, nazev, cena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
+                cout << "ukladane ingredience: " << ingredience << endl;
                 seznamJidel.push_back(jidlo);
                 idJidlo++;
             } else {

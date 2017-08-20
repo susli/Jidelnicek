@@ -9,11 +9,21 @@ using namespace std;
 
 class Jidlo : public Pokrm
 {
-public:
     vector<string> seznamIngredienci;
+public:
+
+    Jidlo(int id, string nazev, int cena, int trida, string ingredience)
+    {
+        this->id = id;
+        this->nazev = nazev;
+        this->cena = cena;
+        this->trida = trida;
+        this->ingredience = ingredience;
+    }
 
     void ulozIngredience(string ingredience)
     {
+        cout << "ukladani ingredienci v tride Jidlo" << endl;
 
         string retezec = ingredience;
         string oddelovac = ",";
@@ -24,8 +34,10 @@ public:
         string slovo;
 
         for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
+            cout << "for cyklus pruchod: " << i << endl;
             slovo = retezec.substr(0, pozice);
             seznamIngredienci.push_back(slovo);
+            cout << "Vložena ingredience: " << slovo << endl;
             retezec.erase(0, pozice + oddelovac.length());
         }
     }
@@ -39,16 +51,8 @@ public:
         }
 
         ss >> ingred;
+        cout << ingred;
         return ingred;
-    }
-
-    Jidlo(int id, string nazev, int cena, int trida, string ingredience)
-    {
-        this->id = id;
-        this->nazev = nazev;
-        this->cena = cena;
-        this->trida = trida;
-        this->ingredience = ingredience;
     }
 
     vector<string> getIngredience()
