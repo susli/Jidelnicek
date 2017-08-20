@@ -10,6 +10,7 @@ using namespace std;
 class Jidlo : public Pokrm
 {
 public:
+
     vector<string> seznamIngredienci;
 
     void ulozIngredience(string ingredience)
@@ -41,6 +42,7 @@ public:
         ss >> ingred;
         return ingred;
     }
+    
     Jidlo(int id, string nazev, int cena, int trida, string ingredience)
     {
         this->id = id;

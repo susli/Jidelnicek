@@ -31,6 +31,7 @@ void vypisJidelnicek();
 void vytiskniJidelnicek();
 void generujJidelnicekDen();
 vector<Pokrm*> seznamJidel;
+vector<Napoj*> seznamNapoju;
 vector<Jidelnicek*> celyJidelnicek;
 vector<int> pouzitePokrmy;
 int pocetGenerovaniJidelnicku = 0;
@@ -171,7 +172,8 @@ void vytvorJidlo()
                 cout << " zadejte obsah: ";
                 cin >> obsah;
                 Napoj* napoj = new Napoj(idPokrm, nazev, cena, trida, ingredience, obsah);
-                seznamJidel.push_back(napoj);
+                //seznamJidel.push_back(napoj);
+                seznamNapoju.push_back(napoj);
                 idPokrm++;
             } else if(jeNapoj == 'n') {
                 cout << "zadejte nazev pokrmu: ";
@@ -300,9 +302,13 @@ void vypisJidlo()
     cout << "Dostupna jidla" << endl << endl;
     for(Pokrm* pokrm : seznamJidel) {
         pokrm->vypis();
-        //        cout << pokrm->vypisIngredience();
+        
         cout << endl;
     }
+    for (Pokrm* pokrm : seznamNapoju){
+       // pokrm->vypis();
+    }
+   
 }
 
 void zapisJidelDoSouboru()
