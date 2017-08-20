@@ -88,8 +88,8 @@ public:
         cout << "Id: " << id << "    "
              << "Nazev Jidla: " << nazev << "   "
              << "Cena: " << cena << "   "
-             << "Trida: " << trida << "   "
-             << "Ingredience: " << /*vypisIngredience()*/ ingredience << " ";
+             << "Trida: " << trida << "   ";
+      //       << "Ingredience: " << "--------" << " ";
     }
 };
 

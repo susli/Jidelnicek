@@ -10,6 +10,7 @@ using namespace std;
 class Jidlo : public Pokrm
 {
     vector<string> seznamIngredienci;
+    string seznamIngr;
 public:
 
     Jidlo(int id, string nazev, int cena, int trida, string ingredience)
@@ -52,12 +53,18 @@ public:
 
         ss >> ingred;
         //cout << ingred;
+        seznamIngr=ingred;
         return ingred;
     }
 
     vector<string> getIngredience()
     {
         return seznamIngredienci;
+    }
+    virtual void vypis()
+    {
+        Pokrm::vypis();
+        cout << "Ingredience: " << vypisIngredience() << "    ";
     }
 };
 

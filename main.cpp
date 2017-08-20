@@ -304,8 +304,6 @@ void vypisJidlo()
     cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
     for(Jidlo* jidlo : seznamJidel) {
         jidlo->vypis();
-        cout << "ingredience" << endl;
-        jidlo->vypisIngredience();
 
         cout << endl;
     }
@@ -411,6 +409,7 @@ nactiRadekSouboru(string* radka)
             if(intObsah == 0) {
                 Jidlo* jidlo;
                 jidlo = new Jidlo(idJidlo, nazev, intCena, trida, ingredience);
+                jidlo->ulozIngredience(ingredience);
                 seznamJidel.push_back(jidlo);
                 idJidlo++;
 
