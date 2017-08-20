@@ -26,8 +26,7 @@ public:
     {
         string retezec = ingredience;
         string oddelovac = ",";
-
-        stringstream ss;
+        string ulozIngredience;
 
         size_t pozice = 0;
         string slovo;
@@ -47,7 +46,7 @@ public:
             ss << *i << ',';
         }
 
-        ss >> ingred;
+        getline(ss, ingred); // načtení ingrediencí s mezerou
         seznamIngr = ingred;
         return ingred;
     }
