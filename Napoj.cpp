@@ -2,15 +2,10 @@
 
 #include "Napoj.hpp"
 
-Napoj::Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
+Napoj::Napoj(id, nazev, cena, trida, ingredience, objem)
     : Jidlo(id, nazev, cena, trida, ingredience)
-    , objem(objem)
 {
-    virtual void Napoj::vypis()
-    {
-        Jidlo::vypis();
-        cout << "Objem: " << objem;
-    }
+    this->objem = objem;
 }
 
 Napoj::~Napoj()
@@ -41,4 +36,9 @@ string Napoj::getIngredience()
 int Napoj::getObjem()
 {
     return objem;
+}
+void Napoj::vypis()
+{
+    Jidlo::vypis();
+    cout << "Objem: " << objem;
 }

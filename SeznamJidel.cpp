@@ -1,5 +1,6 @@
 #include "SeznamJidel.hpp"
 #include <string>
+#include <vector>
 #include "Jidlo.hpp"
 #include <ctime>     // std::time
 #include <cstdlib>   // std::rand, std::srand
@@ -40,4 +41,8 @@ Pokrm* SeznamJidel::vyberNahodneJidlo()
 {
     Pokrm* nahodneJidlo = *nahodnyVyber(seznamJidel.begin(), seznamJidel.end());
     return nahodneJidlo;
+}
+
+vector<Jidlo*> SeznamJidel::getSeznamJidel(){
+    return seznamJidel;
 }

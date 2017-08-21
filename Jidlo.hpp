@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <Pokrm.hpp>
+#include <vector>
 
 using namespace std;
 

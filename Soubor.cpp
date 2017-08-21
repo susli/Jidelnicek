@@ -9,6 +9,8 @@
 
 int idJidlo = 0;
 int idNapoj = 0;
+
+SeznamJidel* seznam;
 Soubor::Soubor()
 {
 }
@@ -26,7 +28,7 @@ void Soubor::ulozDoSouboru()
     if(!outFileJidlo || !outFileNapoje) {
         cout << "Chyba" << endl;
     } else {
-        for(Jidlo* jidlo : seznamJidel) {
+        for(Jidlo* jidlo : seznam->getSeznamJidel) {
             outFileJidlo << jidlo->getId() << ";" << jidlo->getNazev() << ";" << jidlo->getCena() << ";"
                          << jidlo->getTrida() << ";" << jidlo->vypisIngredience() << ";" << jidlo->getObjem() << ";"
                          << endl;
