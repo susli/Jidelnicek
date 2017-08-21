@@ -16,13 +16,13 @@ class SeznamJidel
 {
 
     vector<Jidlo*> seznamJidel;
+    vector<int> pouzitePokrmy;
 
 public:
-    SeznamJidel(vector<Jidlo*> seznamJidel);
-    ~SeznamJidel();
+    
 
-    void vlozJidlo();
-    void odstranJidlo();
+    void vlozJidlo(Jidlo* jidlo);
+    void odstranJidlo(int id);
     Jidlo* vyberNahodneJidlo();
 };
 }

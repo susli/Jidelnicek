@@ -33,7 +33,7 @@ void nahodneSerazeni();
 vector<Jidlo*> seznamJidel;
 vector<Napoj*> seznamNapoju;
 vector<Jidelnicek*> celyJidelnicek;
-vector<int> pouzitePokrmy;
+//vector<int> pouzitePokrmy;
 int pocetGenerovaniJidelnicku = 0;
 
 int idJidlo = 0;

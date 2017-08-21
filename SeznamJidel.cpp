@@ -5,16 +5,14 @@
 #include <cstdlib>   // std::rand, std::srand
 #include <algorithm> // std::random_shuffle
 
-std::SeznamJidel::SeznamJidel(vector<Jidlo*> seznamJidel)
+void SeznamJidel::vlozJidlo(Jidlo* jidlo)
 {
-}
-
-std::SeznamJidel::~SeznamJidel()
-{
-}
-
-std::SeznamJidel::vlozJidlo()
-{
-    Jidlo* jidlo = new Jidlo(int id, string nazev, int cena, int trida, string ingredience);
+    
     seznamJidel.push_back(jidlo);
+}
+void SeznamJidel::odstranJidlo(int id)
+{
+}
+Jidlo* SeznamJidel::vyberNahodneJidlo()
+{
 }

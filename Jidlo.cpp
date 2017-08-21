@@ -14,7 +14,7 @@ Jidlo::~Jidlo()
 {
 }
 
-Jidlo::ulozIngredience(string ingredience)
+void Jidlo::ulozIngredience(string ingredience)
 {
 
     string retezec = ingredience;
@@ -31,7 +31,7 @@ Jidlo::ulozIngredience(string ingredience)
     }
 }
 
-Jidlo::vypisIngredience()
+string Jidlo::vypisIngredience()
 {
     stringstream ss;
     string ingred;
@@ -44,12 +44,12 @@ Jidlo::vypisIngredience()
     return ingred;
 }
 
-Jidlo::getIngredience()
+vector<string> Jidlo::getIngredience()
 {
     return seznamIngredienci;
 }
 
-Jidlo::vypis()
+void Jidlo::vypis()
 {
     Pokrm::vypis();
     cout << "Ingredience: " << vypisIngredience() << "    ";
