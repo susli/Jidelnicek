@@ -1,7 +1,10 @@
-Debug/SeznamJidel.cpp.o: SeznamJidel.cpp SeznamJidel.hpp Pokrm.h Jidlo.h
+Debug/SeznamJidel.cpp.o: SeznamJidel.cpp SeznamJidel.hpp Pokrm.h Jidlo.h \
+ Jidlo.h
 
 SeznamJidel.hpp:
 
 Pokrm.h:
+
+Jidlo.h:
 
 Jidlo.h:

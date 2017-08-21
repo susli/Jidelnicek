@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) 
 
 
 
@@ -108,6 +108,14 @@ $(IntermediateDirectory)/SeznamJidel.cpp$(DependSuffix): SeznamJidel.cpp
 
 $(IntermediateDirectory)/SeznamJidel.cpp$(PreprocessSuffix): SeznamJidel.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SeznamJidel.cpp$(PreprocessSuffix) SeznamJidel.cpp
+
+$(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix): Soubor.cpp $(IntermediateDirectory)/Soubor.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/GitHub/Jidelnicek/Soubor.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Soubor.cpp$(DependSuffix): Soubor.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Soubor.cpp$(DependSuffix) -MM Soubor.cpp
+
+$(IntermediateDirectory)/Soubor.cpp$(PreprocessSuffix): Soubor.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Soubor.cpp$(PreprocessSuffix) Soubor.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

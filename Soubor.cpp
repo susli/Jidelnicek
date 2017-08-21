@@ -1,5 +1,15 @@
 #include "Soubor.hpp"
+#include <string>
+#include <iostream>
+#include <sstream>
+#include "Jidlo.h"
+#include "SeznamJidel.hpp"
+#include "Napoj.h"
 
+
+
+int idJidlo =0;
+int idNapoj = 0;
 std::Soubor::Soubor()
 {
 }

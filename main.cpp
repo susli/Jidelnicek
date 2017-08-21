@@ -4,7 +4,6 @@
 #include <istream>
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <random>
 #include <iterator>
 

@@ -20,7 +20,7 @@ public:
     SeznamJidel(vector<Jidlo*> seznamJidel);
     ~SeznamJidel();
     
-    void vlozJidlo();
+     vlozJidlo();
     void odstranJidlo();
     Jidlo* vyberNahodneJidlo();
     
