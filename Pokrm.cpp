@@ -1,38 +1,71 @@
 #include "Pokrm.hpp"
 
-Pokrm::getId()
+int Pokrm::getId()
 {
     return id;
 }
 
-Pokrm::getNazev()
+string Pokrm::getNazev()
 {
     return nazev;
 }
-Pokrm::getCena()
+int Pokrm::getCena()
 {
     return cena;
 }
 
-Pokrm::getTrida()
+int Pokrm::getTrida()
 {
     return trida;
 }
 
-Pokrm::getIngredience()
+string Pokrm::getIngredience()
 {
     return ingredience;
 }
-Pokrm::getObjem()
+virtual int Pokrm::getObjem()
 {
     return nic;
 }
 
-Pokrm::vypis()
+virtual void Pokrm::vypis()
 {
     cout << "Id: " << id << "    "
          << "Nazev Jidla: " << nazev << "   "
          << "Cena: " << cena << "   "
          << "Trida: " << trida << "   ";
     //       << "Ingredience: " << "--------" << " ";
+}
+
+bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
+{
+    if(seznamJidel.size() >= 15 && seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
+        // goto provedGenerovani;
+    } else if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
+        // provedGenerovani:
+        pouzitePokrmy.clear();
+        pocetGenerovaniJidelnicku = 0;
+
+        for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+            if(pouzitePokrmy[i] == nahodneJidlo->getId()) {
+                return false;
+
+            } else {
+                return true;
+            }
+        }
+    }
+
+    else {
+
+        for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+            if(pouzitePokrmy[i] == nahodneJidlo->getId()) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    return true;
 }

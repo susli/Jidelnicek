@@ -1,6 +1,6 @@
 //#include <stdio.h>
 #include <iostream>
-#include <fstream>
+
 #include <istream>
 #include <string>
 #include <vector>
@@ -33,12 +33,13 @@ void nahodneSerazeni();
 vector<Jidlo*> seznamJidel;
 vector<Napoj*> seznamNapoju;
 vector<Jidelnicek*> celyJidelnicek;
-//vector<int> pouzitePokrmy;
+// vector<int> pouzitePokrmy;
 int pocetGenerovaniJidelnicku = 0;
 
 int idJidlo = 0;
 int idNapoj = 0;
 
+/* Přesunuto do SeznamJidel
 template <typename Iterator, typename NahodnyGenerator>
 Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
@@ -53,6 +54,7 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
     static mt19937 gen(rd());
     return nahodnyVyber(start, end, gen);
 }
+*/
 
 int main(int argc, char** argv)
 {
@@ -195,23 +197,15 @@ void vytvorJidlo()
 
                 */
 
-                /*
-                try
-                {
-                        cin >> vstup;
-                        cena = stod(vstup);
-                        break;
+                try {
+                    cin >> vstup;
+                    cena = stod(vstup);
+                    break;
+                } catch(invalid_argument& exception) {
+                    cout << "Nebylo zadano cislo" << endl;
+                } catch(out_of_range& exception) {
+                    cout << "Cislo je prilis velke (nebo prilis male)" << endl;
                 }
-                catch (invalid_argument& exception)
-                {
-                        cout << "Nebylo zadano cislo" << endl;
-                }
-                catch (out_of_range& exception)
-                {
-                        cout << "Cislo je prilis velke (nebo prilis male)" << endl;
-                }
-
-                */
 
                 cout << " zadejte obsah: ";
                 cin >> obsah;
@@ -249,6 +243,7 @@ void vytvorJidlo()
     }
 }
 
+/* Přesunuto do Jidelnicek
 vector<Pokrm*> vytvorJidelnicekProDen()
 {
     int x = 0;
@@ -277,7 +272,9 @@ vector<Pokrm*> vytvorJidelnicekProDen()
     }
     return den;
 }
+*/
 
+/* Přesunuto do Jidelnicek
 void vytvorJidelnicek()
 {
 
@@ -332,7 +329,9 @@ void vytvorJidelnicek()
 
     celyJidelnicek.push_back(jidelnicek);
 }
+*/
 
+/* Přesunuto do Jidelnicek
 void vypisJidelnicek()
 {
     for(Jidelnicek* jidelnicek : celyJidelnicek) {
@@ -340,7 +339,9 @@ void vypisJidelnicek()
         cout << endl << endl << endl;
     }
 }
+*/
 
+/* přesunuto do Jidlo
 void vypisJidlo()
 {
     cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
@@ -355,6 +356,7 @@ void vypisJidlo()
         cout << endl;
     }
 }
+*/
 
 /* přepsano do třídy Soubor
 void zapisJidelDoSouboru()
@@ -491,6 +493,7 @@ void nacteniJidelZeSouboru()
 }
 */
 
+/* Přesunuto do Jidelnicek
 void vytiskniJidelnicek()
 {
 
@@ -509,13 +512,17 @@ void vytiskniJidelnicek()
         outFile.close();
     }
 }
+*/
 
+/* Přesunuto do SeznamJidel
 Pokrm* vyberNahodneJidlo()
 {
     Pokrm* nahodneJidlo = *nahodnyVyber(seznamJidel.begin(), seznamJidel.end());
     return nahodneJidlo;
 }
+*/
 
+/*řesunuto do třídy Pokrm
 bool kontrolaPokrmu(Pokrm* nahodneJidlo)
 {
     if(seznamJidel.size() >= 15 && seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
@@ -548,6 +555,9 @@ bool kontrolaPokrmu(Pokrm* nahodneJidlo)
 
     return true;
 }
+*/
+
+/* Přesunuto do třídy Jidelnicek
 vector<Pokrm*> generujJidelnicekproDen()
 {
 
@@ -580,12 +590,16 @@ vector<Pokrm*> generujJidelnicekproDen()
     }
     return den;
 }
+*/
 
+/* Přesunuto do SeznamJidel
 void nahodneSerazeni()
 {
     random_shuffle(seznamJidel.begin(), seznamJidel.end());
 }
+*/
 
+/*Pčesunuto do Jidelnicek
 void generujJidelnicek()
 {
     char generovatJidelnicek = 0;
@@ -621,3 +635,4 @@ void generujJidelnicek()
     pocetGenerovaniJidelnicku++;
     cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
 }
+*/

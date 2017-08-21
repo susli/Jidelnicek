@@ -16,7 +16,13 @@ public:
     vector<Pokrm*> patek;
 
     vypis();
-    
+
+    vector<Pokrm*> generujJidelnicekproDen();
+    void generujJidelnicek();
+    void vytiskniJidelnicek();
+    vector<Pokrm*> vytvorJidelnicekProDen();
+    void vytvorJidelnicek();
+    void vypisJidelnicek();
 };
 
 #endif // JIDELNICEK_H

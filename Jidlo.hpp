@@ -18,6 +18,7 @@ public:
     string vypisIngredience();
     vector<string> getIngredience();
     void vypis();
+    void vypisJidlo();
 };
 
 #endif // JIDLO_H

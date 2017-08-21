@@ -39,3 +39,182 @@ Jidelnicek::vypis()
         }
     }
 }
+
+vector<Pokrm*> Jidelnicek::generujJidelnicekproDen
+{
+
+    vector<Pokrm*> den;
+    bool pokracovat = true;
+
+    int pocetJidel = 0;
+    Pokrm* ulozJidlo;
+
+    cout << "kolik jidel bude na den?" << endl;
+    cin >> pocetJidel;
+    cout << endl;
+
+    while(pokracovat) {
+
+        cout << endl;
+
+        for(int i = 0; i < pocetJidel; ++i) {
+            ulozJidlo = vyberNahodneJidlo();
+            if(kontrolaPokrmu(ulozJidlo) == true) {
+                den.push_back(ulozJidlo);
+                pouzitePokrmy.push_back(ulozJidlo->getId());
+
+            } else {
+                continue;
+            }
+        }
+
+        pokracovat = false;
+    }
+    return den;
+}
+
+void Jidelnicek::generujJidelnicek()
+{
+    char generovatJidelnicek = 0;
+
+    string den = " ";
+    // bool pokracovat = true;
+    Jidelnicek* jidelnicek = new Jidelnicek;
+
+    cout << "chcete vytvorit jidelnicek? a/n " << endl;
+    cin >> generovatJidelnicek;
+
+    if(generovatJidelnicek != 'a') {
+
+        return;
+    }
+
+    // while(pokracovat) {
+
+    jidelnicek->pondeli = generujJidelnicekproDen();
+
+    jidelnicek->utery = generujJidelnicekproDen();
+
+    jidelnicek->streda = generujJidelnicekproDen();
+
+    jidelnicek->ctvrtek = generujJidelnicekproDen();
+
+    jidelnicek->patek = generujJidelnicekproDen();
+
+    //    pokracovat = false;
+    //}
+
+    celyJidelnicek.push_back(jidelnicek);
+    pocetGenerovaniJidelnicku++;
+    cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
+}
+
+void Jidelnicek::vytiskniJidelnicek()
+{
+
+    stringstream ss;
+    ofstream outFile("jidelnicek.txt");
+
+    if(!outFile) {
+        cout << "Chyba" << endl;
+    } else {
+
+        for(Jidelnicek* jidelnicek : celyJidelnicek) {
+            outFile << jidelnicek->vypis();
+            // ss >>outFile;
+        }
+
+        outFile.close();
+    }
+}
+
+vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
+{
+    int x = 0;
+    int velikostVectoru = seznamJidel.size();
+    vector<Pokrm*> den;
+    bool pokracovat = true;
+    char dalsi = 0;
+
+    while(pokracovat) {
+        vypisJidlo();
+        cout << endl;
+        cout << "zadejte Id jidla" << endl;
+
+        cin >> x;
+        if(x >= velikostVectoru) {
+            cout << "jidlo neexistuje" << endl;
+            cout << "zadejte spravne Id pokrmu" << endl;
+            continue;
+        }
+        den.push_back(seznamJidel[x]);
+        cout << "prejete si zadat dalsi pokrm? a/n" << endl;
+        cin >> dalsi;
+        if(dalsi != 'a') {
+            pokracovat = false;
+        }
+    }
+    return den;
+}
+
+void Jidelnicek::vytvorJidelnicek()
+{
+
+    char vytvoritJidelnicek = 0;
+
+    string den = "";
+    bool pokracovat = true;
+    Jidelnicek* jidelnicek = new Jidelnicek;
+
+    cout << "chcete vytvorit jidelnicek? a/n " << endl;
+    cin >> vytvoritJidelnicek;
+
+    if(vytvoritJidelnicek != 'a') {
+
+        return;
+    }
+
+    while(pokracovat) {
+
+        cout << "Pro jaky den si prejete jidelnicek vytvorit?" << endl;
+        cout << "pro vyber dne zadejte prvni dve pismena dne" << endl;
+        cin >> den;
+
+        if(den == "po") {
+            cout << "vytvarim jidelnicek pro pondeli" << endl;
+            jidelnicek->pondeli = vytvorJidelnicekProDen();
+        }
+        if(den == "ut") {
+            cout << "vytvarim jidelnicek pro utery" << endl;
+            jidelnicek->utery = vytvorJidelnicekProDen();
+        }
+        if(den == "st") {
+            cout << "vytvarim jidelnicek pro streda" << endl;
+            jidelnicek->streda = vytvorJidelnicekProDen();
+        }
+        if(den == "ct") {
+            cout << "vytvarim jidelnicek pro ctvrtek" << endl;
+            jidelnicek->ctvrtek = vytvorJidelnicekProDen();
+        }
+        if(den == "pa") {
+            cout << "vytvarim jidelnicek pro patek" << endl;
+            jidelnicek->patek = vytvorJidelnicekProDen();
+        }
+
+        cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
+        char dalsiDen;
+        cin >> dalsiDen;
+        if(dalsiDen != 'a') {
+            pokracovat = false;
+        }
+    }
+
+    celyJidelnicek.push_back(jidelnicek);
+}
+void Jidelnicek::vypisJidelnicek()
+{
+    for(Jidelnicek* jidelnicek : celyJidelnicek) {
+        jidelnicek->vypis();
+        cout << endl << endl << endl;
+    }
+}

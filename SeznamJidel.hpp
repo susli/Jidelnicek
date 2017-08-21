@@ -10,19 +10,24 @@
 #include <algorithm> // std::random_shuffle
 
 namespace std
+
 {
 
 class SeznamJidel
 {
 
+    template <typename Iterator, typename NahodnyGenerator>
+    Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g);
+
+    template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end);
+
     vector<Jidlo*> seznamJidel;
     vector<int> pouzitePokrmy;
 
 public:
-    
-
     void vlozJidlo(Jidlo* jidlo);
     void odstranJidlo(int id);
-    Jidlo* vyberNahodneJidlo();
+    void nahodneSerazeni();
+    Pokrm* vyberNahodneJidlo();
 };
 }

@@ -1,5 +1,7 @@
 #include "Jidlo.hpp"
+using namespace std;
 
+public:
 Jidlo::Jidlo(int id, string nazev, int cena, int trida, string ingredience)
 {
 
@@ -53,4 +55,19 @@ void Jidlo::vypis()
 {
     Pokrm::vypis();
     cout << "Ingredience: " << vypisIngredience() << "    ";
+}
+
+void Jidlo::vypisJidlo()
+{
+    cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
+    for(Jidlo* jidlo : seznamJidel) {
+        jidlo->vypis();
+
+        cout << endl;
+    }
+    cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
+    for(Napoj* napoj : seznamNapoju) {
+        napoj->vypis();
+        cout << endl;
+    }
 }

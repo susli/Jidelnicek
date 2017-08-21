@@ -2,21 +2,22 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include "Jidlo.hpp"
 #include "SeznamJidel.hpp"
 #include "Napoj.hpp"
 
 int idJidlo = 0;
 int idNapoj = 0;
-std::Soubor::Soubor()
+Soubor::Soubor()
 {
 }
 
-std::Soubor::~Soubor()
+Soubor::~Soubor()
 {
 }
 
-std::Soubor::ulozDoSouboru()
+void Soubor::ulozDoSouboru()
 {
 
     ofstream outFileJidlo("jidlo.csv", ios::out);
@@ -41,7 +42,7 @@ std::Soubor::ulozDoSouboru()
     }
 }
 
-std::Soubor::nactiRadekSouboru(string* radka)
+Soubor::nactiRadekSouboru(string* radka)
 {
     string retezec = *radka;
     string oddelovac = ";";
@@ -125,7 +126,7 @@ std::Soubor::nactiRadekSouboru(string* radka)
     }
 }
 
-std::Soubor::nacteniJidelZeSouboru()
+void Soubor::nacteniJidelZeSouboru()
 {
     seznamJidel.clear(); // smazaní seznamu jidel
     idJidlo = 0;         // vynulování počtu jidel při načtení

@@ -6,40 +6,39 @@ Napoj::Napoj(int id, string nazev, int cena, int trida, string ingredience, int 
     : Jidlo(id, nazev, cena, trida, ingredience)
     , objem(objem)
 {
+    virtual void Napoj::vypis()
+    {
+        Jidlo::vypis();
+        cout << "Objem: " << objem;
+    }
 }
 
 Napoj::~Napoj()
 {
 }
 
-Napoj::getId()
+int Napoj::getId()
 {
     return id;
 }
-Napoj::getNazev()
+string Napoj::getNazev()
 {
     return nazev;
 }
-Napoj::getPrice()
+int Napoj::getPrice()
 {
     return cena;
 }
-Napoj::getTrida()
+int Napoj::getTrida()
 {
     return trida;
 }
 
-Napoj::getIngredience()
+string Napoj::getIngredience()
 {
     return ingredience;
 }
-Napoj::getObjem()
+int Napoj::getObjem()
 {
     return objem;
-}
-
-Napoj::vypis()
-{
-    Jidlo::vypis();
-    cout << "Objem: " << objem;
 }

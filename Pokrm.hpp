@@ -28,6 +28,8 @@ public:
     virtual int getObjem();
 
     virtual void vypis();
+
+    bool kontrolaPokrmu(Pokrm* nahodneJidlo);
 };
 
 #endif // POKRM_H
