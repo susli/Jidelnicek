@@ -6,9 +6,7 @@
 #include "SeznamJidel.hpp"
 #include "Napoj.hpp"
 
-
-
-int idJidlo =0;
+int idJidlo = 0;
 int idNapoj = 0;
 std::Soubor::Soubor()
 {
