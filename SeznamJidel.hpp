@@ -5,12 +5,13 @@
 
 #include <Pokrm.hpp>
 #include <Jidlo.hpp>
+#include <Napoj.hpp>
 #include <ctime>     // std::time
 #include <cstdlib>   // std::rand, std::srand
 #include <algorithm> // std::random_shuffle
 
 using namespace std;
-{
+
 
 class SeznamJidel
 {
@@ -20,14 +21,18 @@ class SeznamJidel
 
     template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end);
 
-    vector<int> pouzitePokrmy;
+    
 
 public:
     vector<Jidlo*> seznamJidel;
+    vector<Napoj*> seznamNapoju;
+    vector<int> pouzitePokrmy;
     void vlozJidlo(Jidlo* jidlo);
     void odstranJidlo(int id);
     void nahodneSerazeni();
     Pokrm* vyberNahodneJidlo();
     vector<Jidlo*> getSeznamJidel;
+    vector<Napoj*> getSeznamNapoju;
+    vector<int> getPouzitePokrmy;
 };
-}
+

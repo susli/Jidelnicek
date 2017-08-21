@@ -1,4 +1,5 @@
 #include "SeznamJidel.hpp"
+#include "Napoj.hpp"
 #include <string>
 #include <vector>
 #include "Jidlo.hpp"
@@ -45,4 +46,10 @@ Pokrm* SeznamJidel::vyberNahodneJidlo()
 
 vector<Jidlo*> SeznamJidel::getSeznamJidel(){
     return seznamJidel;
+}
+vector<Napoj*> SeznamJidel::getSeznamNapoju(){
+    return seznamNapoju;
+}
+vector<int> SeznamJidel::getPouzitePokrmy(){
+    return pouzitePokrmy;
 }

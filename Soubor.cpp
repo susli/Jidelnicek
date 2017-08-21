@@ -35,7 +35,7 @@ void Soubor::ulozDoSouboru()
         }
         outFileJidlo.close();
 
-        for(Pokrm* napoj : seznamNapoju) {
+        for(Pokrm* napoj : seznam->getSeznamJidel) {
             outFileNapoje << napoj->getId() << ";" << napoj->getNazev() << ";" << napoj->getCena() << ";"
                           << napoj->getTrida() << ";" << napoj->getIngredience() << ";" << napoj->getObjem() << ";"
                           << endl;
@@ -115,13 +115,13 @@ Soubor::nactiRadekSouboru(string* radka)
                 Jidlo* jidlo;
                 jidlo = new Jidlo(idJidlo, nazev, intCena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
-                seznamJidel.push_back(jidlo);
+                seznam->getSeznamJidel.push_back(jidlo);
                 idJidlo++;
 
             } else {
                 Napoj* napoj;
                 napoj = new Napoj(idNapoj, nazev, intCena, trida, ingredience, intObsah);
-                seznamNapoju.push_back(napoj);
+                seznam->getSeznamNapoju.push_back(napoj);
                 idNapoj++;
             }
         }
@@ -130,7 +130,7 @@ Soubor::nactiRadekSouboru(string* radka)
 
 void Soubor::nacteniJidelZeSouboru()
 {
-    seznamJidel.clear(); // smazaní seznamu jidel
+    seznam->getSeznamJidel.clear(); // smazaní seznamu jidel
     idJidlo = 0;         // vynulování počtu jidel při načtení
     idNapoj = 0;
     ifstream inJidlo;

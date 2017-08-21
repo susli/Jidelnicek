@@ -11,14 +11,19 @@ class Napoj : public Jidlo
 
 public:
     Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
-        : Jidlo(id, nazev, cena, trida, ingredience){
-            this->objem=objem;
-        }
-        //, objem(objem);
+        : Jidlo(id, nazev, cena, trida, ingredience)
+    {
+    }
+    /*
+    {
+        this->objem=objem;
+    }
+      */
+    //, objem(objem);
 
     ~Napoj();
 
-        int getId();
+    int getId();
 
     string getNazev();
 
