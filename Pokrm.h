@@ -89,7 +89,7 @@ public:
              << "Nazev Jidla: " << nazev << "   "
              << "Cena: " << cena << "   "
              << "Trida: " << trida << "   ";
-      //       << "Ingredience: " << "--------" << " ";
+        //       << "Ingredience: " << "--------" << " ";
     }
 };
 

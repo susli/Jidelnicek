@@ -29,6 +29,7 @@ void generujJidelnicek();
 void vypisJidelnicek();
 void vytiskniJidelnicek();
 void generujJidelnicekDen();
+void nahodneSerazeni();
 vector<Jidlo*> seznamJidel;
 vector<Napoj*> seznamNapoju;
 vector<Jidelnicek*> celyJidelnicek;
@@ -72,7 +73,7 @@ void moznostiPokrmu()
     cout << "Zadej 5, pro ulozeni seznamu Jidel" << endl;
     cout << "Zadej 6, pro nacteni jidel ze souboru" << endl;
     cout << "Zadej 7, po vytisknuti Jidelnicku" << endl;
-    // cout << "Zadej 8, po nahodne serazeni seznamu jidel" << endl;
+    cout << "Zadej 8, po nahodne serazeni seznamu jidel" << endl;
     cout << "Zadej 9, pro vygenerovani jidelnicku na tyden" << endl;
     cout << "Zadej Q, pro konec programu" << endl;
     cin >> volba;
@@ -114,7 +115,7 @@ void moznostiPokrmu()
         break;
     }
     case '8': {
-
+        nahodneSerazeni();
         moznostiPokrmu();
         break;
     }
@@ -148,7 +149,6 @@ void vytvorJidlo()
     string ingredience;
     string vstup;
 
-
     trida = 0;
     ingredience = "";
 
@@ -169,33 +169,32 @@ void vytvorJidlo()
                 getline(cin, nazev);
 
                 cout << " zadejte cenu: ";
-                
-                
-      bool chyba;
-      do{
-          cin >> vstup;
-          chyba =!cin;
-          if(chyba){
-              cout << "chybne zadani, zadejte znovu: ";
-              cin.clear();
-              cin.ignore(100,'\n');
-          }
-      }
-      
-      while(chyba);
 
-/*
-                while (cin >> vstup){
-        stringstream ss (vstup);
-        if(ss>> cena){
-            break;
-        } else {
-            cout << "wrong";
-        }
+                bool chyba;
+                do {
+                    cin >> vstup;
+                    chyba = !cin;
+                    if(chyba) {
+                        cout << "chybne zadani, zadejte znovu: ";
+                        cin.clear();
+                        cin.ignore(100, '\n');
+                    }
                 }
 
-*/
-            
+                while(chyba);
+
+                /*
+                                while (cin >> vstup){
+                        stringstream ss (vstup);
+                        if(ss>> cena){
+                            break;
+                        } else {
+                            cout << "wrong";
+                        }
+                                }
+
+                */
+
                 /*
                 try
                 {
@@ -515,9 +514,9 @@ Pokrm* vyberNahodneJidlo()
 bool kontrolaPokrmu(Pokrm* nahodneJidlo)
 {
     if(seznamJidel.size() >= 15 && seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
-        goto provedGenerovani;
+        // goto provedGenerovani;
     } else if(seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
-    provedGenerovani:
+        // provedGenerovani:
         pouzitePokrmy.clear();
         pocetGenerovaniJidelnicku = 0;
 
@@ -577,12 +576,17 @@ vector<Pokrm*> generujJidelnicekproDen()
     return den;
 }
 
+void nahodneSerazeni()
+{
+    random_shuffle(seznamJidel.begin(), seznamJidel.end());
+}
+
 void generujJidelnicek()
 {
     char generovatJidelnicek = 0;
 
     string den = " ";
-    //bool pokracovat = true;
+    // bool pokracovat = true;
     Jidelnicek* jidelnicek = new Jidelnicek;
 
     cout << "chcete vytvorit jidelnicek? a/n " << endl;
@@ -593,17 +597,17 @@ void generujJidelnicek()
         return;
     }
 
-    //while(pokracovat) {
+    // while(pokracovat) {
 
-        jidelnicek->pondeli = generujJidelnicekproDen();
+    jidelnicek->pondeli = generujJidelnicekproDen();
 
-        jidelnicek->utery = generujJidelnicekproDen();
+    jidelnicek->utery = generujJidelnicekproDen();
 
-        jidelnicek->streda = generujJidelnicekproDen();
+    jidelnicek->streda = generujJidelnicekproDen();
 
-        jidelnicek->ctvrtek = generujJidelnicekproDen();
+    jidelnicek->ctvrtek = generujJidelnicekproDen();
 
-        jidelnicek->patek = generujJidelnicekproDen();
+    jidelnicek->patek = generujJidelnicekproDen();
 
     //    pokracovat = false;
     //}
