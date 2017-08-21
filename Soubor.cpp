@@ -2,9 +2,9 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include "Jidlo.h"
+#include "Jidlo.hpp"
 #include "SeznamJidel.hpp"
-#include "Napoj.h"
+#include "Napoj.hpp"
 
 
 

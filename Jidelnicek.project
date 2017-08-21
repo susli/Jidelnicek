@@ -9,14 +9,15 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
-    <File Name="Jidlo.h"/>
     <File Name="Jidelnicek.h"/>
-    <File Name="Pokrm.h"/>
-    <File Name="Napoj.h"/>
     <File Name="SeznamJidel.hpp"/>
     <File Name="SeznamJidel.cpp"/>
     <File Name="Soubor.hpp"/>
     <File Name="Soubor.cpp"/>
+    <File Name="Napoj.cpp"/>
+    <File Name="Napoj.hpp"/>
+    <File Name="Jidlo.hpp"/>
+    <File Name="Pokrm.hpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

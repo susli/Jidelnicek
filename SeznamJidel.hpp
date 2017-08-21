@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 
-#include <Pokrm.h>
-#include <Jidlo.h>
+#include <Pokrm.hpp>
+#include <Jidlo.hpp>
 
 
 namespace std

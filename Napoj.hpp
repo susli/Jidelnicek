@@ -1,7 +1,7 @@
 #ifndef NAPOJ_H
 #define NAPOJ_H
-#include <Jidlo.h>
-#include <Pokrm.h>
+#include <Jidlo.hpp>
+#include <Pokrm.hpp>
 
 using namespace std;
 

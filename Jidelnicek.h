@@ -1,7 +1,7 @@
 #ifndef JIDELNICEK_H
 #define JIDELNICEK_H
 #include <vector>
-#include <Jidlo.h>
+#include <Jidlo.hpp>
 
 using namespace std;
 
