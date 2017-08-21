@@ -13,6 +13,10 @@
     <File Name="Jidelnicek.h"/>
     <File Name="Pokrm.h"/>
     <File Name="Napoj.h"/>
+    <File Name="SeznamJidel.hpp"/>
+    <File Name="SeznamJidel.cpp"/>
+    <File Name="Soubor.hpp"/>
+    <File Name="Soubor.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

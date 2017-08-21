@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) 
 
 
 
@@ -100,6 +100,14 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix): SeznamJidel.cpp $(IntermediateDirectory)/SeznamJidel.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/GitHub/Jidelnicek/SeznamJidel.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/SeznamJidel.cpp$(DependSuffix): SeznamJidel.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/SeznamJidel.cpp$(DependSuffix) -MM SeznamJidel.cpp
+
+$(IntermediateDirectory)/SeznamJidel.cpp$(PreprocessSuffix): SeznamJidel.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/SeznamJidel.cpp$(PreprocessSuffix) SeznamJidel.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

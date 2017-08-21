@@ -356,6 +356,7 @@ void vypisJidlo()
     }
 }
 
+/* přepsano do třídy Soubor
 void zapisJidelDoSouboru()
 {
 
@@ -380,7 +381,8 @@ void zapisJidelDoSouboru()
         outFileNapoje.close();
     }
 }
-
+*/
+/* přesunuto do třídy Soubor
 nactiRadekSouboru(string* radka)
 {
     string retezec = *radka;
@@ -465,6 +467,8 @@ nactiRadekSouboru(string* radka)
     }
 }
 
+*/
+/* Přesunuto do třídy Soubor
 void nacteniJidelZeSouboru()
 {
     seznamJidel.clear(); // smazaní seznamu jidel
@@ -485,6 +489,7 @@ void nacteniJidelZeSouboru()
     }
     inNapoj.close();
 }
+*/
 
 void vytiskniJidelnicek()
 {
