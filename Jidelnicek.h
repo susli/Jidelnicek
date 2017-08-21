@@ -18,37 +18,37 @@ public:
     vypis()
     {
         string jidelnicek = " ";
-        if(pondeli.size() != NULL) {
+        if(pondeli.size() > 0) {
             cout << "Pondeli: " << endl;
-            for(unsigned int i; i < pondeli.size(); i++) {
+            for(int i = 0; i < pondeli.size(); i++) {
                 pondeli[i]->vypis();
                 cout << endl;
             }
         }
-        if(utery.size() != NULL) {
+        if(utery.size() > 0) {
             cout << "Utery: " << endl;
-            for(unsigned int i; i < utery.size(); i++) {
+            for(int i = 0; i < utery.size(); i++) {
                 utery[i]->vypis();
                 cout << endl;
             }
         }
-        if(streda.size() != NULL) {
+        if(streda.size() > 0) {
             cout << "Streda: " << endl;
-            for(unsigned int i; i < streda.size(); i++) {
+            for(int i = 0; i < streda.size(); i++) {
                 streda[i]->vypis();
                 cout << endl;
             }
         }
-        if(ctvrtek.size() != NULL) {
+        if(ctvrtek.size() > 0) {
             cout << "Ctvrtek: " << endl;
-            for(unsigned int i; i < ctvrtek.size(); i++) {
+            for(int i = 0; i < ctvrtek.size(); i++) {
                 ctvrtek[i]->vypis();
                 cout << endl;
             }
         }
-        if(patek.size() != NULL) {
+        if(patek.size() > 0) {
             cout << "Patek: " << endl;
-            for(unsigned int i; i < patek.size(); i++) {
+            for(int i = 0; i < patek.size(); i++) {
                 patek[i]->vypis();
                 cout << endl;
             }

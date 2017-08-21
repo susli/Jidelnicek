@@ -146,6 +146,8 @@ void vytvorJidlo()
     double cena;
     int trida;
     string ingredience;
+    string vstup;
+
 
     trida = 0;
     ingredience = "";
@@ -167,7 +169,50 @@ void vytvorJidlo()
                 getline(cin, nazev);
 
                 cout << " zadejte cenu: ";
-                cin >> cena;
+                
+                
+      bool chyba;
+      do{
+          cin >> vstup;
+          chyba =!cin;
+          if(chyba){
+              cout << "chybne zadani, zadejte znovu: ";
+              cin.clear();
+              cin.ignore(100,'\n');
+          }
+      }
+      
+      while(chyba);
+
+/*
+                while (cin >> vstup){
+        stringstream ss (vstup);
+        if(ss>> cena){
+            break;
+        } else {
+            cout << "wrong";
+        }
+                }
+
+*/
+            
+                /*
+                try
+                {
+                        cin >> vstup;
+                        cena = stod(vstup);
+                        break;
+                }
+                catch (invalid_argument& exception)
+                {
+                        cout << "Nebylo zadano cislo" << endl;
+                }
+                catch (out_of_range& exception)
+                {
+                        cout << "Cislo je prilis velke (nebo prilis male)" << endl;
+                }
+
+                */
 
                 cout << " zadejte obsah: ";
                 cin >> obsah;
@@ -537,7 +582,7 @@ void generujJidelnicek()
     char generovatJidelnicek = 0;
 
     string den = " ";
-    bool pokracovat = true;
+    //bool pokracovat = true;
     Jidelnicek* jidelnicek = new Jidelnicek;
 
     cout << "chcete vytvorit jidelnicek? a/n " << endl;
@@ -548,7 +593,7 @@ void generujJidelnicek()
         return;
     }
 
-    while(pokracovat) {
+    //while(pokracovat) {
 
         jidelnicek->pondeli = generujJidelnicekproDen();
 
@@ -560,8 +605,8 @@ void generujJidelnicek()
 
         jidelnicek->patek = generujJidelnicekproDen();
 
-        pokracovat = false;
-    }
+    //    pokracovat = false;
+    //}
 
     celyJidelnicek.push_back(jidelnicek);
     pocetGenerovaniJidelnicku++;

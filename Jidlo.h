@@ -55,7 +55,7 @@ public:
     {
         return seznamIngredienci;
     }
-    virtual void vypis()
+    void vypis()
     {
         Pokrm::vypis();
         cout << "Ingredience: " << vypisIngredience() << "    ";
