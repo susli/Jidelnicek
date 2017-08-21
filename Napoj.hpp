@@ -4,15 +4,17 @@
 #include <Pokrm.hpp>
 
 using namespace std;
-{
+
 class Napoj : public Jidlo
 {
     int objem;
 
 public:
     Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
-        : Jidlo(id, nazev, cena, trida, ingredience);
-       // , objem(objem);
+        : Jidlo(id, nazev, cena, trida, ingredience){
+            this->objem=objem;
+        }
+        //, objem(objem);
 
     ~Napoj();
 
@@ -30,5 +32,5 @@ public:
 
     virtual void vypis();
 };
-}
+
 #endif // NAPOJ_H

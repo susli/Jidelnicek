@@ -1,4 +1,6 @@
 #include "Pokrm.hpp"
+#include "SeznamJidel.hpp"
+#include <iostream>
 
 int Pokrm::getId()
 {
@@ -23,12 +25,12 @@ string Pokrm::getIngredience()
 {
     return ingredience;
 }
-virtual int Pokrm::getObjem()
+int Pokrm::getObjem()
 {
     return nic;
 }
 
-virtual void Pokrm::vypis()
+void Pokrm::vypis()
 {
     cout << "Id: " << id << "    "
          << "Nazev Jidla: " << nazev << "   "
