@@ -1,14 +1,14 @@
-Debug/Soubor.cpp.o: Soubor.cpp Soubor.hpp Jidlo.h Pokrm.h SeznamJidel.hpp \
- Jidlo.h Napoj.h
+Debug/Soubor.cpp.o: Soubor.cpp Soubor.hpp Jidlo.hpp Pokrm.hpp \
+ SeznamJidel.hpp Jidlo.hpp Napoj.hpp
 
 Soubor.hpp:
 
-Jidlo.h:
+Jidlo.hpp:
 
-Pokrm.h:
+Pokrm.hpp:
 
 SeznamJidel.hpp:
 
-Jidlo.h:
+Jidlo.hpp:
 
-Napoj.h:
+Napoj.hpp:

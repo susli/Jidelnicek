@@ -14,83 +14,20 @@ public:
     int cena;
     int trida;
     string ingredience;
-    // vector<string> seznamIngredienci;
 
-    // virtual int getPrice(){};
-    /*
-        void ulozIngredience(string ingredience)
-        {
+    int getId();
 
-            string retezec = ingredience;
-            string oddelovac = ",";
+    string getNazev();
 
-            stringstream ss;
+    int getCena();
 
-            size_t pozice = 0;
-            string slovo;
+    int getTrida();
 
-            for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
-                slovo = retezec.substr(0, pozice);
-                seznamIngredienci.push_back(slovo);
-                retezec.erase(0, pozice + oddelovac.length());
-            }
-        }
-*/
-    /*
-        string vypisIngredience()
-        {
-            stringstream ss;
-            string ingred;
-            for(auto i = seznamIngredienci.begin(); i != seznamIngredienci.end(); ++i) {
-                ss << *i << ',';
-                cout << ingred << endl;
-            }
-            ss >> ingred;
-            return ingred;
-        }
-    */
-    int getId()
-    {
-        return id;
-    }
+    string getIngredience();
 
-    string getNazev()
-    {
-        return nazev;
-    }
+    virtual int getObjem();
 
-    int getCena()
-    {
-        return cena;
-    }
-    int getTrida()
-    {
-        return trida;
-    }
-    string getIngredience()
-    {
-        return ingredience;
-    }
-
-    /*
-        vector<string> getIngredience()
-        {
-            return seznamIngredienci;
-        }
-    */
-
-    virtual int getObjem()
-    {
-        return nic;
-    }
-    virtual void vypis()
-    {
-        cout << "Id: " << id << "    "
-             << "Nazev Jidla: " << nazev << "   "
-             << "Cena: " << cena << "   "
-             << "Trida: " << trida << "   ";
-        //       << "Ingredience: " << "--------" << " ";
-    }
+    virtual void vypis();
 };
 
 #endif // POKRM_H

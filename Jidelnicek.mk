@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) 
 
 
 
@@ -116,6 +116,38 @@ $(IntermediateDirectory)/Soubor.cpp$(DependSuffix): Soubor.cpp
 
 $(IntermediateDirectory)/Soubor.cpp$(PreprocessSuffix): Soubor.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Soubor.cpp$(PreprocessSuffix) Soubor.cpp
+
+$(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix): Napoj.cpp $(IntermediateDirectory)/Napoj.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/GitHub/Jidelnicek/Napoj.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Napoj.cpp$(DependSuffix): Napoj.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Napoj.cpp$(DependSuffix) -MM Napoj.cpp
+
+$(IntermediateDirectory)/Napoj.cpp$(PreprocessSuffix): Napoj.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Napoj.cpp$(PreprocessSuffix) Napoj.cpp
+
+$(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix): Pokrm.cpp $(IntermediateDirectory)/Pokrm.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/GitHub/Jidelnicek/Pokrm.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Pokrm.cpp$(DependSuffix): Pokrm.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Pokrm.cpp$(DependSuffix) -MM Pokrm.cpp
+
+$(IntermediateDirectory)/Pokrm.cpp$(PreprocessSuffix): Pokrm.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Pokrm.cpp$(PreprocessSuffix) Pokrm.cpp
+
+$(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix): Jidlo.cpp $(IntermediateDirectory)/Jidlo.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/GitHub/Jidelnicek/Jidlo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Jidlo.cpp$(DependSuffix): Jidlo.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Jidlo.cpp$(DependSuffix) -MM Jidlo.cpp
+
+$(IntermediateDirectory)/Jidlo.cpp$(PreprocessSuffix): Jidlo.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Jidlo.cpp$(PreprocessSuffix) Jidlo.cpp
+
+$(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix): Jidelnicek.cpp $(IntermediateDirectory)/Jidelnicek.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/GitHub/Jidelnicek/Jidelnicek.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Jidelnicek.cpp$(DependSuffix): Jidelnicek.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Jidelnicek.cpp$(DependSuffix) -MM Jidelnicek.cpp
+
+$(IntermediateDirectory)/Jidelnicek.cpp$(PreprocessSuffix): Jidelnicek.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Jidelnicek.cpp$(PreprocessSuffix) Jidelnicek.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

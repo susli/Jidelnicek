@@ -7,10 +7,10 @@
 #include <random>
 #include <iterator>
 
-#include <Pokrm.h>
-#include <Jidlo.h>
-#include <Napoj.h>
-#include <Jidelnicek.h>
+#include <Pokrm.hpp>
+#include <Jidlo.hpp>
+#include <Napoj.hpp>
+#include <Jidelnicek.hpp>
 
 #include <ctime>     // std::time
 #include <cstdlib>   // std::rand, std::srand

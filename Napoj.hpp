@@ -12,43 +12,25 @@ class Napoj : public Jidlo
 public:
     Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
         : Jidlo(id, nazev, cena, trida, ingredience)
-        , objem(objem)
-    {
-    }
-    int getId()
-    {
-        return id;
-    }
-    string getNazev()
-    {
-        return nazev;
-    }
-    int getPrice()
-    {
-        return cena;
-    }
-    int getTrida()
-    {
-        return trida;
-    }
-    string getIngredience()
-    {
-        return ingredience;
-    }
-    int getObjem()
-    {
-        return objem;
-    }
+        , objem(objem);
 
     ~Napoj()
     {
     }
 
-    virtual void vypis()
-    {
-        Jidlo::vypis();
-        cout << "Objem: " << objem;
-    }
+    int getId();
+
+    string getNazev();
+
+    int getPrice();
+
+    int getTrida();
+
+    string getIngredience();
+
+    int getObjem();
+
+    virtual void vypis();
 };
 
 #endif // NAPOJ_H

@@ -1,11 +1,45 @@
 
 
+#include "Napoj.hpp"
 
-std::SeznamJidel::~SeznamJidel()
+Napoj::Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
+    : Jidlo(id, nazev, cena, trida, ingredience)
+    , objem(objem)
 {
 }
 
-std::SeznamJidel::vlozJidlo(){
-    Jidlo* jidlo = new Jidlo(int id, string nazev, int cena, int trida, string ingredience);
-    seznamJidel.push_back(jidlo);
+Napoj::~Napoj()
+{
+}
+
+Napoj::getId()
+{
+    return id;
+}
+Napoj::getNazev()
+{
+    return nazev;
+}
+Napoj::getPrice()
+{
+    return cena;
+}
+Napoj::getTrida()
+{
+    return trida;
+}
+
+Napoj::getIngredience()
+{
+    return ingredience;
+}
+Napoj::getObjem()
+{
+    return objem;
+}
+
+Napoj::vypis()
+{
+    Jidlo::vypis();
+    cout << "Objem: " << objem;
 }

@@ -1,9 +1,9 @@
-Debug/main.cpp.o: main.cpp Pokrm.h Jidlo.h Napoj.h Jidelnicek.h
+Debug/main.cpp.o: main.cpp Pokrm.hpp Jidlo.hpp Napoj.hpp Jidelnicek.hpp
 
-Pokrm.h:
+Pokrm.hpp:
 
-Jidlo.h:
+Jidlo.hpp:
 
-Napoj.h:
+Napoj.hpp:
 
-Jidelnicek.h:
+Jidelnicek.hpp:
