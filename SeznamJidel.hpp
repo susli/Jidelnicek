@@ -5,6 +5,9 @@
 
 #include <Pokrm.hpp>
 #include <Jidlo.hpp>
+#include <ctime>     // std::time
+#include <cstdlib>   // std::rand, std::srand
+#include <algorithm> // std::random_shuffle
 
 namespace std
 {

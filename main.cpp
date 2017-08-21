@@ -12,10 +12,11 @@
 #include <Napoj.hpp>
 #include <Jidelnicek.hpp>
 
+/* SeznamJidel
 #include <ctime>     // std::time
 #include <cstdlib>   // std::rand, std::srand
 #include <algorithm> // std::random_shuffle
-
+*/
 using namespace std;
 
 void moznostiPokrmu();
