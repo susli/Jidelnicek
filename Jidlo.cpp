@@ -65,12 +65,13 @@ void Jidlo::vypisJidlo()
     cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
     for(Jidlo* jidlo : seznamJidel2->getSeznamJidel()) {
         jidlo->vypis();
-
         cout << endl;
     }
+    /*
     cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
     for(Napoj* napoj : seznamJidel2->getSeznamNapoju()) {
         napoj->vypis();
         cout << endl;
     }
+    */
 }
