@@ -4,7 +4,7 @@ using namespace std;
 
 SeznamJidel* seznamjidel;
 
-//public:
+// public:
 Jidlo::Jidlo(int id, string nazev, int cena, int trida, string ingredience)
 {
 

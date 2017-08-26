@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 class SeznamJidel
 {
 
@@ -20,10 +19,7 @@ class SeznamJidel
 
     template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end);
 
-    
-
 public:
-
     vector<Jidlo*> seznamJidel;
     vector<Napoj*> seznamNapoju;
     vector<int> pouzitePokrmy;
@@ -35,4 +31,3 @@ public:
     vector<Napoj*> getSeznamNapoju();
     vector<int> getPouzitePokrmy();
 };
-

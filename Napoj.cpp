@@ -1,6 +1,5 @@
 #include "Napoj.hpp"
 
-
 Napoj::~Napoj()
 {
 }
@@ -35,4 +34,3 @@ void Napoj::vypis()
     Jidlo::vypis();
     cout << "Objem: " << objem;
 }
-

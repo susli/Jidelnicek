@@ -1,6 +1,5 @@
 #include "Soubor.hpp"
 
-
 int idJidlo = 0;
 int idNapoj = 0;
 
@@ -125,7 +124,7 @@ Soubor::nactiRadekSouboru(string* radka)
 void Soubor::nacteniJidelZeSouboru()
 {
     seznam->getSeznamJidel().clear(); // smazaní seznamu jidel
-    idJidlo = 0;         // vynulování počtu jidel při načtení
+    idJidlo = 0;                      // vynulování počtu jidel při načtení
     idNapoj = 0;
     ifstream inJidlo;
     ifstream inNapoj;

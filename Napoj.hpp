@@ -12,8 +12,8 @@ class Napoj : public Jidlo
 
 public:
     Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
-        : Jidlo(id, nazev, cena, trida, ingredience), objem(objem)
-        {};	// inline definice - prazdne telo metody, zakoncene strednikem
+        : Jidlo(id, nazev, cena, trida, ingredience)
+        , objem(objem){}; // inline definice - prazdne telo metody, zakoncene strednikem
 
     ~Napoj();
 

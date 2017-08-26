@@ -231,5 +231,5 @@ void Jidelnicek::vytvorJidelnicek()
         }
     }
 
-   celyJidelnicek->getCelyJidelnicek().push_back(jidelnicek);// celyJidelnicek.push_back(jidelnicek);
+    celyJidelnicek->getCelyJidelnicek().push_back(jidelnicek); // celyJidelnicek.push_back(jidelnicek);
 }
