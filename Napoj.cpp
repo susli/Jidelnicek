@@ -1,10 +1,5 @@
 #include "Napoj.hpp"
 
-Napoj::Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
-    : Jidlo(id, nazev, cena, trida, ingredience), objem(objem)
-{
-   // this->objem = objem;
-}
 
 Napoj::~Napoj()
 {
@@ -40,3 +35,4 @@ void Napoj::vypis()
     Jidlo::vypis();
     cout << "Objem: " << objem;
 }
+
