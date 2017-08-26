@@ -62,6 +62,7 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
 */
 Soubor* soubor;
 SeznamJidel* sezJidel;
+Jidlo* tridajidlo;
 
 int main(int argc, char** argv)
 {
@@ -94,7 +95,7 @@ void moznostiPokrmu()
         break;
     }
     case '2': {
-        // vypisJidlo();
+        tridajidlo->vypisJidlo();
         moznostiPokrmu();
         break;
     }
@@ -209,7 +210,7 @@ void vytvorJidlo()
                 }
                 Napoj* napoj = new Napoj(idNapoj2, nazev, cena, trida, ingredience, obsah);
                 // seznamJidel.push_back(napoj);
-                sezJidel->getSeznamNapoju().push_back(napoj);
+                sezJidel->vlozNapoj(napoj);
                 // idJidlo++;
                 idNapoj2++;
             } else if(jeNapoj == 'n') {
@@ -253,7 +254,7 @@ void vytvorJidlo()
 
                 Jidlo* jidlo = new Jidlo(idJidlo2, nazev, cena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
-                sezJidel->getSeznamJidel().push_back(jidlo);
+                sezJidel->vlozJidlo(jidlo);
                 idJidlo2++;
             } else {
                 cout << "spatne zadani";

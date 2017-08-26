@@ -24,10 +24,15 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
     return nahodnyVyber(start, end, gen);
 }
 
+vector<Jidlo*> sJidel;
+vector<Napoj*> seznamNapoju;
 void SeznamJidel::vlozJidlo(Jidlo* jidlo)
 {
-
-    seznamJidel.push_back(jidlo);
+    sJidel.push_back(jidlo);
+}
+void SeznamJidel::vlozNapoj(Napoj* napoj)
+{
+    seznamNapoju.push_back(napoj);
 }
 void SeznamJidel::odstranJidlo(int id)
 {
@@ -35,20 +40,20 @@ void SeznamJidel::odstranJidlo(int id)
 
 void SeznamJidel::nahodneSerazeni()
 {
-    random_shuffle(seznamJidel.begin(), seznamJidel.end());
+    random_shuffle(sJidel.begin(), sJidel.end());
 }
 
 /*
 Pokrm* SeznamJidel::vyberNahodneJidlo()
 {
-    Pokrm* nahodneJidlo = *nahodnyVyber(seznamJidel.begin(), seznamJidel.end());
+    Pokrm* nahodneJidlo = *nahodnyVyber(sJidel.begin(), sJidel.end());
     return nahodneJidlo;
 }
 */
 
 vector<Jidlo*> SeznamJidel::getSeznamJidel()
 {
-    return seznamJidel;
+    return sJidel;
 }
 vector<Napoj*> SeznamJidel::getSeznamNapoju()
 {
