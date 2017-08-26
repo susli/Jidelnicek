@@ -1,5 +1,3 @@
-
-
 #include "Napoj.hpp"
 
 Napoj::Napoj(int id, string nazev, int cena, int trida, string ingredience, int objem)
