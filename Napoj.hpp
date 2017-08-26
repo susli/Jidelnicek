@@ -1,3 +1,4 @@
+#pragma once
 #ifndef NAPOJ_H
 #define NAPOJ_H
 #include <Jidlo.hpp>

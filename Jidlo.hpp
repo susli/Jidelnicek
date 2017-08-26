@@ -1,3 +1,4 @@
+#pragma once
 #ifndef JIDLO_H
 #define JIDLO_H
 #include <string>
