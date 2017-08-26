@@ -15,6 +15,8 @@ public:
     int cena;
     int trida;
     string ingredience;
+    
+    int pocetGenerovaniJidelnicku = 0;
 
     int getId();
 

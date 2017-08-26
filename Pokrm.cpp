@@ -42,7 +42,7 @@ void Pokrm::vypis()
 bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
 {
     SeznamJidel* seznam;
-    if(seznam->getSeznamJidel.size() >= 15 && seznam->getSeznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
+    if(seznamJidel.size() >= 15 && seznam->getSeznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
         // goto provedGenerovani;
     } else if(seznam->getSeznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
         // provedGenerovani:

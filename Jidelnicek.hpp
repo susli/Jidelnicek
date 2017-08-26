@@ -3,6 +3,7 @@
 #define JIDELNICEK_H
 #include <vector>
 #include <Jidlo.hpp>
+#include <iostream>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ public:
     vector<Pokrm*> ctvrtek;
     vector<Pokrm*> patek;
 
+
+int pocetGenerovaniJidelnicku = 0;
     vypis();
 
     vector<Pokrm*> generujJidelnicekproDen();

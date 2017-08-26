@@ -9,6 +9,8 @@
 
 using namespace std;
 
+
+
 template <typename Iterator, typename NahodnyGenerator>
 Iterator SeznamJidel::nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
@@ -44,7 +46,7 @@ Pokrm* SeznamJidel::vyberNahodneJidlo()
     return nahodneJidlo;
 }
 
-/*
+
 vector<Jidlo*> SeznamJidel::getSeznamJidel(){
     return seznamJidel;
 }
@@ -54,4 +56,3 @@ vector<Napoj*> SeznamJidel::getSeznamNapoju(){
 vector<int> SeznamJidel::getPouzitePokrmy(){
     return pouzitePokrmy;
 }
-*/

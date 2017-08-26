@@ -21,6 +21,8 @@
     <File Name="Jidlo.cpp"/>
     <File Name="Jidelnicek.cpp"/>
     <File Name="Jidelnicek.hpp"/>
+    <File Name="CelyJidelnicek.hpp"/>
+    <File Name="CelyJidelnicek.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

@@ -1,4 +1,17 @@
 #include "Jidelnicek.hpp"
+#include "CelyJidelnicek.hpp"
+#include "SeznamJidel.hpp"
+#include "Pokrm.hpp"
+#include "Jidlo.hpp"
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+Pokrm* pokrm;
+SeznamJidel* seznamjidel;
+Jidlo* jidlo;
+CelyJidelnicek* celyJidelnicek;
 
 Jidelnicek::vypis()
 {
@@ -40,7 +53,7 @@ Jidelnicek::vypis()
     }
 }
 
-vector<Pokrm*> Jidelnicek::generujJidelnicekproDen
+vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
 {
 
     vector<Pokrm*> den;
@@ -58,10 +71,10 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen
         cout << endl;
 
         for(int i = 0; i < pocetJidel; ++i) {
-            ulozJidlo = vyberNahodneJidlo();
-            if(kontrolaPokrmu(ulozJidlo) == true) {
+            ulozJidlo = seznamjidel->vyberNahodneJidlo();
+            if(pokrm->kontrolaPokrmu(ulozJidlo) == true) {
                 den.push_back(ulozJidlo);
-                pouzitePokrmy.push_back(ulozJidlo->getId());
+                seznamjidel->pouzitePokrmy.push_back(ulozJidlo->getId());
 
             } else {
                 continue;
@@ -128,16 +141,24 @@ void Jidelnicek::vytiskniJidelnicek()
     }
 }
 
+void Jidelnicek::vypisJidelnicek()
+{
+    for(Jidelnicek* jidelnicek : celyJidelnicek) {
+        jidelnicek->vypis();
+        cout << endl << endl << endl;
+    }
+}
+
 vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
 {
     int x = 0;
-    int velikostVectoru = seznamJidel.size();
+    int velikostVectoru = seznamjidel->getSeznamJidel.size();
     vector<Pokrm*> den;
     bool pokracovat = true;
     char dalsi = 0;
 
     while(pokracovat) {
-        vypisJidlo();
+        jidlo->vypisJidlo();
         cout << endl;
         cout << "zadejte Id jidla" << endl;
 
@@ -147,7 +168,7 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
             cout << "zadejte spravne Id pokrmu" << endl;
             continue;
         }
-        den.push_back(seznamJidel[x]);
+        den.push_back(seznamjidel->seznamJidel[x]);
         cout << "prejete si zadat dalsi pokrm? a/n" << endl;
         cin >> dalsi;
         if(dalsi != 'a') {
@@ -210,11 +231,4 @@ void Jidelnicek::vytvorJidelnicek()
     }
 
     celyJidelnicek.push_back(jidelnicek);
-}
-void Jidelnicek::vypisJidelnicek()
-{
-    for(Jidelnicek* jidelnicek : celyJidelnicek) {
-        jidelnicek->vypis();
-        cout << endl << endl << endl;
-    }
 }

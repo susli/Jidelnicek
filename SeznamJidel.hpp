@@ -23,6 +23,7 @@ class SeznamJidel
     
 
 public:
+
     vector<Jidlo*> seznamJidel;
     vector<Napoj*> seznamNapoju;
     vector<int> pouzitePokrmy;
@@ -30,8 +31,8 @@ public:
     void odstranJidlo(int id);
     void nahodneSerazeni();
     Pokrm* vyberNahodneJidlo();
-    vector<Jidlo*> getSeznamJidel;
-    vector<Napoj*> getSeznamNapoju;
-    vector<int> getPouzitePokrmy;
+    vector<Jidlo*> getSeznamJidel();
+    vector<Napoj*> getSeznamNapoju();
+    vector<int> getPouzitePokrmy();
 };
 

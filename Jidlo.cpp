@@ -2,6 +2,8 @@
 #include "SeznamJidel.hpp"
 using namespace std;
 
+SeznamJidel* seznamjidel;
+
 //public:
 Jidlo::Jidlo(int id, string nazev, int cena, int trida, string ingredience)
 {
@@ -61,13 +63,13 @@ void Jidlo::vypis()
 void Jidlo::vypisJidlo()
 {
     cout << "Dostupna jidla" << endl << "--------------------------------" << endl;
-    for(Jidlo* jidlo : seznamJidel) {
+    for(Jidlo* jidlo : seznamjidel->getSeznamJidel) {
         jidlo->vypis();
 
         cout << endl;
     }
     cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
-    for(Napoj* napoj : seznamNapoju) {
+    for(Napoj* napoj : seznamjidel->getSeznamNapoju) {
         napoj->vypis();
         cout << endl;
     }

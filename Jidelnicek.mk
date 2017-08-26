@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) 
 
 
 
@@ -148,6 +148,14 @@ $(IntermediateDirectory)/Jidelnicek.cpp$(DependSuffix): Jidelnicek.cpp
 
 $(IntermediateDirectory)/Jidelnicek.cpp$(PreprocessSuffix): Jidelnicek.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Jidelnicek.cpp$(PreprocessSuffix) Jidelnicek.cpp
+
+$(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix): CelyJidelnicek.cpp $(IntermediateDirectory)/CelyJidelnicek.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/jirik/Documents/GitHub/Jidelnicek/CelyJidelnicek.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/CelyJidelnicek.cpp$(DependSuffix): CelyJidelnicek.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/CelyJidelnicek.cpp$(DependSuffix) -MM CelyJidelnicek.cpp
+
+$(IntermediateDirectory)/CelyJidelnicek.cpp$(PreprocessSuffix): CelyJidelnicek.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CelyJidelnicek.cpp$(PreprocessSuffix) CelyJidelnicek.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
