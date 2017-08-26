@@ -1,11 +1,5 @@
 #include "Soubor.hpp"
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include "Jidlo.hpp"
-#include "SeznamJidel.hpp"
-#include "Napoj.hpp"
+
 
 int idJidlo = 0;
 int idNapoj = 0;

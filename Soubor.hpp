@@ -1,5 +1,13 @@
 #pragma once
 #include <string>
+#include <fstream>
+//#include <string>
+#include <iostream>
+#include <sstream>
+
+#include "Jidlo.hpp"
+#include "SeznamJidel.hpp"
+#include "Napoj.hpp"
 namespace std
 {
 
