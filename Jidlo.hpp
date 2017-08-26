@@ -15,6 +15,7 @@ class Jidlo : public Pokrm
 
 public:
     Jidlo(int id, string nazev, int cena, int trida, string ingredience);
+    ~Jidlo();
     void ulozIngredience(string ingredience);
     string vypisIngredience();
     vector<string> getIngredience();

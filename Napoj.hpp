@@ -14,6 +14,7 @@ public:
         : Jidlo(id, nazev, cena, trida, ingredience)
     {
     }
+
     /*
     {
         this->objem=objem;

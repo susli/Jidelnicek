@@ -44,6 +44,7 @@ Pokrm* SeznamJidel::vyberNahodneJidlo()
     return nahodneJidlo;
 }
 
+/*
 vector<Jidlo*> SeznamJidel::getSeznamJidel(){
     return seznamJidel;
 }
@@ -53,3 +54,4 @@ vector<Napoj*> SeznamJidel::getSeznamNapoju(){
 vector<int> SeznamJidel::getPouzitePokrmy(){
     return pouzitePokrmy;
 }
+*/

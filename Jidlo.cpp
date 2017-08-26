@@ -1,7 +1,8 @@
 #include "Jidlo.hpp"
+#include "SeznamJidel.hpp"
 using namespace std;
 
-public:
+//public:
 Jidlo::Jidlo(int id, string nazev, int cena, int trida, string ingredience)
 {
 
