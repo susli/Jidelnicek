@@ -117,7 +117,7 @@ void Jidelnicek::generujJidelnicek()
     //    pokracovat = false;
     //}
 
-    celyJidelnicek.push_back(jidelnicek);
+    celyJidelnicek->getCelyJidelnicek().push_back(jidelnicek);
     pocetGenerovaniJidelnicku++;
     cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
 }
@@ -132,7 +132,7 @@ void Jidelnicek::vytiskniJidelnicek()
         cout << "Chyba" << endl;
     } else {
 
-        for(Jidelnicek* jidelnicek : celyJidelnicek) {
+        for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
             outFile << jidelnicek->vypis();
             // ss >>outFile;
         }
@@ -143,7 +143,7 @@ void Jidelnicek::vytiskniJidelnicek()
 
 void Jidelnicek::vypisJidelnicek()
 {
-    for(Jidelnicek* jidelnicek : celyJidelnicek) {
+    for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
         jidelnicek->vypis();
         cout << endl << endl << endl;
     }
@@ -152,7 +152,7 @@ void Jidelnicek::vypisJidelnicek()
 vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
 {
     int x = 0;
-    int velikostVectoru = seznamjidel->getSeznamJidel.size();
+    int velikostVectoru = seznamjidel->getSeznamJidel().size();
     vector<Pokrm*> den;
     bool pokracovat = true;
     char dalsi = 0;
@@ -230,5 +230,5 @@ void Jidelnicek::vytvorJidelnicek()
         }
     }
 
-    celyJidelnicek.push_back(jidelnicek);
+   celyJidelnicek->getCelyJidelnicek().push_back(jidelnicek);// celyJidelnicek.push_back(jidelnicek);
 }
