@@ -7,10 +7,13 @@
 #include <random>
 #include <iterator>
 
-#include <Pokrm.hpp>
-#include <Jidlo.hpp>
-#include <Napoj.hpp>
-#include <Jidelnicek.hpp>
+#include "Pokrm.hpp"
+#include "Jidlo.hpp"
+#include "Napoj.hpp"
+#include "Jidelnicek.hpp"
+#include "CelyJidelnicek.hpp"
+#include "SeznamJidel.hpp"
+#include "Soubor.hpp"
 
 /* SeznamJidel
 #include <ctime>     // std::time
@@ -20,6 +23,7 @@
 using namespace std;
 
 void moznostiPokrmu();
+/*
 void vytvorJidlo();
 void vypisJidlo();
 void zapisJidelDoSouboru();
@@ -35,9 +39,10 @@ vector<Napoj*> seznamNapoju;
 vector<Jidelnicek*> celyJidelnicek;
 // vector<int> pouzitePokrmy;
 int pocetGenerovaniJidelnicku = 0;
+*/
+//int idJidlo = 0;
+//int idNapoj = 0;
 
-int idJidlo = 0;
-int idNapoj = 0;
 
 /* Přesunuto do SeznamJidel
 template <typename Iterator, typename NahodnyGenerator>
@@ -55,10 +60,12 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
     return nahodnyVyber(start, end, gen);
 }
 */
+Soubor* soubor;
+
 
 int main(int argc, char** argv)
 {
-    nacteniJidelZeSouboru();
+   // soubor->nacteniJidelZeSouboru();
     moznostiPokrmu();
     return 0;
 }
@@ -82,53 +89,53 @@ void moznostiPokrmu()
 
     switch(volba) {
     case '1': {
-        vytvorJidlo();
+        //vytvorJidlo();
         moznostiPokrmu();
         break;
     }
     case '2': {
-        vypisJidlo();
+        //vypisJidlo();
         moznostiPokrmu();
         break;
     }
     case '3': {
-        vytvorJidelnicek();
+        //vytvorJidelnicek();
         moznostiPokrmu();
         break;
     }
     case '4': {
-        vypisJidelnicek();
+        //vypisJidelnicek();
         moznostiPokrmu();
         break;
     }
     case '5': {
-        zapisJidelDoSouboru();
+        //zapisJidelDoSouboru();
         moznostiPokrmu();
         break;
     }
     case '6': {
-        nacteniJidelZeSouboru();
+        //nacteniJidelZeSouboru();
         moznostiPokrmu();
         break;
     }
     case '7': {
-        vytiskniJidelnicek();
+        //vytiskniJidelnicek();
         moznostiPokrmu();
         break;
     }
     case '8': {
-        nahodneSerazeni();
+        //nahodneSerazeni();
         moznostiPokrmu();
         break;
     }
     case '9': {
 
-        generujJidelnicek();
+        //generujJidelnicek();
         moznostiPokrmu();
         break;
     }
     case 'Q': {
-        zapisJidelDoSouboru();
+        //zapisJidelDoSouboru();
         break;
     }
     default:
@@ -137,7 +144,7 @@ void moznostiPokrmu()
         break;
     }
 }
-
+/*
 void vytvorJidlo()
 {
     char vytvoritJidlo;
@@ -196,7 +203,7 @@ void vytvorJidlo()
                                 }
 
                 */
-
+/*
                 try {
                     cin >> vstup;
                     cena = stod(vstup);
@@ -242,6 +249,8 @@ void vytvorJidlo()
         }
     }
 }
+
+*/
 
 /* Přesunuto do Jidelnicek
 vector<Pokrm*> vytvorJidelnicekProDen()

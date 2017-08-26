@@ -10,7 +10,7 @@
 using namespace std;
 
 Pokrm* pokrm;
-SeznamJidel* seznamjidel;
+SeznamJidel* seznamJidel;
 Jidlo* jidlo;
 CelyJidelnicek* celyJidelnicek;
 
@@ -70,7 +70,7 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
     while(pokracovat) {
 
         cout << endl;
-
+/*
         for(int i = 0; i < pocetJidel; ++i) {
             ulozJidlo = seznamjidel->vyberNahodneJidlo();
             if(pokrm->kontrolaPokrmu(ulozJidlo) == true) {
@@ -81,6 +81,7 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
                 continue;
             }
         }
+        */
 
         pokracovat = false;
     }
@@ -153,7 +154,7 @@ void Jidelnicek::vypisJidelnicek()
 vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
 {
     int x = 0;
-    int velikostVectoru = seznamjidel->getSeznamJidel().size();
+    int velikostVectoru = seznamJidel->getSeznamJidel().size();
     vector<Pokrm*> den;
     bool pokracovat = true;
     char dalsi = 0;
@@ -169,7 +170,7 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
             cout << "zadejte spravne Id pokrmu" << endl;
             continue;
         }
-        den.push_back(seznamjidel->seznamJidel[x]);
+        den.push_back(seznamJidel->getSeznamJidel()[x]);
         cout << "prejete si zadat dalsi pokrm? a/n" << endl;
         cin >> dalsi;
         if(dalsi != 'a') {

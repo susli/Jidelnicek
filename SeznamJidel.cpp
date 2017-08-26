@@ -38,11 +38,13 @@ void SeznamJidel::nahodneSerazeni()
     random_shuffle(seznamJidel.begin(), seznamJidel.end());
 }
 
+/*
 Pokrm* SeznamJidel::vyberNahodneJidlo()
 {
     Pokrm* nahodneJidlo = *nahodnyVyber(seznamJidel.begin(), seznamJidel.end());
     return nahodneJidlo;
 }
+*/
 
 vector<Jidlo*> SeznamJidel::getSeznamJidel()
 {
