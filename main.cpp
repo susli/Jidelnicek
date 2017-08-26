@@ -23,8 +23,9 @@
 using namespace std;
 
 void moznostiPokrmu();
-/*
 void vytvorJidlo();
+/*
+
 void vypisJidlo();
 void zapisJidelDoSouboru();
 void nacteniJidelZeSouboru();
@@ -61,6 +62,7 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
 }
 */
 Soubor* soubor;
+SeznamJidel* sezJidel;
 
 
 int main(int argc, char** argv)
@@ -89,7 +91,7 @@ void moznostiPokrmu()
 
     switch(volba) {
     case '1': {
-        //vytvorJidlo();
+        vytvorJidlo();
         moznostiPokrmu();
         break;
     }
@@ -144,7 +146,7 @@ void moznostiPokrmu()
         break;
     }
 }
-/*
+
 void vytvorJidlo()
 {
     char vytvoritJidlo;
@@ -203,7 +205,7 @@ void vytvorJidlo()
                                 }
 
                 */
-/*
+
                 try {
                     cin >> vstup;
                     cena = stod(vstup);
@@ -216,11 +218,11 @@ void vytvorJidlo()
 
                 cout << " zadejte obsah: ";
                 cin >> obsah;
-                Napoj* napoj = new Napoj(idNapoj, nazev, cena, trida, ingredience, obsah);
+                Napoj* napoj = new Napoj(1, nazev, cena, trida, ingredience, obsah);
                 // seznamJidel.push_back(napoj);
-                seznamNapoju.push_back(napoj);
+                sezJidel->getSeznamNapoju().push_back(napoj);
                 // idJidlo++;
-                idNapoj++;
+                //idNapoj++;
             } else if(jeNapoj == 'n') {
                 cout << "zadejte nazev pokrmu: ";
                 cin.ignore();
@@ -236,10 +238,10 @@ void vytvorJidlo()
                 cin.ignore();
                 getline(cin, ingredience);
 
-                Jidlo* jidlo = new Jidlo(idJidlo, nazev, cena, trida, ingredience);
+                Jidlo* jidlo = new Jidlo(2, nazev, cena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
-                seznamJidel.push_back(jidlo);
-                idJidlo++;
+                sezJidel->getSeznamJidel().push_back(jidlo);
+                //idJidlo++;
             } else {
                 cout << "spatne zadani";
             }
@@ -250,7 +252,7 @@ void vytvorJidlo()
     }
 }
 
-*/
+
 
 /* Přesunuto do Jidelnicek
 vector<Pokrm*> vytvorJidelnicekProDen()

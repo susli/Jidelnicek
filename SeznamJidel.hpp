@@ -20,6 +20,8 @@ class SeznamJidel
     template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end);
 
 public:
+int idJidlo = 0;
+int idNapoj = 0;
     vector<Jidlo*> seznamJidel;
     vector<Napoj*> seznamNapoju;
     vector<int> pouzitePokrmy;
