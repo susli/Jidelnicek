@@ -33,6 +33,7 @@ public:
     virtual void vypis();
 
     bool kontrolaPokrmu(Pokrm* nahodneJidlo);
+    Pokrm* vyberNahodneJidlo();
 };
 
 #endif // POKRM_H

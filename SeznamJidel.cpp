@@ -9,6 +9,7 @@
 
 using namespace std;
 
+/*
 template <typename Iterator, typename NahodnyGenerator>
 Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
@@ -23,7 +24,7 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
     static mt19937 gen(rd());
     return nahodnyVyber(start, end, gen);
 }
-
+*/
 
 vector<Jidlo*> sJidel;
 vector<Napoj*> sNapoju;
@@ -46,12 +47,13 @@ void SeznamJidel::nahodneSerazeni()
     random_shuffle(sJidel.begin(), sJidel.end());
 }
 
-
+/*
 Pokrm* SeznamJidel::vyberNahodneJidlo()
 {
     Pokrm* nahodneJidlo = *nahodnyVyber(sJidel.begin(), sJidel.end());
     return nahodneJidlo;
 }
+*/
 void SeznamJidel::vlozPouzityPokrm(Pokrm* pokrm){
      pouzitePokrmy.push_back(pokrm->getId());
 }
