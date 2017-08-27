@@ -124,6 +124,7 @@ Soubor::nactiRadekSouboru(string* radka)
 void Soubor::nacteniJidelZeSouboru()
 {
     seznam->vynulujSeznamJidel(); // smazaní seznamu jidel
+    seznam->vynulujSeznamNapoju();
     IDJidlo = 0;                  // vynulování počtu jidel při načtení
     IDNapoj = 0;
     //seznam->idJidlo = 0;

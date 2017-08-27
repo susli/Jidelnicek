@@ -63,6 +63,9 @@ void SeznamJidel::vynulujSeznamJidel()
 {
     sJidel.clear();
 }
+void SeznamJidel::vynulujSeznamNapoju(){
+    sNapoju.clear();
+}
 
 vector<Jidlo*> SeznamJidel::getSeznamJidel()
 {
