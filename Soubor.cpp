@@ -1,7 +1,7 @@
 #include "Soubor.hpp"
 
-int idJidlo = 0;
-int idNapoj = 0;
+int IDJidlo = 0;
+int IDNapoj = 0;
 
 SeznamJidel* seznam;
 Soubor::Soubor()
@@ -106,16 +106,16 @@ Soubor::nactiRadekSouboru(string* radka)
 
             if(intObsah == 0) {
                 Jidlo* jidlo;
-                jidlo = new Jidlo(idJidlo, nazev, intCena, trida, ingredience);
+                jidlo = new Jidlo(IDJidlo, nazev, intCena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
                 seznam->vlozJidlo(jidlo);
-                idJidlo++;
+                IDJidlo++;
 
             } else {
                 Napoj* napoj;
-                napoj = new Napoj(idNapoj, nazev, intCena, trida, ingredience, intObsah);
+                napoj = new Napoj(IDNapoj, nazev, intCena, trida, ingredience, intObsah);
                 seznam->vlozNapoj(napoj);
-                idNapoj++;
+                IDNapoj++;
             }
         }
     }
@@ -123,9 +123,11 @@ Soubor::nactiRadekSouboru(string* radka)
 
 void Soubor::nacteniJidelZeSouboru()
 {
-    seznam->getSeznamJidel().clear(); // smazaní seznamu jidel
-    idJidlo = 0;                      // vynulování počtu jidel při načtení
-    idNapoj = 0;
+    seznam->vynulujSeznamJidel(); // smazaní seznamu jidel
+    IDJidlo = 0;                  // vynulování počtu jidel při načtení
+    IDNapoj = 0;
+    //seznam->idJidlo = 0;
+    //seznam->idNapoj = 0;
     ifstream inJidlo;
     ifstream inNapoj;
     inJidlo.open("jidlo.csv");
@@ -140,4 +142,11 @@ void Soubor::nacteniJidelZeSouboru()
         nactiRadekSouboru(&radka);
     }
     inNapoj.close();
+}
+
+int Soubor::getIdJidlo(){
+    return IDJidlo;
+}
+int Soubor::getIdNapoj(){
+    return IDNapoj;
 }

@@ -54,10 +54,15 @@ Pokrm* SeznamJidel::vyberNahodneJidlo()
     return nahodneJidlo;
 }
 */
-void SeznamJidel::vlozPouzityPokrm(Pokrm* pokrm){
-     pouzitePokrmy.push_back(pokrm->getId());
+void SeznamJidel::vlozPouzityPokrm(Pokrm* pokrm)
+{
+    pouzitePokrmy.push_back(pokrm->getId());
 }
 
+void SeznamJidel::vynulujSeznamJidel()
+{
+    sJidel.clear();
+}
 
 vector<Jidlo*> SeznamJidel::getSeznamJidel()
 {

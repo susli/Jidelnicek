@@ -20,5 +20,7 @@ public:
     void ulozDoSouboru();
     nactiRadekSouboru(string* radka);
     void nacteniJidelZeSouboru();
+    int getIdJidlo();
+    int getIdNapoj();
 };
 }

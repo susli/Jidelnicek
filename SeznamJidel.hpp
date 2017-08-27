@@ -30,6 +30,7 @@ int idNapoj = 0;
     void vlozNapoj(Napoj* napoj);
     void odstranJidlo(int id);
     void nahodneSerazeni();
+    void vynulujSeznamJidel();
    // Pokrm* vyberNahodneJidlo();
     vector<Jidlo*> getSeznamJidel();
     vector<Napoj*> getSeznamNapoju();

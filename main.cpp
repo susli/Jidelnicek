@@ -92,7 +92,8 @@ void moznostiPokrmu()
 
     switch(volba) {
     case '1': {
-        vytvorJidlo();
+        tridajidlo->vytvorJidlo();
+        //vytvorJidlo();
         moznostiPokrmu();
         break;
     }
@@ -150,6 +151,7 @@ void moznostiPokrmu()
     }
 }
 
+/*
 void vytvorJidlo()
 {
     char vytvoritJidlo;
@@ -269,6 +271,7 @@ void vytvorJidlo()
         }
     }
 }
+*/
 
 /* Přesunuto do Jidelnicek
 vector<Pokrm*> vytvorJidelnicekProDen()

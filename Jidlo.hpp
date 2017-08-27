@@ -22,6 +22,7 @@ public:
     vector<string> getIngredience();
     void vypis();
     void vypisJidlo();
+    void vytvorJidlo();
 };
 
 #endif // JIDLO_H
