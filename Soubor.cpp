@@ -2,7 +2,6 @@
 
 int IDJidlo = 0;
 int IDNapoj = 0;
-
 SeznamJidel* seznam;
 Soubor::Soubor()
 {
@@ -14,10 +13,8 @@ Soubor::~Soubor()
 
 void Soubor::ulozDoSouboru()
 {
-
     ofstream outFileJidlo("jidlo.csv", ios::out);
     ofstream outFileNapoje("napoj.csv", ios::out);
-
     if(!outFileJidlo || !outFileNapoje) {
         cout << "Chyba" << endl;
     } else {
@@ -27,7 +24,6 @@ void Soubor::ulozDoSouboru()
                          << endl;
         }
         outFileJidlo.close();
-
         for(Pokrm* napoj : seznam->getSeznamNapoju()) {
             outFileNapoje << napoj->getId() << ";" << napoj->getNazev() << ";" << napoj->getCena() << ";"
                           << napoj->getTrida() << ";" << napoj->getIngredience() << ";" << napoj->getObjem() << ";"
@@ -41,19 +37,15 @@ Soubor::nactiRadekSouboru(string* radka)
 {
     string retezec = *radka;
     string oddelovac = ";";
-
     stringstream ss;
-
     int intId;
     string nazev;
     int intCena;
     int trida;
     string ingredience;
     int intObsah;
-
     size_t pozice = 0;
     string slovo;
-
     for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
         slovo = retezec.substr(0, pozice);
         switch(i) {
@@ -100,17 +92,13 @@ Soubor::nactiRadekSouboru(string* radka)
             break;
         }
         }
-
         if(i == 5) {
-            // Pokrm* pokrm;
-
             if(intObsah == 0) {
                 Jidlo* jidlo;
                 jidlo = new Jidlo(IDJidlo, nazev, intCena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
                 seznam->vlozJidlo(jidlo);
                 IDJidlo++;
-
             } else {
                 Napoj* napoj;
                 napoj = new Napoj(IDNapoj, nazev, intCena, trida, ingredience, intObsah);
@@ -125,19 +113,15 @@ void Soubor::nacteniJidelZeSouboru()
 {
     seznam->vynulujSeznamJidel(); // smazaní seznamu jidel
     seznam->vynulujSeznamNapoju();
-    IDJidlo = 0;                  // vynulování počtu jidel při načtení
+    IDJidlo = 0; // vynulování počtu jidel při načtení
     IDNapoj = 0;
-    //seznam->idJidlo = 0;
-    //seznam->idNapoj = 0;
     ifstream inJidlo;
     ifstream inNapoj;
     inJidlo.open("jidlo.csv");
-
     for(string radka = ""; getline(inJidlo, radka);) {
         nactiRadekSouboru(&radka);
     }
     inJidlo.close();
-
     inNapoj.open("napoj.csv");
     for(string radka = ""; getline(inNapoj, radka);) {
         nactiRadekSouboru(&radka);
@@ -145,9 +129,12 @@ void Soubor::nacteniJidelZeSouboru()
     inNapoj.close();
 }
 
-int Soubor::getIdJidlo(){
+int Soubor::getIdJidlo()
+{
     return IDJidlo;
 }
-int Soubor::getIdNapoj(){
+
+int Soubor::getIdNapoj()
+{
     return IDNapoj;
 }

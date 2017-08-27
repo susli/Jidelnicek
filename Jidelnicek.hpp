@@ -9,7 +9,6 @@ using namespace std;
 
 class Jidelnicek
 {
-
 public:
     vector<Pokrm*> pondeli;
     vector<Pokrm*> utery;
@@ -19,13 +18,12 @@ public:
 
     int pocetGenerovaniJidelnicku = 0;
     vypis();
-
     vector<Pokrm*> generujJidelnicekproDen();
     void generujJidelnicek();
     void vytiskniJidelnicek();
     vector<Pokrm*> vytvorJidelnicekProDen();
     void vytvorJidelnicek();
-    //void vypisJidelnicek();
+    // void vypisJidelnicek();
 };
 
 #endif // JIDELNICEK_H

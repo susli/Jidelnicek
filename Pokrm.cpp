@@ -2,7 +2,6 @@
 #include "SeznamJidel.hpp"
 #include <iostream>
 
-
 template <typename Iterator, typename NahodnyGenerator>
 Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
@@ -18,7 +17,6 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
     return nahodnyVyber(start, end, gen);
 }
 
-
 int Pokrm::getId()
 {
     return id;
@@ -28,6 +26,7 @@ string Pokrm::getNazev()
 {
     return nazev;
 }
+
 int Pokrm::getCena()
 {
     return cena;
@@ -42,6 +41,7 @@ string Pokrm::getIngredience()
 {
     return ingredience;
 }
+
 int Pokrm::getObjem()
 {
     return nic;
@@ -53,31 +53,23 @@ void Pokrm::vypis()
          << "Nazev Jidla: " << Pokrm::getNazev() << "   "
          << "Cena: " << Pokrm::getCena() << "   "
          << "Trida: " << Pokrm::getTrida() << "   ";
-    //       << "Ingredience: " << "--------" << " ";
 }
 
 bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
 {
     SeznamJidel* seznam;
     if(seznam->seznamJidel.size() >= 15 && seznam->seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
-        // goto provedGenerovani;
     } else if(seznam->seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
-        // provedGenerovani:
         seznam->getPouzitePokrmy().clear();
         pocetGenerovaniJidelnicku = 0;
-
         for(int i = 0; i < seznam->getPouzitePokrmy().size(); ++i) {
             if(seznam->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
                 return false;
-
             } else {
                 return true;
             }
         }
-    }
-
-    else {
-
+    } else {
         for(int i = 0; i < seznam->getPouzitePokrmy().size(); ++i) {
             if(seznam->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
                 return false;
@@ -86,9 +78,9 @@ bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
             }
         }
     }
-
     return true;
 }
+
 Pokrm* Pokrm::vyberNahodneJidlo()
 {
     SeznamJidel* seznam;

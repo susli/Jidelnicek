@@ -6,7 +6,6 @@ using namespace std;
 
 class Pokrm
 {
-
     int nic = 0;
 
 public:
@@ -15,23 +14,14 @@ public:
     int cena;
     int trida;
     string ingredience;
-
     int pocetGenerovaniJidelnicku = 0;
-
     int getId();
-
     string getNazev();
-
     int getCena();
-
     int getTrida();
-
     string getIngredience();
-
     virtual int getObjem();
-
     virtual void vypis();
-
     bool kontrolaPokrmu(Pokrm* nahodneJidlo);
     Pokrm* vyberNahodneJidlo();
 };

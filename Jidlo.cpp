@@ -6,10 +6,8 @@ using namespace std;
 SeznamJidel* seznamJidel2;
 Soubor* tridaSoubor;
 
-// public:
 Jidlo::Jidlo(int id, string nazev, int cena, int trida, string ingredience)
 {
-
     this->id = id;
     this->nazev = nazev;
     this->cena = cena;
@@ -26,11 +24,9 @@ int idNapojNove = 0;
 
 void Jidlo::ulozIngredience(string ingredience)
 {
-
     string retezec = ingredience;
     string oddelovac = ",";
     string ulozIngredience;
-
     size_t pozice = 0;
     string slovo;
 
@@ -72,29 +68,20 @@ void Jidlo::vypisJidlo()
         jidlo->vypis();
         cout << endl;
     }
-    
     cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
     for(Napoj* napoj : seznamJidel2->getSeznamNapoju()) {
         napoj->vypis();
         cout << endl;
     }
-    
 }
 
 void Jidlo::vytvorJidlo()
 {
-    cout << "id Jidlo:" << idJidloNove << endl;
-    cout << "id Napoj:" << idNapojNove << endl;
     idJidloNove = seznamJidel2->getSeznamJidel().size();
     idNapojNove = seznamJidel2->getSeznamNapoju().size();
-    cout << "id Jidlo:" << idJidloNove << endl;
-    cout << "id Napoj:" << idNapojNove << endl;
-    
     char vytvoritJidlo;
-
     bool pokracovat = true;
     char jeNapoj;
-
     string nazev;
     int obsah;
     double cena;
@@ -102,41 +89,31 @@ void Jidlo::vytvorJidlo()
     string ingredience;
     string vstup;
     bool chyba = true;
-
     trida = 0;
     ingredience = "";
-
     while(pokracovat) {
-
         cout << "chcete vytvorit dalsi pokrm? a/n " << endl;
         cin >> vytvoritJidlo;
-
         if(vytvoritJidlo == 'a') {
-
             cout << "je pokrm napoj? a/n " << endl;
             cin >> jeNapoj;
             cout << "-----------------------------------------------" << endl;
-
             if(jeNapoj == 'a') {
                 cout << "zadejte nazev napoje: ";
                 cin.ignore();
                 getline(cin, nazev);
-
                 cout << " zadejte cenu: ";
-
                 while(chyba) {
                     try {
                         cin >> vstup;
                         cena = stod(vstup);
                         chyba = false;
-                        // break;
                     } catch(invalid_argument& exception) {
                         cout << "Nebylo zadano cislo" << endl;
                     } catch(out_of_range& exception) {
                         cout << "Cislo je prilis velke (nebo prilis male)" << endl;
                     }
                 }
-
                 cout << " zadejte obsah: ";
                 chyba = true;
                 while(chyba) {
@@ -144,7 +121,6 @@ void Jidlo::vytvorJidlo()
                         cin >> vstup;
                         obsah = stoi(vstup);
                         chyba = false;
-                        // break;
                     } catch(invalid_argument& exception) {
                         cout << "Nebylo zadano cislo" << endl;
                     } catch(out_of_range& exception) {
@@ -152,15 +128,12 @@ void Jidlo::vytvorJidlo()
                     }
                 }
                 Napoj* napoj = new Napoj(idNapojNove, nazev, cena, trida, ingredience, obsah);
-                // seznamJidel.push_back(napoj);
                 seznamJidel2->vlozNapoj(napoj);
-                // idJidlo++;
                 idNapojNove++;
             } else if(jeNapoj == 'n') {
                 cout << "zadejte nazev pokrmu: ";
                 cin.ignore();
                 getline(cin, nazev);
-
                 cout << " zadejte cenu: ";
                 chyba = true;
                 while(chyba) {
@@ -168,14 +141,12 @@ void Jidlo::vytvorJidlo()
                         cin >> vstup;
                         cena = stod(vstup);
                         chyba = false;
-                        // break;
                     } catch(invalid_argument& exception) {
                         cout << "Nebylo zadano cislo" << endl;
                     } catch(out_of_range& exception) {
                         cout << "Cislo je prilis velke (nebo prilis male)" << endl;
                     }
                 }
-
                 cout << " zadejte tridu: ";
                 chyba = true;
                 while(chyba) {
@@ -183,18 +154,15 @@ void Jidlo::vytvorJidlo()
                         cin >> vstup;
                         trida = stoi(vstup);
                         chyba = false;
-                        // break;
                     } catch(invalid_argument& exception) {
                         cout << "Nebylo zadano cislo" << endl;
                     } catch(out_of_range& exception) {
                         cout << "Cislo je prilis velke (nebo prilis male)" << endl;
                     }
                 }
-
                 cout << "zadejte zakladni ingredience oddelene carkou: ";
                 cin.ignore();
                 getline(cin, ingredience);
-
                 Jidlo* jidlo = new Jidlo(idJidloNove, nazev, cena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
                 seznamJidel2->vlozJidlo(jidlo);
@@ -202,7 +170,6 @@ void Jidlo::vytvorJidlo()
             } else {
                 cout << "spatne zadani";
             }
-
         } else {
             pokracovat = false;
         }

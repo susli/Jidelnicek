@@ -8,14 +8,17 @@ int Napoj::getId()
 {
     return id;
 }
+
 string Napoj::getNazev()
 {
     return nazev;
 }
+
 int Napoj::getPrice()
 {
     return cena;
 }
+
 int Napoj::getTrida()
 {
     return trida;
@@ -25,17 +28,14 @@ string Napoj::getIngredience()
 {
     return ingredience;
 }
+
 int Napoj::getObjem()
 {
     return objem;
 }
+
 void Napoj::vypis()
 {
     Jidlo::vypis();
     cout << "Objem: " << Napoj::getObjem();
-}
-
-void Napoj::vypisNapoj()
-{
-    
 }

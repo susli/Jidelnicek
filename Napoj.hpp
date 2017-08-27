@@ -18,17 +18,11 @@ public:
     ~Napoj();
 
     int getId();
-
     string getNazev();
-
     int getPrice();
-
     int getTrida();
-
     string getIngredience();
-
     int getObjem();
-
     virtual void vypis();
     void vypisNapoj();
 };
