@@ -7,6 +7,7 @@ using namespace std;
 class CelyJidelnicek
 {
 public:
-    vector<Jidelnicek*> celyJidelnicek;
+    
     vector<Jidelnicek*> getCelyJidelnicek();
+    void vlozJidelnicek(Jidelnicek* jidelnicek);
 };

@@ -25,14 +25,14 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
 }
 
 vector<Jidlo*> sJidel;
-vector<Napoj*> seznamNapoju;
+vector<Napoj*> sNapoju;
 void SeznamJidel::vlozJidlo(Jidlo* jidlo)
 {
     sJidel.push_back(jidlo);
 }
 void SeznamJidel::vlozNapoj(Napoj* napoj)
 {
-    seznamNapoju.push_back(napoj);
+    sNapoju.push_back(napoj);
 }
 void SeznamJidel::odstranJidlo(int id)
 {

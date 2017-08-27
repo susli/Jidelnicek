@@ -63,6 +63,7 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
 Soubor* soubor;
 SeznamJidel* sezJidel;
 Jidlo* tridajidlo;
+Jidelnicek* jidelnicek;
 
 int main(int argc, char** argv)
 {
@@ -100,12 +101,12 @@ void moznostiPokrmu()
         break;
     }
     case '3': {
-        // vytvorJidelnicek();
+        jidelnicek->vytvorJidelnicek();
         moznostiPokrmu();
         break;
     }
     case '4': {
-        // vypisJidelnicek();
+        jidelnicek->vypisJidelnicek();
         moznostiPokrmu();
         break;
     }
