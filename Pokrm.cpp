@@ -1,6 +1,12 @@
 #include "Pokrm.hpp"
 #include "SeznamJidel.hpp"
 #include <iostream>
+#include <ctime>     // std::time
+#include <cstdlib>   // std::rand, std::srand
+#include <algorithm> // std::random_shuffle
+#include <iterator>
+
+SeznamJidel* seJidel;
 
 template <typename Iterator, typename NahodnyGenerator>
 Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
@@ -57,33 +63,37 @@ void Pokrm::vypis()
 
 bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
 {
-    SeznamJidel* seznam;
-    if(seznam->seznamJidel.size() >= 15 && seznam->seznamJidel.size() < 25 && pocetGenerovaniJidelnicku == 4) {
-    } else if(seznam->seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
-        seznam->getPouzitePokrmy().clear();
+    /*
+    // SeznamJidel* seznam;
+    if(seJidel->getSeznamJidel().size() >= 15 && seJidel->getSeznamJidel().size() < 25 &&
+        pocetGenerovaniJidelnicku == 4) {
+    } else if(seJidel->getSeznamJidel().size() < 15 && pocetGenerovaniJidelnicku == 2) {
+        seJidel->getPouzitePokrmy().clear();
         pocetGenerovaniJidelnicku = 0;
-        for(int i = 0; i < seznam->getPouzitePokrmy().size(); ++i) {
-            if(seznam->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
+        for(int i = 0; i < seJidel->getPouzitePokrmy().size(); ++i) {
+            if(seJidel->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
                 return false;
             } else {
                 return true;
             }
         }
     } else {
-        for(int i = 0; i < seznam->getPouzitePokrmy().size(); ++i) {
-            if(seznam->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
+        for(int i = 0; i < seJidel->getPouzitePokrmy().size(); ++i) {
+            if(seJidel->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
                 return false;
             } else {
                 return true;
             }
         }
     }
+    */
     return true;
 }
 
 Pokrm* Pokrm::vyberNahodneJidlo()
 {
-    SeznamJidel* seznam;
-    Pokrm* nahodneJidlo = *nahodnyVyber(seznam->getSeznamJidel().begin(), seznam->getSeznamJidel().end());
+    // SeznamJidel* seznam;
+    //Pokrm* nahodneJidlo = seJidel->getSeznamJidel()[1];
+    Pokrm* nahodneJidlo = *nahodnyVyber(seJidel->getSeznamJidel().begin(), seJidel->getSeznamJidel().end());
     return nahodneJidlo;
 }

@@ -13,6 +13,7 @@ Pokrm* pokrm;
 SeznamJidel* seznamJidel;
 Jidlo* jidlo;
 CelyJidelnicek* celyJidelnicek;
+int pocetGenerovaniJidelnicku = 0;
 
 Jidelnicek::vypis()
 {
@@ -57,18 +58,17 @@ Jidelnicek::vypis()
 vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
 {
     vector<Pokrm*> den;
-    bool pokracovat = true;
-    int pocetJidel = 0;
-    Pokrm* ulozJidlo;
 
+    int pocetJidel = 0;
     cout << "kolik jidel bude na den?" << endl;
+    cin.clear();
     cin >> pocetJidel;
     cout << endl;
-
+    bool pokracovat = true;
     while(pokracovat) {
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
-            ulozJidlo = pokrm->vyberNahodneJidlo();
+            Pokrm* ulozJidlo = pokrm->vyberNahodneJidlo();
             if(pokrm->kontrolaPokrmu(ulozJidlo) == true) {
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
@@ -91,14 +91,15 @@ void Jidelnicek::generujJidelnicek()
     if(generovatJidelnicek != 'a') {
         return;
     }
+    cout << "Zadej pocet jidel na Pondeli" << endl;
     jidelnicek->pondeli = generujJidelnicekproDen();
-
+    cout << "Zadej pocet jidel na Utery" << endl;
     jidelnicek->utery = generujJidelnicekproDen();
-
+    cout << "Zadej pocet jidel na Stredu" << endl;
     jidelnicek->streda = generujJidelnicekproDen();
-
+    cout << "Zadej pocet jidel na Ctvrtek" << endl;
     jidelnicek->ctvrtek = generujJidelnicekproDen();
-
+    cout << "Zadej pocet jidel na Patek" << endl;
     jidelnicek->patek = generujJidelnicekproDen();
     celyJidelnicek->vlozJidelnicek(jidelnicek);
     pocetGenerovaniJidelnicku++;
