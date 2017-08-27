@@ -79,18 +79,18 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
     while(pokracovat) {
 
         cout << endl;
-/*
+
         for(int i = 0; i < pocetJidel; ++i) {
-            ulozJidlo = seznamjidel->vyberNahodneJidlo();
+            ulozJidlo = seznamJidel->vyberNahodneJidlo();
             if(pokrm->kontrolaPokrmu(ulozJidlo) == true) {
                 den.push_back(ulozJidlo);
-                seznamjidel->pouzitePokrmy.push_back(ulozJidlo->getId());
+                seznamJidel->vlozPouzityPokrm(ulozJidlo);
 
             } else {
                 continue;
             }
         }
-        */
+        
 
         pokracovat = false;
     }
@@ -128,7 +128,7 @@ void Jidelnicek::generujJidelnicek()
     //    pokracovat = false;
     //}
 
-    celyJidelnicek->getCelyJidelnicek().push_back(jidelnicek);
+    celyJidelnicek->vlozJidelnicek(jidelnicek);
     pocetGenerovaniJidelnicku++;
     cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
 }

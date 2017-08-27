@@ -134,6 +134,7 @@ void moznostiPokrmu()
     }
     case '9': {
 
+        jidelnicek->generujJidelnicek();
         // generujJidelnicek();
         moznostiPokrmu();
         break;

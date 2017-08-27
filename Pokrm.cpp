@@ -46,11 +46,11 @@ bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
         // goto provedGenerovani;
     } else if(seznam->seznamJidel.size() < 15 && pocetGenerovaniJidelnicku == 2) {
         // provedGenerovani:
-        seznam->pouzitePokrmy.clear();
+        seznam->getPouzitePokrmy().clear();
         pocetGenerovaniJidelnicku = 0;
 
-        for(int i = 0; i < seznam->pouzitePokrmy.size(); ++i) {
-            if(seznam->pouzitePokrmy[i] == nahodneJidlo->getId()) {
+        for(int i = 0; i < seznam->getPouzitePokrmy().size(); ++i) {
+            if(seznam->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
                 return false;
 
             } else {
@@ -61,8 +61,8 @@ bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
 
     else {
 
-        for(int i = 0; i < seznam->pouzitePokrmy.size(); ++i) {
-            if(seznam->pouzitePokrmy[i] == nahodneJidlo->getId()) {
+        for(int i = 0; i < seznam->getPouzitePokrmy().size(); ++i) {
+            if(seznam->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
                 return false;
             } else {
                 return true;

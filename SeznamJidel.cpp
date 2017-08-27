@@ -10,7 +10,7 @@
 using namespace std;
 
 template <typename Iterator, typename NahodnyGenerator>
-Iterator SeznamJidel::nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
+Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
 {
     uniform_int_distribution<> dis(0, distance(start, end) - 1);
     advance(start, dis(g));
@@ -26,6 +26,8 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
 
 vector<Jidlo*> sJidel;
 vector<Napoj*> sNapoju;
+vector<int> pouzitePokrmy;
+
 void SeznamJidel::vlozJidlo(Jidlo* jidlo)
 {
     sJidel.push_back(jidlo);
@@ -43,13 +45,16 @@ void SeznamJidel::nahodneSerazeni()
     random_shuffle(sJidel.begin(), sJidel.end());
 }
 
-/*
+
 Pokrm* SeznamJidel::vyberNahodneJidlo()
 {
     Pokrm* nahodneJidlo = *nahodnyVyber(sJidel.begin(), sJidel.end());
     return nahodneJidlo;
 }
-*/
+void SeznamJidel::vlozPouzityPokrm(Pokrm* pokrm){
+     pouzitePokrmy.push_back(pokrm->getId());
+}
+
 
 vector<Jidlo*> SeznamJidel::getSeznamJidel()
 {
@@ -57,7 +62,7 @@ vector<Jidlo*> SeznamJidel::getSeznamJidel()
 }
 vector<Napoj*> SeznamJidel::getSeznamNapoju()
 {
-    return seznamNapoju;
+    return sNapoju;
 }
 vector<int> SeznamJidel::getPouzitePokrmy()
 {

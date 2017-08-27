@@ -25,7 +25,7 @@ public:
     void vytiskniJidelnicek();
     vector<Pokrm*> vytvorJidelnicekProDen();
     void vytvorJidelnicek();
-    void vypisJidelnicek();
+    //void vypisJidelnicek();
 };
 
 #endif // JIDELNICEK_H

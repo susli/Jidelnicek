@@ -23,8 +23,9 @@ public:
 int idJidlo = 0;
 int idNapoj = 0;
     vector<Jidlo*> seznamJidel;
-    vector<Napoj*> seznamNapoju;
-    vector<int> pouzitePokrmy;
+    
+    
+    void vlozPouzityPokrm(Pokrm* pokrm);
     void vlozJidlo(Jidlo* jidlo);
     void vlozNapoj(Napoj* napoj);
     void odstranJidlo(int id);
