@@ -61,13 +61,3 @@ bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
     
     //return true;
 }
-
-/*
-Pokrm* Pokrm::vyberNahodneJidlo()
-{
-    // SeznamJidel* seznam;
-    //Pokrm* nahodneJidlo = seJidel->getSeznamJidel()[1];
-    Pokrm* nahodneJidlo = *nahodnyVyber(seJidel->getSeznamJidel().begin(), seJidel->getSeznamJidel().end());
-    return nahodneJidlo;
-}
-*/
