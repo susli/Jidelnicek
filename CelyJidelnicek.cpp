@@ -8,3 +8,11 @@ vector<Jidelnicek*> CelyJidelnicek::getCelyJidelnicek()
 void CelyJidelnicek::vlozJidelnicek(Jidelnicek* jidelnicek){
     cJidelnicek.push_back(jidelnicek);
 }
+
+void CelyJidelnicek::vypisCelyJidelnicek()
+{
+    for(Jidelnicek* jidelnicek : cJidelnicek) {
+        jidelnicek->vypis();
+        cout << endl << endl << endl;
+    }
+}

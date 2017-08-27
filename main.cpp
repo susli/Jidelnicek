@@ -64,6 +64,7 @@ Soubor* soubor;
 SeznamJidel* sezJidel;
 Jidlo* tridajidlo;
 Jidelnicek* jidelnicek;
+CelyJidelnicek* ceJidelnicek;
 
 int main(int argc, char** argv)
 {
@@ -106,7 +107,7 @@ void moznostiPokrmu()
         break;
     }
     case '4': {
-        jidelnicek->vypisJidelnicek();
+        ceJidelnicek->vypisCelyJidelnicek();
         moznostiPokrmu();
         break;
     }

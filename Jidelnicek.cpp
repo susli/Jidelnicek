@@ -17,7 +17,7 @@ CelyJidelnicek* celyJidelnicek;
 Jidelnicek::vypis()
 {
     string jidelnicek = " ";
-    if(pondeli.size() > 0) {
+    if(pondeli.size() != 0) {
         cout << "Pondeli: " << endl;
         for(int i = 0; i < pondeli.size(); i++) {
             pondeli[i]->vypis();
@@ -54,6 +54,15 @@ Jidelnicek::vypis()
     }
 }
 
+/* přesunuto do CelyJidelnicek
+void Jidelnicek::vypisJidelnicek()
+{
+    for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
+        jidelnicek->vypis();
+        cout << endl << endl << endl;
+    }
+}
+*/
 vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
 {
 
@@ -143,13 +152,7 @@ void Jidelnicek::vytiskniJidelnicek()
     }
 }
 
-void Jidelnicek::vypisJidelnicek()
-{
-    for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
-        jidelnicek->vypis();
-        cout << endl << endl << endl;
-    }
-}
+
 
 vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
 {
@@ -232,5 +235,5 @@ void Jidelnicek::vytvorJidelnicek()
         }
     }
 
-    celyJidelnicek->getCelyJidelnicek().push_back(jidelnicek); // celyJidelnicek.push_back(jidelnicek);
+    celyJidelnicek->vlozJidelnicek(jidelnicek); // celyJidelnicek.push_back(jidelnicek);
 }

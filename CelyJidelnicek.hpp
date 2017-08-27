@@ -10,4 +10,5 @@ public:
     
     vector<Jidelnicek*> getCelyJidelnicek();
     void vlozJidelnicek(Jidelnicek* jidelnicek);
+    void vypisCelyJidelnicek();
 };
