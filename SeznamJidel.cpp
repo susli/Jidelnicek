@@ -24,6 +24,7 @@ template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
     return nahodnyVyber(start, end, gen);
 }
 
+
 vector<Jidlo*> sJidel;
 vector<Napoj*> sNapoju;
 vector<int> pouzitePokrmy;
