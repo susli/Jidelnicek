@@ -5,10 +5,6 @@
 
 using namespace std;
 
-
-
-
-
 class Pokrm
 {
     int nic = 0;
@@ -28,7 +24,6 @@ public:
     virtual int getObjem();
     virtual void vypis();
     bool kontrolaPokrmu(Pokrm* nahodneJidlo);
-    Pokrm* vyberNahodneJidlo();
 };
 
 #endif // POKRM_H

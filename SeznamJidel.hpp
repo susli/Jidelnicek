@@ -12,10 +12,11 @@ using namespace std;
 
 class SeznamJidel
 {
+    /*
     template <typename Iterator, typename NahodnyGenerator>
     Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g);
     template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end);
-
+*/
 public:
     int idJidlo = 0;
     int idNapoj = 0;
@@ -27,7 +28,7 @@ public:
     void nahodneSerazeni();
     void vynulujSeznamJidel();
     void vynulujSeznamNapoju();
-    // Pokrm* vyberNahodneJidlo();
+    Pokrm* vyberNahodneJidlo();
     vector<Jidlo*> getSeznamJidel();
     vector<Napoj*> getSeznamNapoju();
     vector<int> getPouzitePokrmy();

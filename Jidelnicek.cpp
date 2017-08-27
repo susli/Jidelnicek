@@ -68,7 +68,7 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
     while(pokracovat) {
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
-            Pokrm* ulozJidlo = pokrm->vyberNahodneJidlo();
+            Pokrm* ulozJidlo = seznamJidel->vyberNahodneJidlo();
             if(pokrm->kontrolaPokrmu(ulozJidlo) == true) {
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
@@ -78,6 +78,7 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
         }
         pokracovat = false;
     }
+     
     return den;
 }
 

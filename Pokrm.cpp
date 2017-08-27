@@ -8,21 +8,6 @@
 
 SeznamJidel* seJidel;
 
-template <typename Iterator, typename NahodnyGenerator>
-Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
-{
-    uniform_int_distribution<> dis(0, distance(start, end) - 1);
-    advance(start, dis(g));
-    return start;
-}
-
-template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
-{
-    static random_device rd;
-    static mt19937 gen(rd());
-    return nahodnyVyber(start, end, gen);
-}
-
 int Pokrm::getId()
 {
     return id;
@@ -63,33 +48,21 @@ void Pokrm::vypis()
 
 bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
 {
-    /*
-    // SeznamJidel* seznam;
-    if(seJidel->getSeznamJidel().size() >= 15 && seJidel->getSeznamJidel().size() < 25 &&
-        pocetGenerovaniJidelnicku == 4) {
-    } else if(seJidel->getSeznamJidel().size() < 15 && pocetGenerovaniJidelnicku == 2) {
-        seJidel->getPouzitePokrmy().clear();
-        pocetGenerovaniJidelnicku = 0;
         for(int i = 0; i < seJidel->getPouzitePokrmy().size(); ++i) {
-            if(seJidel->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
-                return false;
-            } else {
+            
+            if(seJidel->getPouzitePokrmy()[i] != nahodneJidlo->getId()) {
                 return true;
-            }
-        }
-    } else {
-        for(int i = 0; i < seJidel->getPouzitePokrmy().size(); ++i) {
-            if(seJidel->getPouzitePokrmy()[i] == nahodneJidlo->getId()) {
-                return false;
             } else {
-                return true;
+                return false;
             }
+            
         }
-    }
-    */
-    return true;
+    
+    
+    //return true;
 }
 
+/*
 Pokrm* Pokrm::vyberNahodneJidlo()
 {
     // SeznamJidel* seznam;
@@ -97,3 +70,4 @@ Pokrm* Pokrm::vyberNahodneJidlo()
     Pokrm* nahodneJidlo = *nahodnyVyber(seJidel->getSeznamJidel().begin(), seJidel->getSeznamJidel().end());
     return nahodneJidlo;
 }
+*/

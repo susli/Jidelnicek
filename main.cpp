@@ -24,47 +24,16 @@ using namespace std;
 
 void moznostiPokrmu();
 void vytvorJidlo();
-/*
 
-void vypisJidlo();
-void zapisJidelDoSouboru();
-void nacteniJidelZeSouboru();
-void vytvorJidelnicek();
-void generujJidelnicek();
-void vypisJidelnicek();
-void vytiskniJidelnicek();
-void generujJidelnicekDen();
-void nahodneSerazeni();
-vector<Jidlo*> seznamJidel;
-vector<Napoj*> seznamNapoju;
-vector<Jidelnicek*> celyJidelnicek;
-// vector<int> pouzitePokrmy;
-int pocetGenerovaniJidelnicku = 0;
-*/
 int idJidlo2 = 0;
 int idNapoj2 = 0;
 
-/* Přesunuto do SeznamJidel
-template <typename Iterator, typename NahodnyGenerator>
-Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
-{
-    uniform_int_distribution<> dis(0, distance(start, end) - 1);
-    advance(start, dis(g));
-    return start;
-}
-
-template <typename Iterator> Iterator nahodnyVyber(Iterator start, Iterator end)
-{
-    static random_device rd;
-    static mt19937 gen(rd());
-    return nahodnyVyber(start, end, gen);
-}
-*/
 Soubor* soubor;
 SeznamJidel* sezJidel;
 Jidlo* tridajidlo;
 Jidelnicek* jidelnicek;
 CelyJidelnicek* ceJidelnicek;
+Pokrm* pok;
 
 int main(int argc, char** argv)
 {
@@ -134,9 +103,7 @@ void moznostiPokrmu()
         break;
     }
     case '9': {
-
         jidelnicek->generujJidelnicek();
-        // generujJidelnicek();
         moznostiPokrmu();
         break;
     }
