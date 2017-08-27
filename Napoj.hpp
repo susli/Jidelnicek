@@ -30,6 +30,7 @@ public:
     int getObjem();
 
     virtual void vypis();
+    void vypisNapoj();
 };
 
 #endif // NAPOJ_H

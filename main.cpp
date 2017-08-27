@@ -110,12 +110,13 @@ void moznostiPokrmu()
         break;
     }
     case '5': {
+        soubor->ulozDoSouboru();
         // zapisJidelDoSouboru();
         moznostiPokrmu();
         break;
     }
     case '6': {
-        // nacteniJidelZeSouboru();
+        soubor->nacteniJidelZeSouboru();
         moznostiPokrmu();
         break;
     }

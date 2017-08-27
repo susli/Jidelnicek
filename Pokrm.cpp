@@ -32,10 +32,10 @@ int Pokrm::getObjem()
 
 void Pokrm::vypis()
 {
-    cout << "Id: " << id << "    "
-         << "Nazev Jidla: " << nazev << "   "
-         << "Cena: " << cena << "   "
-         << "Trida: " << trida << "   ";
+    cout << "Id: " << Pokrm::getId() << "    "
+         << "Nazev Jidla: " << Pokrm::getNazev() << "   "
+         << "Cena: " << Pokrm::getCena() << "   "
+         << "Trida: " << Pokrm::getTrida() << "   ";
     //       << "Ingredience: " << "--------" << " ";
 }
 

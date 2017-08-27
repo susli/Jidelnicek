@@ -32,5 +32,10 @@ int Napoj::getObjem()
 void Napoj::vypis()
 {
     Jidlo::vypis();
-    cout << "Objem: " << objem;
+    cout << "Objem: " << Napoj::getObjem();
+}
+
+void Napoj::vypisNapoj()
+{
+    
 }

@@ -28,7 +28,7 @@ void Soubor::ulozDoSouboru()
         }
         outFileJidlo.close();
 
-        for(Pokrm* napoj : seznam->getSeznamJidel()) {
+        for(Pokrm* napoj : seznam->getSeznamNapoju()) {
             outFileNapoje << napoj->getId() << ";" << napoj->getNazev() << ";" << napoj->getCena() << ";"
                           << napoj->getTrida() << ";" << napoj->getIngredience() << ";" << napoj->getObjem() << ";"
                           << endl;
@@ -108,13 +108,13 @@ Soubor::nactiRadekSouboru(string* radka)
                 Jidlo* jidlo;
                 jidlo = new Jidlo(idJidlo, nazev, intCena, trida, ingredience);
                 jidlo->ulozIngredience(ingredience);
-                seznam->getSeznamJidel().push_back(jidlo);
+                seznam->vlozJidlo(jidlo);
                 idJidlo++;
 
             } else {
                 Napoj* napoj;
                 napoj = new Napoj(idNapoj, nazev, intCena, trida, ingredience, intObsah);
-                seznam->getSeznamNapoju().push_back(napoj);
+                seznam->vlozNapoj(napoj);
                 idNapoj++;
             }
         }
