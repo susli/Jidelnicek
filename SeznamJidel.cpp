@@ -49,7 +49,7 @@ void SeznamJidel::nahodneSerazeni()
     random_shuffle(sJidel.begin(), sJidel.end());
 }
 
-Pokrm* SeznamJidel::vyberNahodneJidlo()
+Jidlo* SeznamJidel::vyberNahodneJidlo()
 {
    Jidlo* nahodneJidlo = *nahodnyVyber(sJidel.begin(), sJidel.end());
    return nahodneJidlo;

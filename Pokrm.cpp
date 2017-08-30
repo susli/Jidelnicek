@@ -46,38 +46,3 @@ void Pokrm::vypis()
          << "Trida: " << Pokrm::getTrida() << "   ";
 }
 
-bool Pokrm::kontrolaPouzitiPokrmu(Pokrm* nahodneJidlo)
-{
-        for(int i = 0; i < seJidel->getPouzitePokrmy().size(); ++i) {
-            
-            if(seJidel->getPouzitePokrmy()[i] != nahodneJidlo->getId()) {
-                
-                return true;
-            } else {
-                return false;
-            }
-            
-        }
-    
-    
-    //return true;
-}
-bool Pokrm::kontrolaIngredienciPokrmu(Pokrm* nahodneJidlo, int predchoziPocetJidel){
-    for(int i = 0;i < predchoziPocetJidel; ++i){
-       // seJidel->getPredchoziIngredience()
-       
-       /*
-       string retezec = ingredience;
-    string oddelovac = ",";
-    string ulozIngredience;
-    size_t pozice = 0;
-    string slovo;
-
-    for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
-        slovo = retezec.substr(0, pozice);
-        seznamIngredienci.push_back(slovo);
-        retezec.erase(0, pozice + oddelovac.length());
-    }
-    */
-    }
-}

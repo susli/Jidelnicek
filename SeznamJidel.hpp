@@ -29,7 +29,7 @@ public:
     void nahodneSerazeni();
     void vynulujSeznamJidel();
     void vynulujSeznamNapoju();
-    Pokrm* vyberNahodneJidlo();
+    Jidlo* vyberNahodneJidlo();
     vector<Jidlo*> getSeznamJidel();
     vector<Napoj*> getSeznamNapoju();
     vector<int> getPouzitePokrmy();

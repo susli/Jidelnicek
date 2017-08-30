@@ -69,10 +69,10 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
     while(pokracovat) {
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
-            Pokrm* ulozJidlo;
+            Jidlo* ulozJidlo;
            // for(int i=0;i<3;i++){
             ulozJidlo = seznamJidel->vyberNahodneJidlo();
-            if(pokrm->kontrolaPouzitiPokrmu(ulozJidlo) == true /*&& pokrm->kontrolaIngredienciPokrmu(ulozJidlo, predchoziPocetJidel) == true*/) {
+            if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true /*&& jidlo->kontrolaIngredienciPokrmu(ulozJidlo, predchoziPocetJidel) == true*/) {
                 
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);

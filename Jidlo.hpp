@@ -23,6 +23,8 @@ public:
     void vypis();
     void vypisJidlo();
     void vytvorJidlo();
+    bool kontrolaPouzitiJidla(Jidlo* nahodneJidlo);
+    bool kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel);
 };
 
 #endif // JIDLO_H

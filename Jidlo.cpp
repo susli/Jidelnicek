@@ -175,3 +175,39 @@ void Jidlo::vytvorJidlo()
         }
     }
 }
+
+bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
+{
+        for(int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
+            
+            if(seznamJidel2->getPouzitePokrmy()[i] != nahodneJidlo->getId()) {
+                
+                return true;
+            } else {
+                return false;
+            }
+            
+        }
+    
+    
+    //return true;
+}
+bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel){
+    for(int i = 0;i < predchoziPocetJidel; ++i){
+       // seJidel->getPredchoziIngredience()
+       
+       /*
+       string retezec = ingredience;
+    string oddelovac = ",";
+    string ulozIngredience;
+    size_t pozice = 0;
+    string slovo;
+
+    for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
+        slovo = retezec.substr(0, pozice);
+        seznamIngredienci.push_back(slovo);
+        retezec.erase(0, pozice + oddelovac.length());
+    }
+    */
+    }
+}
