@@ -50,7 +50,7 @@ string Jidlo::vypisIngredience()
     return ingred;
 }
 
-vector<string> Jidlo::getIngredience()
+vector<string> Jidlo::getIngredience1()
 {
     return seznamIngredienci;
 }

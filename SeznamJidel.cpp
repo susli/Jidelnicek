@@ -12,7 +12,7 @@ using namespace std;
 vector<Jidlo*> sJidel;
 vector<Napoj*> sNapoju;
 vector<int> pouzitePokrmy;
-vector< vector<string>* > predchoziIngredience;
+vector< vector<string> > predchoziIngredience;
 
 
 template <typename Iterator, typename NahodnyGenerator>
@@ -59,11 +59,11 @@ void SeznamJidel::vlozPouzityPokrm(Jidlo* jidlo)
 {
     pouzitePokrmy.push_back(jidlo->getId());
 }
-/*
+
 void SeznamJidel::vlozPredchoziIngredience(Jidlo* jidlo){
-    predchoziIngredience.push_back(jidlo->getIngredience());
+    predchoziIngredience.push_back(jidlo->getIngredience1());
 }
-*/
+
 void SeznamJidel::vynulujSeznamJidel()
 {
     sJidel.clear();

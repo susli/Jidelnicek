@@ -19,7 +19,7 @@ public:
     ~Jidlo();
     void ulozIngredience(string ingredience);
     string vypisIngredience();
-    vector<string> getIngredience();
+    vector<string> getIngredience1();
     void vypis();
     void vypisJidlo();
     void vytvorJidlo();

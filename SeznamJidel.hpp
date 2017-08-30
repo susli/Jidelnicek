@@ -22,7 +22,7 @@ public:
     int idNapoj = 0;
     vector<Jidlo*> seznamJidel;
     void vlozPouzityPokrm(Jidlo* jidlo);
-    void vlozPredchoziIngredience(Pokrm* pokrm);
+    void vlozPredchoziIngredience(Jidlo* jidlo);
     void vlozJidlo(Jidlo* jidlo);
     void vlozNapoj(Napoj* napoj);
     void odstranJidlo(int id);
