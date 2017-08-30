@@ -21,7 +21,7 @@ public:
     int idJidlo = 0;
     int idNapoj = 0;
     vector<Jidlo*> seznamJidel;
-    void vlozPouzityPokrm(Pokrm* pokrm);
+    void vlozPouzityPokrm(Jidlo* jidlo);
     void vlozPredchoziIngredience(Pokrm* pokrm);
     void vlozJidlo(Jidlo* jidlo);
     void vlozNapoj(Napoj* napoj);

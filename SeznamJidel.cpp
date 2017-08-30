@@ -55,9 +55,9 @@ Jidlo* SeznamJidel::vyberNahodneJidlo()
    return nahodneJidlo;
 }
 
-void SeznamJidel::vlozPouzityPokrm(Pokrm* pokrm)
+void SeznamJidel::vlozPouzityPokrm(Jidlo* jidlo)
 {
-    pouzitePokrmy.push_back(pokrm->getId());
+    pouzitePokrmy.push_back(jidlo->getId());
 }
 /*
 void SeznamJidel::vlozPredchoziIngredience(Jidlo* jidlo){
