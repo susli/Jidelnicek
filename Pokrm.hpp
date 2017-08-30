@@ -23,7 +23,6 @@ public:
     string getIngredience();
     virtual int getObjem();
     virtual void vypis();
-    
 };
 
 #endif // POKRM_H

@@ -45,4 +45,3 @@ void Pokrm::vypis()
          << "Cena: " << Pokrm::getCena() << "   "
          << "Trida: " << Pokrm::getTrida() << "   ";
 }
-

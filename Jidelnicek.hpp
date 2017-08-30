@@ -16,7 +16,6 @@ public:
     vector<Pokrm*> ctvrtek;
     vector<Pokrm*> patek;
 
-    
     vypis();
     vector<Pokrm*> generujJidelnicekProDen();
     void generujJidelnicek();

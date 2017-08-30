@@ -197,15 +197,15 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
         seznamJidel2->vynulujPouzitePokrmy();
     }
     if(seznamJidel2->getPouzitePokrmy().size() == NULL) {
-        if (poslednijidlo != nahodneJidlo->getId()){
-           cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
-        return true;
-        }else{
-            if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
+        if(poslednijidlo != nahodneJidlo->getId()) {
+            cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
             return true;
+        } else {
+            if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
+                return true;
+            }
         }
-        }
-        
+
     } else {
 
         if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {

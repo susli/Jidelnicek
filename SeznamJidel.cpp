@@ -12,8 +12,7 @@ using namespace std;
 vector<Jidlo*> sJidel;
 vector<Napoj*> sNapoju;
 vector<int> pouzitePokrmy;
-vector< vector<string> > predchoziIngredience;
-
+vector<vector<string> > predchoziIngredience;
 
 template <typename Iterator, typename NahodnyGenerator>
 Iterator nahodnyVyber(Iterator start, Iterator end, NahodnyGenerator& g)
@@ -51,8 +50,8 @@ void SeznamJidel::nahodneSerazeni()
 
 Jidlo* SeznamJidel::vyberNahodneJidlo()
 {
-   Jidlo* nahodneJidlo = *nahodnyVyber(sJidel.begin(), sJidel.end());
-   return nahodneJidlo;
+    Jidlo* nahodneJidlo = *nahodnyVyber(sJidel.begin(), sJidel.end());
+    return nahodneJidlo;
 }
 
 void SeznamJidel::vlozPouzityPokrm(Jidlo* jidlo)
@@ -60,15 +59,18 @@ void SeznamJidel::vlozPouzityPokrm(Jidlo* jidlo)
     pouzitePokrmy.push_back(jidlo->getId());
 }
 
-void SeznamJidel::vlozPredchoziIngredience(Jidlo* jidlo){
+void SeznamJidel::vlozPredchoziIngredience(Jidlo* jidlo)
+{
     predchoziIngredience.push_back(jidlo->getIngredience1());
 }
 
-void SeznamJidel::vynulujPredchoziIngredience(){
+void SeznamJidel::vynulujPredchoziIngredience()
+{
     predchoziIngredience.clear();
 }
 
-void SeznamJidel::vynulujPouzitePokrmy(){
+void SeznamJidel::vynulujPouzitePokrmy()
+{
     cout << "Nuluji pouzite pokrmy." << endl;
     pouzitePokrmy.clear();
 }
@@ -98,14 +100,15 @@ vector<int> SeznamJidel::getPouzitePokrmy()
     return pouzitePokrmy;
 }
 
-vector<vector<string> > SeznamJidel::getPredchoziIngredience(){
+vector<vector<string> > SeznamJidel::getPredchoziIngredience()
+{
     return predchoziIngredience;
 }
 
-void SeznamJidel::vypisPouzitePokrmy(){
-    for(int i =0;i< pouzitePokrmy.size();++i){
-        cout << "PoP: " << pouzitePokrmy[i] << ", " ;
+void SeznamJidel::vypisPouzitePokrmy()
+{
+    for(int i = 0; i < pouzitePokrmy.size(); ++i) {
+        cout << "PoP: " << pouzitePokrmy[i] << ", ";
     }
     cout << endl;
 }
-
