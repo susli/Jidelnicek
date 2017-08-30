@@ -88,8 +88,8 @@ vector<int> SeznamJidel::getPouzitePokrmy()
 {
     return pouzitePokrmy;
 }
-/*
+
 vector<vector<string> > SeznamJidel::getPredchoziIngredience(){
     return predchoziIngredience;
 }
-*/
+

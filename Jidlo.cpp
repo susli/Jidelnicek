@@ -178,7 +178,7 @@ void Jidlo::vytvorJidlo()
 
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
-        for(int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
+        for(unsigned int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
             
             if(seznamJidel2->getPouzitePokrmy()[i] != nahodneJidlo->getId()) {
                 
@@ -194,6 +194,9 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 }
 bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel){
     for(int i = 0;i < predchoziPocetJidel; ++i){
+        for(unsigned int i = 0; i < seznamJidel2->getPredchoziIngredience().size();++i){
+            
+        }
        // seJidel->getPredchoziIngredience()
        
        /*
