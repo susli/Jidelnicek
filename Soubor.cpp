@@ -129,6 +129,7 @@ void Soubor::nacteniJidelZeSouboru()
     inNapoj.close();
 }
 
+/*
 int Soubor::getIdJidlo()
 {
     return IDJidlo;
@@ -138,3 +139,4 @@ int Soubor::getIdNapoj()
 {
     return IDNapoj;
 }
+*/

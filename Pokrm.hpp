@@ -23,7 +23,8 @@ public:
     string getIngredience();
     virtual int getObjem();
     virtual void vypis();
-    bool kontrolaPokrmu(Pokrm* nahodneJidlo);
+    bool kontrolaPouzitiPokrmu(Pokrm* nahodneJidlo);
+    bool kontrolaIngredienciPokrmu(Pokrm* nahodneJidlo);
 };
 
 #endif // POKRM_H

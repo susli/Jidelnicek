@@ -46,11 +46,12 @@ void Pokrm::vypis()
          << "Trida: " << Pokrm::getTrida() << "   ";
 }
 
-bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
+bool Pokrm::kontrolaPouzitiPokrmu(Pokrm* nahodneJidlo)
 {
         for(int i = 0; i < seJidel->getPouzitePokrmy().size(); ++i) {
             
             if(seJidel->getPouzitePokrmy()[i] != nahodneJidlo->getId()) {
+                
                 return true;
             } else {
                 return false;
@@ -60,4 +61,7 @@ bool Pokrm::kontrolaPokrmu(Pokrm* nahodneJidlo)
     
     
     //return true;
+}
+bool Pokrm::kontrolaIngredienciPokrmu(Pokrm* nahodneJidlo){
+    
 }
