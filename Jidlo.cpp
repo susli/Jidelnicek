@@ -177,17 +177,38 @@ void Jidlo::vytvorJidlo()
 }
 
 int kontrola = 0;
+int poslednijidlo = NULL;
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
-    for(unsigned int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
+    bool proslo = false;
+    if(seznamJidel2->getPouzitePokrmy().size() == seznamJidel2->getSeznamJidel().size()){
+        poslednijidlo = seznamJidel2->getPouzitePokrmy().back();
+        seznamJidel2->vynulujPouzitePokrmy();
+    }
+    if (seznamJidel2->getPouzitePokrmy().size() == NULL){
+       cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
+       proslo = true;
+    } else {
+        for( int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
+            
+       
+    cout << "iterator pouzitych pokrmu je: " << i <<endl;    
+        cout<< "porovnavam: " << seznamJidel2->getPouzitePokrmy()[i] << " a " << nahodneJidlo->getId() << endl;
 
-        if(seznamJidel2->getPouzitePokrmy()[i] != nahodneJidlo->getId()) {
+        if(seznamJidel2->getPouzitePokrmy()[i] != nahodneJidlo->getId() && poslednijidlo != nahodneJidlo->getId()) {
+            poslednijidlo = NULL;
+            
 
             return true;
         } else {
-            return false;
+            continue;
         }
+        return proslo;
     }
+    return false;
+    }
+        
+    
 
     // return true;
 }

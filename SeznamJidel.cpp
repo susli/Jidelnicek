@@ -68,6 +68,11 @@ void SeznamJidel::vynulujPredchoziIngredience(){
     predchoziIngredience.clear();
 }
 
+void SeznamJidel::vynulujPouzitePokrmy(){
+    cout << "Nuluji pouzite pokrmy." << endl;
+    pouzitePokrmy.clear();
+}
+
 void SeznamJidel::vynulujSeznamJidel()
 {
     sJidel.clear();
@@ -95,5 +100,12 @@ vector<int> SeznamJidel::getPouzitePokrmy()
 
 vector<vector<string> > SeznamJidel::getPredchoziIngredience(){
     return predchoziIngredience;
+}
+
+void SeznamJidel::vypisPouzitePokrmy(){
+    for(int i =0;i< pouzitePokrmy.size();++i){
+        cout << "PoP: " << pouzitePokrmy[i] << ", " ;
+    }
+    cout << endl;
 }
 

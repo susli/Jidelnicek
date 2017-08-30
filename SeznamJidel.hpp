@@ -24,6 +24,7 @@ public:
     void vlozPouzityPokrm(Jidlo* jidlo);
     void vlozPredchoziIngredience(Jidlo* jidlo);
     void vynulujPredchoziIngredience();
+    void vynulujPouzitePokrmy();
     void vlozJidlo(Jidlo* jidlo);
     void vlozNapoj(Napoj* napoj);
     void odstranJidlo(int id);
@@ -34,5 +35,6 @@ public:
     vector<Jidlo*> getSeznamJidel();
     vector<Napoj*> getSeznamNapoju();
     vector<int> getPouzitePokrmy();
+    void vypisPouzitePokrmy();
     vector<vector<string> > getPredchoziIngredience();
 };
