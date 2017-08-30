@@ -6,7 +6,7 @@ using namespace std;
 SeznamJidel* seznamJidel2;
 Soubor* tridaSoubor;
 
-Jidlo::Jidlo(int id, string nazev, int cena, int trida, string ingredience)
+Jidlo::Jidlo(int id, string nazev, double cena, int trida, string ingredience)
 {
     this->id = id;
     this->nazev = nazev;

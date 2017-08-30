@@ -18,7 +18,7 @@ string Pokrm::getNazev()
     return nazev;
 }
 
-int Pokrm::getCena()
+double Pokrm::getCena()
 {
     return cena;
 }

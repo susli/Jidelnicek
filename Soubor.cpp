@@ -40,7 +40,7 @@ Soubor::nactiRadekSouboru(string* radka)
     stringstream ss;
     int intId;
     string nazev;
-    int intCena;
+    double intCena;
     int trida;
     string ingredience;
     int intObsah;

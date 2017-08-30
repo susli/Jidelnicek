@@ -12,13 +12,13 @@ class Pokrm
 public:
     int id;
     string nazev;
-    int cena;
+    double cena;
     int trida;
     string ingredience;
     int pocetGenerovaniJidelnicku = 0;
     int getId();
     string getNazev();
-    int getCena();
+    double getCena();
     int getTrida();
     string getIngredience();
     virtual int getObjem();
