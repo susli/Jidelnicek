@@ -63,7 +63,20 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
     int pocetJidel = 0;
     cout << "kolik jidel bude na den?" << endl;
     cin.clear();
-    cin >> pocetJidel;
+    //cin >> pocetJidel;
+    bool chyba = true;
+    string vstup = "";
+                while(chyba) {
+                    try {
+                        cin >> vstup;
+                        pocetJidel = stoi(vstup);
+                        chyba = false;
+                    } catch(invalid_argument& exception) {
+                        cout << "Nebylo zadano cislo" << endl;
+                    } catch(out_of_range& exception) {
+                        cout << "Cislo je prilis velke (nebo prilis male)" << endl;
+                    }
+                }
     cout << endl;
     bool pokracovat = true;
     while(pokracovat) {
@@ -156,7 +169,20 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
         jidlo->vypisJidlo();
         cout << endl;
         cout << "zadejte Id jidla" << endl;
-        cin >> x;
+        //cin >> x;
+        bool chyba = true;
+        string vstup = "";
+                while(chyba) {
+                    try {
+                        cin >> vstup;
+                        x = stoi(vstup);
+                        chyba = false;
+                    } catch(invalid_argument& exception) {
+                        cout << "Nebylo zadano cislo" << endl;
+                    } catch(out_of_range& exception) {
+                        cout << "Cislo je prilis velke (nebo prilis male)" << endl;
+                    }
+                }
         if(x > velikostVectoru) {
             cout << "jidlo neexistuje" << endl;
             cout << "zadejte spravne Id pokrmu" << endl;

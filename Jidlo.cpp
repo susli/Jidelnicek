@@ -160,7 +160,7 @@ void Jidlo::vytvorJidlo()
                         cout << "Cislo je prilis velke (nebo prilis male)" << endl;
                     }
                 }
-                cout << "zadejte zakladni ingredience oddelene carkou: ";
+                cout << "zadejte zakladni ingredience oddelene carkou a zakoncene carkou: ";
                 cin.ignore();
                 getline(cin, ingredience);
                 Jidlo* jidlo = new Jidlo(idJidloNove, nazev, cena, trida, ingredience);
