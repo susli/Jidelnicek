@@ -176,6 +176,7 @@ void Jidlo::vytvorJidlo()
     }
 }
 
+int kontrola = 0;
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
     for(unsigned int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
@@ -192,25 +193,34 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 }
 bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel)
 {
-    bool pravda = false;
-    vector<vector<string>> ingredienceNahodnehoJidla;
-    vector<vector<string>> ingrediencePredchozihoJidla;
-    
+    //bool pravda = false;
+    int pravda = 0;
+    vector<vector<string> > ingredienceNahodnehoJidla;
+    vector<vector<string> > ingrediencePredchozihoJidla;
+
     ingredienceNahodnehoJidla.push_back(nahodneJidlo->getIngredience1());
-    for(int i =0;i<seznamJidel2->getPredchoziIngredience().size();++i){
-            ingrediencePredchozihoJidla.push_back(seznamJidel2->getPredchoziIngredience()[i]);
-            
-            for (auto it1 = ingredienceNahodnehoJidla.cbegin(); it1 != ingredienceNahodnehoJidla.cend(); ++it1)
-    {
-        auto it2 = find(ingrediencePredchozihoJidla.cbegin(), ingrediencePredchozihoJidla.cend(), *it1);
-        if (it2 != ingrediencePredchozihoJidla.cend())
-        {
-           pravda = true;
+    for(unsigned int i = 0; i < seznamJidel2->getPredchoziIngredience().size(); ++i) {
+        cout << endl << "zkopirovani do vectoru, prvni forcyklus" << endl;
+        ingrediencePredchozihoJidla.push_back(seznamJidel2->getPredchoziIngredience()[i]);
+
+        for(auto it1 = ingredienceNahodnehoJidla.cbegin(); it1 != ingredienceNahodnehoJidla.cend(); ++it1) {
+            cout << "druhy forcyklus" << endl;
+            auto it2 = find(ingrediencePredchozihoJidla.cbegin(), ingrediencePredchozihoJidla.cend(), *it1);
+            if(it2 != ingrediencePredchozihoJidla.cend()) {
+                cout << "podminka if" << endl;
+                //pravda = true;
+                pravda++;
+            }
         }
     }
-            
-    }
     
+    cout << "Kontrola ingredienci prosla: " << pravda << " krat" << endl;
+    kontrola++;
+    if (kontrola == 2){
+    seznamJidel2->vynulujPredchoziIngredience();
+    
+    }
+    return true;
 
     /*
     for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)

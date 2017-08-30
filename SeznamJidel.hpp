@@ -23,6 +23,7 @@ public:
     vector<Jidlo*> seznamJidel;
     void vlozPouzityPokrm(Jidlo* jidlo);
     void vlozPredchoziIngredience(Jidlo* jidlo);
+    void vynulujPredchoziIngredience();
     void vlozJidlo(Jidlo* jidlo);
     void vlozNapoj(Napoj* napoj);
     void odstranJidlo(int id);

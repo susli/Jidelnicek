@@ -64,6 +64,10 @@ void SeznamJidel::vlozPredchoziIngredience(Jidlo* jidlo){
     predchoziIngredience.push_back(jidlo->getIngredience1());
 }
 
+void SeznamJidel::vynulujPredchoziIngredience(){
+    predchoziIngredience.clear();
+}
+
 void SeznamJidel::vynulujSeznamJidel()
 {
     sJidel.clear();
