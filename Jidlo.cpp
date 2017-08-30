@@ -193,8 +193,9 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 }
 bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel)
 {
-    //bool pravda = false;
-    int pravda = 0;
+    bool znovu = true;
+    // bool pravda = false;
+    int nepravda = 0;
     vector<vector<string> > ingredienceNahodnehoJidla;
     vector<vector<string> > ingrediencePredchozihoJidla;
 
@@ -203,59 +204,44 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJide
         cout << endl << "zkopirovani do vectoru, prvni forcyklus" << endl;
         ingrediencePredchozihoJidla.push_back(seznamJidel2->getPredchoziIngredience()[i]);
 
+        /*
+        vector<string>::const_iterator first = seznamJidel2->getPredchoziIngredience()[i].end() - predchoziPocetJidel;
+        vector<string>::const_iterator last = seznamJidel2->getPredchoziIngredience()[i].end();
+        vector<string> newVec(first, last);
+         */
+
         for(auto it1 = ingredienceNahodnehoJidla.cbegin(); it1 != ingredienceNahodnehoJidla.cend(); ++it1) {
             cout << "druhy forcyklus" << endl;
             auto it2 = find(ingrediencePredchozihoJidla.cbegin(), ingrediencePredchozihoJidla.cend(), *it1);
             if(it2 != ingrediencePredchozihoJidla.cend()) {
                 cout << "podminka if" << endl;
-                //pravda = true;
-                pravda++;
-            }
-        }
-    }
-    
-    cout << "Kontrola ingredienci prosla: " << pravda << " krat" << endl;
-    kontrola++;
-    if (kontrola == 2){
-    seznamJidel2->vynulujPredchoziIngredience();
-    
-    }
-    return true;
-
-    /*
-    for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
-    {
-        auto it2 = find(v2.cbegin(), v2.cend(), *it1);
-        if (it2 != v2.cend())
-        {
-            matches.push_back(make_pair(it1 - v1.cbegin(), it2 - v2.cbegin()));
-        }
-    }
-*/
-    /*
-    for(unsigned int i = 0; i < seznamJidel2->getPredchoziIngredience().size(); ++i) {
-        for(unsigned j =0;j<seznamJidel2->getPredchoziIngredience()[i].size();++j){
-            if(seznamJidel2->getPredchoziIngredience()[i][j] != nahodneJidlo->getIngredience1()[i][j]){
+                // pravda = true;
+                nepravda++;
                 return true;
-            }else {
-                continue;
             }
         }
     }
-     */
-    // seJidel->getPredchoziIngredience()
 
-    /*
-    string retezec = ingredience;
- string oddelovac = ",";
- string ulozIngredience;
- size_t pozice = 0;
- string slovo;
 
- for(int i = 0; (pozice = retezec.find(oddelovac)) != string::npos; i++) {
-     slovo = retezec.substr(0, pozice);
-     seznamIngredienci.push_back(slovo);
-     retezec.erase(0, pozice + oddelovac.length());
- }
- */
+ingredienceNahodnehoJidla.clear();
+ingrediencePredchozihoJidla.clear();
+
+cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
+kontrola++;
+if(kontrola == 2) {
+    seznamJidel2->vynulujPredchoziIngredience();
+}
+
+// return false;
+
+/*
+for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
+{
+    auto it2 = find(v2.cbegin(), v2.cend(), *it1);
+    if (it2 != v2.cend())
+    {
+        matches.push_back(make_pair(it1 - v1.cbegin(), it2 - v2.cbegin()));
+    }
+}
+*/
 }
