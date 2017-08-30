@@ -76,8 +76,8 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
                 
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
-//                seznamJidel->vlozPredchoziIngredience(ulozJidlo);
-//                predchoziPocetJidel = pocetJidel;
+                seznamJidel->vlozPredchoziIngredience(ulozJidlo);
+                predchoziPocetJidel = pocetJidel;
                // break;
             
             } else {
