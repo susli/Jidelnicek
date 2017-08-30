@@ -176,28 +176,51 @@ void Jidlo::vytvorJidlo()
     }
 }
 
+bool Jidlo::najdiShodu(int hledanyPrvek, vector<int> seznamPrvku){
+    for(auto i = seznamPrvku.begin(); i != seznamPrvku.end();++i){
+        if (hledanyPrvek == seznamPrvku[*i]){
+            return true;
+        }
+    }
+    return false;
+}
+
 int kontrola = 0;
 int poslednijidlo = NULL;
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
     bool proslo = false;
-    if(seznamJidel2->getPouzitePokrmy().size() == seznamJidel2->getSeznamJidel().size()){
+    if(seznamJidel2->getPouzitePokrmy().size() == seznamJidel2->getSeznamJidel().size()) {
         poslednijidlo = seznamJidel2->getPouzitePokrmy().back();
         seznamJidel2->vynulujPouzitePokrmy();
     }
-    if (seznamJidel2->getPouzitePokrmy().size() == NULL){
-       cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
-       proslo = true;
+    if(seznamJidel2->getPouzitePokrmy().size() == NULL) {
+        cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
+        proslo = true;
     } else {
+
+       // for(auto it1 = seznamJidel2->getPouzitePokrmy().begin(); it1 != seznamJidel2->getPouzitePokrmy().end(); ++it1) {
+            if (najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false){
+                return true;
+            }
+            //find(nahodneJidlo->getId(), *it1);
+            /*
+            if(it1 != nahodneJidlo->getId()) {
+                return true;
+            }
+            */
+      //  }
+
+        /*
         for( int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
-            
-       
-    cout << "iterator pouzitych pokrmu je: " << i <<endl;    
+
+
+    cout << "iterator pouzitych pokrmu je: " << i <<endl;
         cout<< "porovnavam: " << seznamJidel2->getPouzitePokrmy()[i] << " a " << nahodneJidlo->getId() << endl;
 
         if(seznamJidel2->getPouzitePokrmy()[i] != nahodneJidlo->getId() && poslednijidlo != nahodneJidlo->getId()) {
             poslednijidlo = NULL;
-            
+
 
             return true;
         } else {
@@ -206,9 +229,8 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
         return proslo;
     }
     return false;
+    */
     }
-        
-    
 
     // return true;
 }
@@ -243,26 +265,25 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJide
         }
     }
 
+    ingredienceNahodnehoJidla.clear();
+    ingrediencePredchozihoJidla.clear();
 
-ingredienceNahodnehoJidla.clear();
-ingrediencePredchozihoJidla.clear();
-
-cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
-kontrola++;
-if(kontrola == 2) {
-    seznamJidel2->vynulujPredchoziIngredience();
-}
-
-// return false;
-
-/*
-for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
-{
-    auto it2 = find(v2.cbegin(), v2.cend(), *it1);
-    if (it2 != v2.cend())
-    {
-        matches.push_back(make_pair(it1 - v1.cbegin(), it2 - v2.cbegin()));
+    cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
+    kontrola++;
+    if(kontrola == 2) {
+        seznamJidel2->vynulujPredchoziIngredience();
     }
-}
-*/
+
+    // return false;
+
+    /*
+    for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
+    {
+        auto it2 = find(v2.cbegin(), v2.cend(), *it1);
+        if (it2 != v2.cend())
+        {
+            matches.push_back(make_pair(it1 - v1.cbegin(), it2 - v2.cbegin()));
+        }
+    }
+    */
 }
