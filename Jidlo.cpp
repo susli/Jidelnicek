@@ -191,7 +191,6 @@ int kontrola = 0;
 int poslednijidlo = NULL;
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
-    bool proslo = false;
     if(seznamJidel2->getPouzitePokrmy().size() == seznamJidel2->getSeznamJidel().size()) {
         poslednijidlo = seznamJidel2->getPouzitePokrmy().back();
         seznamJidel2->vynulujPouzitePokrmy();
@@ -212,10 +211,10 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
             return true;
         }
     }
+    return false;
 }
 bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
 {
-    bool znovu = true;
     int nepravda = 0;
     vector<vector<string> > ingredienceNahodnehoJidla;
     vector<vector<string> > ingrediencePredchozihoJidla;

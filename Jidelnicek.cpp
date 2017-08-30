@@ -74,14 +74,19 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
             ulozJidlo = seznamJidel->vyberNahodneJidlo();
             if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true && jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
 
+                cout << "pred ulozenim nahodneho jidla: " ;
                 seznamJidel->vypisPouzitePokrmy();
+                
 
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
 
+    cout << "po ulozeni nahodneho jidla: "; 
                 seznamJidel->vypisPouzitePokrmy();
 
             } else {
+                
+                cout << endl << "else cyklus když if neprošel, trida Jidelnicek - generujJidelnicekProDen" << endl;
                 ulozJidlo = seznamJidel->vyberNahodneJidlo();
                 if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
                     jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
