@@ -18,7 +18,7 @@ public:
 
     
     vypis();
-    vector<Pokrm*> generujJidelnicekproDen();
+    vector<Pokrm*> generujJidelnicekProDen();
     void generujJidelnicek();
     void vytiskniJidelnicek();
     vector<Pokrm*> vytvorJidelnicekProDen();

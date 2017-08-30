@@ -33,7 +33,7 @@ SeznamJidel* sezJidel;
 Jidlo* tridajidlo;
 Jidelnicek* jidelnicek;
 CelyJidelnicek* ceJidelnicek;
-Pokrm* pok;
+Jidlo* pok;
 
 int main(int argc, char** argv)
 {

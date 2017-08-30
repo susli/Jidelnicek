@@ -55,7 +55,8 @@ Jidelnicek::vypis()
     }
 }
 
-vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
+int predchoziPocetJidel = 0;
+vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
 {
     vector<Pokrm*> den;
 
@@ -69,18 +70,21 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekproDen()
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
             Pokrm* ulozJidlo;
-            for(int i=0;i<3;i++){
+           // for(int i=0;i<3;i++){
             ulozJidlo = seznamJidel->vyberNahodneJidlo();
-            if(pokrm->kontrolaPouzitiPokrmu(ulozJidlo) == true) {
+            if(pokrm->kontrolaPouzitiPokrmu(ulozJidlo) == true /*&& pokrm->kontrolaIngredienciPokrmu(ulozJidlo, predchoziPocetJidel) == true*/) {
+                
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
+//                seznamJidel->vlozPredchoziIngredience(ulozJidlo);
+//                predchoziPocetJidel = pocetJidel;
                // break;
             
             } else {
 
                 continue;
             }
-        }
+       // }
         }
         pokracovat = false;
     }
@@ -99,15 +103,15 @@ void Jidelnicek::generujJidelnicek()
         return;
     }
     cout << "Zadej pocet jidel na Pondeli" << endl;
-    jidelnicek->pondeli = generujJidelnicekproDen();
+    jidelnicek->pondeli = generujJidelnicekProDen();
     cout << "Zadej pocet jidel na Utery" << endl;
-    jidelnicek->utery = generujJidelnicekproDen();
+    jidelnicek->utery = generujJidelnicekProDen();
     cout << "Zadej pocet jidel na Stredu" << endl;
-    jidelnicek->streda = generujJidelnicekproDen();
+    jidelnicek->streda = generujJidelnicekProDen();
     cout << "Zadej pocet jidel na Ctvrtek" << endl;
-    jidelnicek->ctvrtek = generujJidelnicekproDen();
+    jidelnicek->ctvrtek = generujJidelnicekProDen();
     cout << "Zadej pocet jidel na Patek" << endl;
-    jidelnicek->patek = generujJidelnicekproDen();
+    jidelnicek->patek = generujJidelnicekProDen();
     celyJidelnicek->vlozJidelnicek(jidelnicek);
     pocetGenerovaniJidelnicku++;
     cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
@@ -139,7 +143,7 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
         cout << endl;
         cout << "zadejte Id jidla" << endl;
         cin >> x;
-        if(x >= velikostVectoru) {
+        if(x > velikostVectoru) {
             cout << "jidlo neexistuje" << endl;
             cout << "zadejte spravne Id pokrmu" << endl;
             continue;
