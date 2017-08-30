@@ -14,7 +14,7 @@ string Napoj::getNazev()
     return nazev;
 }
 
-int Napoj::getPrice()
+double Napoj::getPrice()
 {
     return cena;
 }
