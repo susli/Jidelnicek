@@ -176,9 +176,11 @@ void Jidlo::vytvorJidlo()
     }
 }
 
-bool Jidlo::najdiShodu(int hledanyPrvek, vector<int> seznamPrvku){
-    for(auto i = seznamPrvku.begin(); i != seznamPrvku.end();++i){
-        if (hledanyPrvek == seznamPrvku[*i]){
+bool Jidlo::najdiShodu(int hledanyPrvek, vector<int> seznamPrvku)
+{
+    for(auto i = seznamPrvku.begin(); i != seznamPrvku.end(); ++i) {
+        cout << "Porovnavam: " << hledanyPrvek << " a " << seznamPrvku[*i] << endl;
+        if(hledanyPrvek == seznamPrvku[*i]) {
             return true;
         }
     }
@@ -195,49 +197,25 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
         seznamJidel2->vynulujPouzitePokrmy();
     }
     if(seznamJidel2->getPouzitePokrmy().size() == NULL) {
-        cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
-        proslo = true;
+        if (poslednijidlo != nahodneJidlo->getId()){
+           cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
+        return true;
+        }else{
+            if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
+            return true;
+        }
+        }
+        
     } else {
 
-       // for(auto it1 = seznamJidel2->getPouzitePokrmy().begin(); it1 != seznamJidel2->getPouzitePokrmy().end(); ++it1) {
-            if (najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false){
-                return true;
-            }
-            //find(nahodneJidlo->getId(), *it1);
-            /*
-            if(it1 != nahodneJidlo->getId()) {
-                return true;
-            }
-            */
-      //  }
-
-        /*
-        for( int i = 0; i < seznamJidel2->getPouzitePokrmy().size(); ++i) {
-
-
-    cout << "iterator pouzitych pokrmu je: " << i <<endl;
-        cout<< "porovnavam: " << seznamJidel2->getPouzitePokrmy()[i] << " a " << nahodneJidlo->getId() << endl;
-
-        if(seznamJidel2->getPouzitePokrmy()[i] != nahodneJidlo->getId() && poslednijidlo != nahodneJidlo->getId()) {
-            poslednijidlo = NULL;
-
-
+        if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
             return true;
-        } else {
-            continue;
         }
-        return proslo;
     }
-    return false;
-    */
-    }
-
-    // return true;
 }
-bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel)
+bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
 {
     bool znovu = true;
-    // bool pravda = false;
     int nepravda = 0;
     vector<vector<string> > ingredienceNahodnehoJidla;
     vector<vector<string> > ingrediencePredchozihoJidla;
@@ -258,7 +236,6 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJide
             auto it2 = find(ingrediencePredchozihoJidla.cbegin(), ingrediencePredchozihoJidla.cend(), *it1);
             if(it2 != ingrediencePredchozihoJidla.cend()) {
                 cout << "podminka if" << endl;
-                // pravda = true;
                 nepravda++;
                 return true;
             }
@@ -270,12 +247,9 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJide
 
     cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
     kontrola++;
-    if(kontrola == 2) {
+    if(kontrola == 3) {
         seznamJidel2->vynulujPredchoziIngredience();
     }
-
-    // return false;
-
     /*
     for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
     {

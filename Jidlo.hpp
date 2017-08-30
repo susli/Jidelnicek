@@ -24,7 +24,7 @@ public:
     void vypisJidlo();
     void vytvorJidlo();
     bool kontrolaPouzitiJidla(Jidlo* nahodneJidlo);
-    bool kontrolaIngredienciJidla(Jidlo* nahodneJidlo, int predchoziPocetJidel);
+    bool kontrolaIngredienciJidla(Jidlo* nahodneJidlo);
     bool najdiShodu(int hledanyPrvek, vector<int> seznamPrvku);
 };
 

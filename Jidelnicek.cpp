@@ -70,40 +70,30 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
             Jidlo* ulozJidlo;
-           // for(int i=0;i<3;i++){
+
             ulozJidlo = seznamJidel->vyberNahodneJidlo();
-            if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true /*&& jidlo->kontrolaIngredienciJidla(ulozJidlo, predchoziPocetJidel) == true*/) {
-                
+            if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true && jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
+
                 seznamJidel->vypisPouzitePokrmy();
-                
+
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
-                
+
                 seznamJidel->vypisPouzitePokrmy();
-                
-                //seznamJidel->vlozPredchoziIngredience(ulozJidlo);
-                predchoziPocetJidel = pocetJidel;
-               // break;
-            
+
             } else {
                 ulozJidlo = seznamJidel->vyberNahodneJidlo();
-                if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true /*&& jidlo->kontrolaIngredienciJidla(ulozJidlo, predchoziPocetJidel) == true*/) {
-                
-                seznamJidel->vypisPouzitePokrmy();
-                
-                den.push_back(ulozJidlo);
-                seznamJidel->vlozPouzityPokrm(ulozJidlo);
-                
-                seznamJidel->vypisPouzitePokrmy();
-                
-                //seznamJidel->vlozPredchoziIngredience(ulozJidlo);
-                predchoziPocetJidel = pocetJidel;
-               // break;
-            
+                if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
+                    jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
+
+                    seznamJidel->vypisPouzitePokrmy();
+
+                    den.push_back(ulozJidlo);
+                    seznamJidel->vlozPouzityPokrm(ulozJidlo);
+
+                    seznamJidel->vypisPouzitePokrmy();
+                }
             }
-                
-            }
-       // }
         }
         pokracovat = false;
     }
