@@ -1,5 +1,6 @@
 #include "Jidelnicek.hpp"
 #include "CelyJidelnicek.hpp"
+#include "Spusteni.hpp"
 #include "SeznamJidel.hpp"
 #include "Pokrm.hpp"
 #include "Jidlo.hpp"
@@ -9,6 +10,7 @@
 
 using namespace std;
 
+Spusteni spusteni;
 Pokrm* pokrm;
 SeznamJidel* seznamJidel;
 Jidlo* jidlo;
@@ -172,6 +174,9 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
     vector<Pokrm*> den;
     bool pokracovat = true;
     char dalsi = 0;
+    if(seznamJidel->getSeznamJidel().size() != NULL) {
+        
+    
     while(pokracovat) {
         jidlo->vypisJidlo();
         cout << endl;
@@ -202,7 +207,10 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
             pokracovat = false;
         }
     }
+    
     return den;
+    }
+    cout << "Seznam jídel neobsahuje žádné jídla. Nejdříve vytvořte jídlo. " << endl;
 }
 
 void Jidelnicek::vytvorJidelnicek()

@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/Spusteni.cpp$(ObjectSuffix) 
 
 
 
@@ -156,6 +156,14 @@ $(IntermediateDirectory)/CelyJidelnicek.cpp$(DependSuffix): CelyJidelnicek.cpp
 
 $(IntermediateDirectory)/CelyJidelnicek.cpp$(PreprocessSuffix): CelyJidelnicek.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CelyJidelnicek.cpp$(PreprocessSuffix) CelyJidelnicek.cpp
+
+$(IntermediateDirectory)/Spusteni.cpp$(ObjectSuffix): Spusteni.cpp $(IntermediateDirectory)/Spusteni.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/jirik/Documents/GitHub/Jidelnicek/Spusteni.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Spusteni.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Spusteni.cpp$(DependSuffix): Spusteni.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Spusteni.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Spusteni.cpp$(DependSuffix) -MM Spusteni.cpp
+
+$(IntermediateDirectory)/Spusteni.cpp$(PreprocessSuffix): Spusteni.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Spusteni.cpp$(PreprocessSuffix) Spusteni.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
