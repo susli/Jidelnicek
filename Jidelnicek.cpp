@@ -15,6 +15,7 @@ Pokrm* pokrm;
 SeznamJidel* seznamJidel;
 Jidlo* jidlo;
 CelyJidelnicek* celyJidelnicek;
+
 int pocetGenerovaniJidelnicku = 0;
 
 Jidelnicek::vypis()
@@ -154,16 +155,78 @@ void Jidelnicek::generujJidelnicek()
 
 void Jidelnicek::vytiskniJidelnicek()
 {
-    
+    Jidelnicek* jidelnicek3;
+    stringstream ss;
     ofstream outFile("jidelnicek.txt");
     if(!outFile) {
         cout << "Chyba" << endl;
     } else {
-        for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
-            outFile << jidelnicek->vypis();
+        for(jidelnicek3 : celyJidelnicek->getCelyJidelnicek()) {
+            outFile
+                << "..............................................................................................."
+                   "........."
+                << endl
+                << "                                     Novy Jidelnicek:                                            "
+                << endl
+                << "..............................................................................................."
+                   "........."
+                << endl
+                << "Pondeli: " << endl
+                << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getPondeli()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Utery: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getUtery()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Streda: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getStreda()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Ctvrtek: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getCtvrtek()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Patek: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getPatek()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
         }
-        outFile.close();
     }
+
+    outFile.close();
+}
+
+vector<Pokrm*> Jidelnicek::getPondeli()
+{
+    return pondeli;
+}
+vector<Pokrm*> Jidelnicek::getUtery()
+{
+    return utery;
+}
+vector<Pokrm*> Jidelnicek::getStreda()
+{
+    return streda;
+}
+vector<Pokrm*> Jidelnicek::getCtvrtek()
+{
+    return ctvrtek;
+}
+vector<Pokrm*> Jidelnicek::getPatek()
+{
+    return patek;
 }
 
 vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
@@ -223,38 +286,38 @@ void Jidelnicek::vytvorJidelnicek()
         return;
     }
     if(seznamJidel->getSeznamJidel().size() != 0) {
-    while(pokracovat) {
-        cout << "Pro jaky den si prejete jidelnicek vytvorit?" << endl;
-        cout << "pro vyber dne zadejte prvni dve pismena dne" << endl;
-        cin >> den;
-        if(den == "po") {
-            cout << "vytvarim jidelnicek pro pondeli" << endl;
-            jidelnicek->pondeli = vytvorJidelnicekProDen();
+        while(pokracovat) {
+            cout << "Pro jaky den si prejete jidelnicek vytvorit?" << endl;
+            cout << "pro vyber dne zadejte prvni dve pismena dne" << endl;
+            cin >> den;
+            if(den == "po") {
+                cout << "vytvarim jidelnicek pro pondeli" << endl;
+                jidelnicek->pondeli = vytvorJidelnicekProDen();
+            }
+            if(den == "ut") {
+                cout << "vytvarim jidelnicek pro utery" << endl;
+                jidelnicek->utery = vytvorJidelnicekProDen();
+            }
+            if(den == "st") {
+                cout << "vytvarim jidelnicek pro streda" << endl;
+                jidelnicek->streda = vytvorJidelnicekProDen();
+            }
+            if(den == "ct") {
+                cout << "vytvarim jidelnicek pro ctvrtek" << endl;
+                jidelnicek->ctvrtek = vytvorJidelnicekProDen();
+            }
+            if(den == "pa") {
+                cout << "vytvarim jidelnicek pro patek" << endl;
+                jidelnicek->patek = vytvorJidelnicekProDen();
+            }
+            cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
+            char dalsiDen;
+            cin >> dalsiDen;
+            if(dalsiDen != 'a') {
+                pokracovat = false;
+            }
         }
-        if(den == "ut") {
-            cout << "vytvarim jidelnicek pro utery" << endl;
-            jidelnicek->utery = vytvorJidelnicekProDen();
-        }
-        if(den == "st") {
-            cout << "vytvarim jidelnicek pro streda" << endl;
-            jidelnicek->streda = vytvorJidelnicekProDen();
-        }
-        if(den == "ct") {
-            cout << "vytvarim jidelnicek pro ctvrtek" << endl;
-            jidelnicek->ctvrtek = vytvorJidelnicekProDen();
-        }
-        if(den == "pa") {
-            cout << "vytvarim jidelnicek pro patek" << endl;
-            jidelnicek->patek = vytvorJidelnicekProDen();
-        }
-        cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
-        char dalsiDen;
-        cin >> dalsiDen;
-        if(dalsiDen != 'a') {
-            pokracovat = false;
-        }
-    }
-    celyJidelnicek->vlozJidelnicek(jidelnicek);
+        celyJidelnicek->vlozJidelnicek(jidelnicek);
     }
     cout << "Seznam jidel neobsahuje zadne jidla. Nejdrive vytvorte jidlo. " << endl;
 }

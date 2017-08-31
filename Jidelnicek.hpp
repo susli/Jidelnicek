@@ -23,6 +23,11 @@ public:
     void vytiskniJidelnicek();
     vector<Pokrm*> vytvorJidelnicekProDen();
     void vytvorJidelnicek();
+    vector<Pokrm*> getPondeli();
+    vector<Pokrm*> getUtery();
+    vector<Pokrm*> getStreda();
+    vector<Pokrm*> getCtvrtek();
+    vector<Pokrm*> getPatek();
     // void vypisJidelnicek();
 };
 
