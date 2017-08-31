@@ -152,7 +152,7 @@ void Jidelnicek::generujJidelnicek()
     }
     cout << "Seznam jidel je prazdy, nelze vytvořit jidelnicek." << endl;
 }
-
+/*
 void Jidelnicek::vytiskniJidelnicek()
 {
     Jidelnicek* jidelnicek3;
@@ -207,6 +207,7 @@ void Jidelnicek::vytiskniJidelnicek()
 
     outFile.close();
 }
+*/
 
 vector<Pokrm*> Jidelnicek::getPondeli()
 {

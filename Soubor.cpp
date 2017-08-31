@@ -133,37 +133,56 @@ void Soubor::nacteniJidelZeSouboru()
 
 void Soubor::vytiskniJidelnicek()
 {
-     ofstream outFileJidelnicek("jidelnicek.txt", ios::out);
-    
-    if(!outFileJidelnicek) {
+     Jidelnicek* jidelnicek3;
+     CelyJidelnicek* celyJidelnicek;
+    stringstream ss;
+    ofstream outFile("jidelnicek.txt");
+    if(!outFile) {
         cout << "Chyba" << endl;
     } else {
-        
-        
-        
-        for(Jidlo* jidlo : seznam->getSeznamJidel()) {
-            outFileJidelnicek << jidelnicek2->vypis();
-            /*
-            jidlo->getId() << ";" << jidlo->getNazev() << ";" << jidlo->getCena() << ";"
-                         << jidlo->getTrida() << ";" << jidlo->vypisIngredience() << ";" << jidlo->getObjem() << ";"
-                         << endl;
-                          */
+        for(jidelnicek3 : celyJidelnicek->getCelyJidelnicek()) {
+            outFile
+                << "..............................................................................................."
+                   "........."
+                << endl
+                << "                                     Novy Jidelnicek:                                            "
+                << endl
+                << "..............................................................................................."
+                   "........."
+                << endl
+                << "Pondeli: " << endl
+                << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getPondeli()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Utery: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getUtery()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Streda: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getStreda()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Ctvrtek: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getCtvrtek()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
+            outFile << endl << "Patek: " << endl << "--------------------------------------" << endl;
+            for(jidlo : jidelnicek3->getPatek()) {
+
+                outFile << "Nazev: " << jidlo->getNazev() << "      "
+                        << "Cena: " << jidlo->getCena() << endl;
+            }
         }
-        outFileJidelnicek.close();
-        
-        
     }
-}
-
 
-/*
-int Soubor::getIdJidlo()
-{
-    return IDJidlo;
+    outFile.close();
 }
-
-int Soubor::getIdNapoj()
-{
-    return IDNapoj;
-}
-*/

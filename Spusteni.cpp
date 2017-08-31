@@ -13,11 +13,11 @@ void Spusteni::moznostiPokrmu()
     cout << endl;
     cout << "Zadej 1, pro vytvoreni jidel" << endl;
     cout << "Zadej 2, pro vypsani seznamu Jidel" << endl;
-    cout << "Zadej 3, pro vytvoreni Jidelnicku" << endl;
+    cout << "Zadej 3, pro rucni vytvoreni Jidelnicku" << endl;
     cout << "Zadej 4, pro vypsani Jidelnicku" << endl;
     cout << "Zadej 5, pro ulozeni seznamu Jidel" << endl;
-    cout << "Zadej 6, pro nacteni jidel ze souboru" << endl;
-    cout << "Zadej 7, po vytisknuti Jidelnicku" << endl;
+    cout << "Zadej 6, pro nacteni seznamu jidel ze souboru" << endl;
+    cout << "Zadej 7, pro vytisknuti Jidelnicku" << endl;
     cout << "Zadej 8, pro odstraneni jidla ze seznamu" << endl;
     cout << "Zadej 9, pro vygenerovani jidelnicku na tyden" << endl;
     cout << "Zadej Q, pro konec programu" << endl;
@@ -26,7 +26,6 @@ void Spusteni::moznostiPokrmu()
     switch(volba) {
     case '1': {
         tridajidlo1->vytvorJidlo();
-        // vytvorJidlo();
         moznostiPokrmu();
         break;
     }
@@ -48,7 +47,6 @@ void Spusteni::moznostiPokrmu()
     }
     case '5': {
         soubor1->ulozDoSouboru();
-        // zapisJidelDoSouboru();
         moznostiPokrmu();
         break;
     }
@@ -58,13 +56,11 @@ void Spusteni::moznostiPokrmu()
         break;
     }
     case '7': {
-        // vytiskniJidelnicek();
-        jidelnicek1->vytiskniJidelnicek();
+        soubor1->vytiskniJidelnicek();
         moznostiPokrmu();
         break;
     }
     case '8': {
-        // nahodneSerazeni();
         seznam1->odstranJidlo();
         moznostiPokrmu();
         break;
