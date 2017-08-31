@@ -19,7 +19,7 @@ public:
 
     int getId();
     string getNazev();
-    double getCena();
+    double getPrice();
     int getTrida();
     string getIngredience();
     int getObjem();

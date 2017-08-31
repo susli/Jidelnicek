@@ -23,8 +23,6 @@
     <File Name="Jidelnicek.hpp"/>
     <File Name="CelyJidelnicek.hpp"/>
     <File Name="CelyJidelnicek.cpp"/>
-    <File Name="Spusteni.hpp"/>
-    <File Name="spusteni.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

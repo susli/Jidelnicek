@@ -17,20 +17,15 @@ class Jidlo : public Pokrm
 public:
     Jidlo(int id, string nazev, double cena, int trida, string ingredience);
     ~Jidlo();
-
-    int idJidloNove = 0;
-    int idNapojNove = 0;
-    int kontrola = 0;
-    int poslednijidlo = NULL;
+    void ulozIngredience(string ingredience);
+    string vypisIngredience();
+    vector<string> getIngredience1();
     void vypis();
     void vypisJidlo();
     void vytvorJidlo();
-    void ulozIngredience(string ingredience);
     bool kontrolaPouzitiJidla(Jidlo* nahodneJidlo);
     bool kontrolaIngredienciJidla(Jidlo* nahodneJidlo);
     bool najdiShodu(int hledanyPrvek, vector<int> seznamPrvku);
-    string vypisIngredience();
-    vector<string> getIngredience1();
 };
 
 #endif // JIDLO_H

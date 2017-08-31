@@ -3,7 +3,6 @@
 int IDJidlo = 0;
 int IDNapoj = 0;
 SeznamJidel* seznam;
-
 Soubor::Soubor()
 {
 }
@@ -129,3 +128,15 @@ void Soubor::nacteniJidelZeSouboru()
     }
     inNapoj.close();
 }
+
+/*
+int Soubor::getIdJidlo()
+{
+    return IDJidlo;
+}
+
+int Soubor::getIdNapoj()
+{
+    return IDNapoj;
+}
+*/

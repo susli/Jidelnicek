@@ -1,7 +1,6 @@
 #include "CelyJidelnicek.hpp"
 
 vector<Jidelnicek*> cJidelnicek;
-
 vector<Jidelnicek*> CelyJidelnicek::getCelyJidelnicek()
 {
     return cJidelnicek;

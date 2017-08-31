@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/spusteni.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/SeznamJidel.cpp$(ObjectSuffix) $(IntermediateDirectory)/Soubor.cpp$(ObjectSuffix) $(IntermediateDirectory)/Napoj.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pokrm.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidlo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Jidelnicek.cpp$(ObjectSuffix) $(IntermediateDirectory)/CelyJidelnicek.cpp$(ObjectSuffix) 
 
 
 
@@ -156,14 +156,6 @@ $(IntermediateDirectory)/CelyJidelnicek.cpp$(DependSuffix): CelyJidelnicek.cpp
 
 $(IntermediateDirectory)/CelyJidelnicek.cpp$(PreprocessSuffix): CelyJidelnicek.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CelyJidelnicek.cpp$(PreprocessSuffix) CelyJidelnicek.cpp
-
-$(IntermediateDirectory)/spusteni.cpp$(ObjectSuffix): spusteni.cpp $(IntermediateDirectory)/spusteni.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/jirik/Documents/GitHub/Jidelnicek/spusteni.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/spusteni.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/spusteni.cpp$(DependSuffix): spusteni.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/spusteni.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/spusteni.cpp$(DependSuffix) -MM spusteni.cpp
-
-$(IntermediateDirectory)/spusteni.cpp$(PreprocessSuffix): spusteni.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/spusteni.cpp$(PreprocessSuffix) spusteni.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
