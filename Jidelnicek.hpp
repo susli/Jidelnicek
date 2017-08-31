@@ -2,8 +2,8 @@
 #ifndef JIDELNICEK_H
 #define JIDELNICEK_H
 #include <vector>
-#include <Jidlo.hpp>
 #include <iostream>
+#include <Jidlo.hpp>
 
 using namespace std;
 
@@ -18,9 +18,9 @@ public:
 
     vypis();
     vector<Pokrm*> generujJidelnicekProDen();
+    vector<Pokrm*> vytvorJidelnicekProDen();
     void generujJidelnicek();
     void vytiskniJidelnicek();
-    vector<Pokrm*> vytvorJidelnicekProDen();
     void vytvorJidelnicek();
     // void vypisJidelnicek();
 };

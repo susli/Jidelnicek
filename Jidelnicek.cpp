@@ -1,3 +1,4 @@
+#include "Spusteni.hpp"
 #include "Jidelnicek.hpp"
 #include "CelyJidelnicek.hpp"
 #include "SeznamJidel.hpp"
@@ -9,9 +10,9 @@
 
 using namespace std;
 
-Pokrm* pokrm;
-SeznamJidel* seznamJidel;
+Spusteni spusteni;
 Jidlo* jidlo;
+SeznamJidel* seznamJidel;
 CelyJidelnicek* celyJidelnicek;
 int pocetGenerovaniJidelnicku = 0;
 
@@ -164,6 +165,9 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
     vector<Pokrm*> den;
     bool pokracovat = true;
     char dalsi = 0;
+    if(seznamJidel->getSeznamJidel().size() == NULL) {
+        cout << "Seznam jídel neobsahuje žádné jídla. Nejdříve vytvořte jídlo. " << endl;
+    }
     while(pokracovat) {
         jidlo->vypisJidlo();
         cout << endl;

@@ -1,11 +1,4 @@
 #include "SeznamJidel.hpp"
-#include "Napoj.hpp"
-#include <string>
-#include <vector>
-#include "Jidlo.hpp"
-#include <ctime>     // std::time
-#include <cstdlib>   // std::rand, std::srand
-#include <algorithm> // std::random_shuffle
 
 using namespace std;
 

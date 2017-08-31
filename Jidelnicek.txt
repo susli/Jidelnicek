@@ -1,1 +1,1 @@
-./Debug/main.cpp.o ./Debug/SeznamJidel.cpp.o ./Debug/Soubor.cpp.o ./Debug/Napoj.cpp.o ./Debug/Pokrm.cpp.o ./Debug/Jidlo.cpp.o ./Debug/Jidelnicek.cpp.o ./Debug/CelyJidelnicek.cpp.o   
+./Debug/main.cpp.o ./Debug/SeznamJidel.cpp.o ./Debug/Soubor.cpp.o ./Debug/Napoj.cpp.o ./Debug/Pokrm.cpp.o ./Debug/Jidlo.cpp.o ./Debug/Jidelnicek.cpp.o ./Debug/CelyJidelnicek.cpp.o ./Debug/spusteni.cpp.o   

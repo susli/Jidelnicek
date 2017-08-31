@@ -1,6 +1,7 @@
 #include "Jidlo.hpp"
 #include "SeznamJidel.hpp"
 #include "Soubor.hpp"
+
 using namespace std;
 
 SeznamJidel* seznamJidel2;
@@ -18,9 +19,6 @@ Jidlo::Jidlo(int id, string nazev, double cena, int trida, string ingredience)
 Jidlo::~Jidlo()
 {
 }
-
-int idJidloNove = 0;
-int idNapojNove = 0;
 
 void Jidlo::ulozIngredience(string ingredience)
 {
@@ -187,8 +185,6 @@ bool Jidlo::najdiShodu(int hledanyPrvek, vector<int> seznamPrvku)
     return false;
 }
 
-int kontrola = 0;
-int poslednijidlo = NULL;
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
     if(seznamJidel2->getPouzitePokrmy().size() == seznamJidel2->getSeznamJidel().size()) {
@@ -249,14 +245,4 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
     if(kontrola == 3) {
         seznamJidel2->vynulujPredchoziIngredience();
     }
-    /*
-    for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
-    {
-        auto it2 = find(v2.cbegin(), v2.cend(), *it1);
-        if (it2 != v2.cend())
-        {
-            matches.push_back(make_pair(it1 - v1.cbegin(), it2 - v2.cbegin()));
-        }
-    }
-    */
 }
