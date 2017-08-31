@@ -22,6 +22,7 @@ public:
     vector<string> getIngredience1();
     void vypis();
     void vypisJidlo();
+    void vypisNapoje();
     void vytvorJidlo();
     bool kontrolaPouzitiJidla(Jidlo* nahodneJidlo);
     bool kontrolaIngredienciJidla(Jidlo* nahodneJidlo);

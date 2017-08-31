@@ -4,6 +4,7 @@ Soubor* soubor1;
 Jidlo* tridajidlo1;
 Jidelnicek* jidelnicek1;
 CelyJidelnicek* ceJidelnicek1;
+SeznamJidel* seznam1;
 
 void Spusteni::moznostiPokrmu()
 {
@@ -31,6 +32,7 @@ void Spusteni::moznostiPokrmu()
     }
     case '2': {
         tridajidlo1->vypisJidlo();
+        tridajidlo1->vypisNapoje();
         moznostiPokrmu();
         break;
     }
@@ -62,6 +64,7 @@ void Spusteni::moznostiPokrmu()
     }
     case '8': {
         // nahodneSerazeni();
+        seznam1->odstranJidlo();
         moznostiPokrmu();
         break;
     }

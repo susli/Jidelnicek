@@ -27,7 +27,7 @@ public:
     void vynulujPouzitePokrmy();
     void vlozJidlo(Jidlo* jidlo);
     void vlozNapoj(Napoj* napoj);
-    void odstranJidlo(int id);
+    void odstranJidlo();
     void nahodneSerazeni();
     void vynulujSeznamJidel();
     void vynulujSeznamNapoju();

@@ -39,8 +39,26 @@ void SeznamJidel::vlozNapoj(Napoj* napoj)
     sNapoju.push_back(napoj);
 }
 
-void SeznamJidel::odstranJidlo(int id)
+void SeznamJidel::odstranJidlo()
 {
+    Jidlo* jidlo;
+    int id = NULL;
+    bool chyba = true;
+        string vstup = "";
+        jidlo->vypisJidlo();
+        cout << "Zadejte Id jidla, ktere chcete odstranit: ";
+        while(chyba) {
+            try {
+                cin >> vstup;
+                id = stoi(vstup);
+                chyba = false;
+            } catch(invalid_argument& exception) {
+                cout << "Nebylo zadano cislo" << endl;
+            } catch(out_of_range& exception) {
+                cout << "Cislo je prilis velke (nebo prilis male)" << endl;
+            }
+        }
+    sJidel.erase(sJidel.begin() + id);
 }
 
 void SeznamJidel::nahodneSerazeni()
