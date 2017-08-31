@@ -1,4 +1,3 @@
-#pragma once
 #ifndef JIDELNICEK_H
 #define JIDELNICEK_H
 #include <vector>

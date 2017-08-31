@@ -6,7 +6,6 @@
 #include "Jidlo.hpp"
 #include <iostream>
 #include <vector>
-//#include <fstream>
 
 using namespace std;
 
@@ -86,34 +85,16 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
             Jidlo* ulozJidlo;
-
             ulozJidlo = seznamJidel->vyberNahodneJidlo();
             if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true && jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
-
-                cout << "pred ulozenim nahodneho jidla: ";
-                seznamJidel->vypisPouzitePokrmy();
-
                 den.push_back(ulozJidlo);
                 seznamJidel->vlozPouzityPokrm(ulozJidlo);
-
-                cout << "po ulozeni nahodneho jidla: ";
-                seznamJidel->vypisPouzitePokrmy();
-
             } else {
-
-                cout << endl << "else cyklus kdyz if neprosel, trida Jidelnicek - generujJidelnicekProDen" << endl;
                 ulozJidlo = seznamJidel->vyberNahodneJidlo();
                 if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
                     jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
-
-                    cout << "pred ulozenim nahodneho jidla po else: ";
-                    seznamJidel->vypisPouzitePokrmy();
-
                     den.push_back(ulozJidlo);
                     seznamJidel->vlozPouzityPokrm(ulozJidlo);
-
-                    cout << "po ulozeni nahodneho jidla po else: ";
-                    seznamJidel->vypisPouzitePokrmy();
                 }
             }
         }
@@ -149,65 +130,10 @@ void Jidelnicek::generujJidelnicek()
         celyJidelnicek->vlozJidelnicek(jidelnicek);
         pocetGenerovaniJidelnicku++;
         cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
-    }
-    cout << "Seznam jidel je prazdy, nelze vytvořit jidelnicek." << endl;
-}
-/*
-void Jidelnicek::vytiskniJidelnicek()
-{
-    Jidelnicek* jidelnicek3;
-    stringstream ss;
-    ofstream outFile("jidelnicek.txt");
-    if(!outFile) {
-        cout << "Chyba" << endl;
     } else {
-        for(jidelnicek3 : celyJidelnicek->getCelyJidelnicek()) {
-            outFile
-                << "..............................................................................................."
-                   "........."
-                << endl
-                << "                                     Novy Jidelnicek:                                            "
-                << endl
-                << "..............................................................................................."
-                   "........."
-                << endl
-                << "Pondeli: " << endl
-                << "--------------------------------------" << endl;
-            for(jidlo : jidelnicek3->getPondeli()) {
-
-                outFile << "Nazev: " << jidlo->getNazev() << "      "
-                        << "Cena: " << jidlo->getCena() << endl;
-            }
-            outFile << endl << "Utery: " << endl << "--------------------------------------" << endl;
-            for(jidlo : jidelnicek3->getUtery()) {
-
-                outFile << "Nazev: " << jidlo->getNazev() << "      "
-                        << "Cena: " << jidlo->getCena() << endl;
-            }
-            outFile << endl << "Streda: " << endl << "--------------------------------------" << endl;
-            for(jidlo : jidelnicek3->getStreda()) {
-
-                outFile << "Nazev: " << jidlo->getNazev() << "      "
-                        << "Cena: " << jidlo->getCena() << endl;
-            }
-            outFile << endl << "Ctvrtek: " << endl << "--------------------------------------" << endl;
-            for(jidlo : jidelnicek3->getCtvrtek()) {
-
-                outFile << "Nazev: " << jidlo->getNazev() << "      "
-                        << "Cena: " << jidlo->getCena() << endl;
-            }
-            outFile << endl << "Patek: " << endl << "--------------------------------------" << endl;
-            for(jidlo : jidelnicek3->getPatek()) {
-
-                outFile << "Nazev: " << jidlo->getNazev() << "      "
-                        << "Cena: " << jidlo->getCena() << endl;
-            }
-        }
+        cout << "Seznam jidel je prazdy, nelze vytvorit jidelnicek." << endl;
     }
-
-    outFile.close();
 }
-*/
 
 vector<Pokrm*> Jidelnicek::getPondeli()
 {

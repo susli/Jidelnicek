@@ -182,7 +182,6 @@ void Jidlo::vytvorJidlo()
 bool Jidlo::najdiShodu(int hledanyPrvek, vector<int> seznamPrvku)
 {
     for(auto i = seznamPrvku.begin(); i != seznamPrvku.end(); ++i) {
-        cout << "Porovnavam: " << hledanyPrvek << " a " << seznamPrvku[*i] << endl;
         if(hledanyPrvek == seznamPrvku[*i]) {
             return true;
         }
@@ -201,13 +200,12 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
     }
     if(seznamJidel2->getPouzitePokrmy().size() == 0) {
         if(poslednijidlo != nahodneJidlo->getId()) {
-            cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
             return true;
         } else {
             if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
                 return true;
             }
-        } 
+        }
 
     } else {
 
@@ -220,24 +218,19 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 }
 bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
 {
-    int nepravda = 0;
     vector<vector<string> > ingredienceNahodnehoJidla;
     vector<vector<string> > ingrediencePredchozihoJidla;
 
     ingredienceNahodnehoJidla.push_back(nahodneJidlo->getIngredience1());
     for(unsigned int i = 0; i < seznamJidel2->getPredchoziIngredience().size(); ++i) {
-        cout << endl << "zkopirovani do vectoru, prvni forcyklus" << endl;
         ingrediencePredchozihoJidla.push_back(seznamJidel2->getPredchoziIngredience()[i]);
 
         for(auto it1 = ingredienceNahodnehoJidla.cbegin(); it1 != ingredienceNahodnehoJidla.cend(); ++it1) {
-            cout << "druhy forcyklus" << endl;
             auto it2 = find(ingrediencePredchozihoJidla.cbegin(), ingrediencePredchozihoJidla.cend(), *it1);
             if(it2 != ingrediencePredchozihoJidla.cend()) {
-                cout << "podminka if" << endl;
-                nepravda++;
                 seznamJidel2->vlozPredchoziIngredience(nahodneJidlo);
                 return true;
-            }else{
+            } else {
                 continue;
             }
             continue;
@@ -246,12 +239,8 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
 
     ingredienceNahodnehoJidla.clear();
     ingrediencePredchozihoJidla.clear();
-
-    cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
     kontrola++;
-    
     if(kontrola == 2) {
         seznamJidel2->vynulujPredchoziIngredience();
     }
-     
 }

@@ -25,3 +25,29 @@ Patek:
 --------------------------------------
 Nazev: doublepokrm      Cena: 23.6
 Nazev: tretipokrm      Cena: 300
+........................................................................................................
+                                     Novy Jidelnicek:                                            
+........................................................................................................
+Pondeli: 
+--------------------------------------
+Nazev: Sekan  s bramborovou kaç¡      Cena: 40
+Nazev: devatypokrm      Cena: 900
+
+Utery: 
+--------------------------------------
+Nazev: PeŸen‚ kuýe s bramborem      Cena: 30
+
+Streda: 
+--------------------------------------
+Nazev: Vepýovì steak s americkìmi brambory      Cena: 200
+Nazev: patypokrm      Cena: 500
+Nazev: druhypokrm      Cena: 200
+
+Ctvrtek: 
+--------------------------------------
+Nazev: Sv¡Ÿkov  na smetanØ      Cena: 180
+Nazev: sestypokrm      Cena: 600
+
+Patek: 
+--------------------------------------
+Nazev: sestypokrm      Cena: 600
