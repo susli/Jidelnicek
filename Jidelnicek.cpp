@@ -100,7 +100,7 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
 
             } else {
 
-                cout << endl << "else cyklus kdyÅ¾ if neproÅ¡el, trida Jidelnicek - generujJidelnicekProDen" << endl;
+                cout << endl << "else cyklus kdyz if neprosel, trida Jidelnicek - generujJidelnicekProDen" << endl;
                 ulozJidlo = seznamJidel->vyberNahodneJidlo();
                 if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
                     jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
@@ -154,7 +154,7 @@ void Jidelnicek::generujJidelnicek()
 
 void Jidelnicek::vytiskniJidelnicek()
 {
-    stringstream ss;
+    
     ofstream outFile("jidelnicek.txt");
     if(!outFile) {
         cout << "Chyba" << endl;
@@ -208,7 +208,7 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
 
         return den;
     }
-    cout << "Seznam jídel neobsahuje žádné jídla. Nejdříve vytvořte jídlo. " << endl;
+    cout << "Seznam jidel neobsahuje zadne jidla. Nejdrive vytvorte jidlo. " << endl;
 }
 
 void Jidelnicek::vytvorJidelnicek()
@@ -222,6 +222,7 @@ void Jidelnicek::vytvorJidelnicek()
     if(vytvoritJidelnicek != 'a') {
         return;
     }
+    if(seznamJidel->getSeznamJidel().size() != 0) {
     while(pokracovat) {
         cout << "Pro jaky den si prejete jidelnicek vytvorit?" << endl;
         cout << "pro vyber dne zadejte prvni dve pismena dne" << endl;
@@ -254,4 +255,6 @@ void Jidelnicek::vytvorJidelnicek()
         }
     }
     celyJidelnicek->vlozJidelnicek(jidelnicek);
+    }
+    cout << "Seznam jidel neobsahuje zadne jidla. Nejdrive vytvorte jidlo. " << endl;
 }

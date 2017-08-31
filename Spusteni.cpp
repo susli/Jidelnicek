@@ -59,6 +59,7 @@ void Spusteni::moznostiPokrmu()
     }
     case '7': {
         // vytiskniJidelnicek();
+        jidelnicek1->vytiskniJidelnicek();
         moznostiPokrmu();
         break;
     }

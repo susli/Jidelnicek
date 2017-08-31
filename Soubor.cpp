@@ -4,6 +4,7 @@ using namespace std;
 int IDJidlo = 0;
 int IDNapoj = 0;
 SeznamJidel* seznam;
+Jidelnicek* jidelnicek2;
 Soubor::Soubor()
 {
 }
@@ -129,6 +130,31 @@ void Soubor::nacteniJidelZeSouboru()
     }
     inNapoj.close();
 }
+
+void Soubor::vytiskniJidelnicek()
+{
+     ofstream outFileJidelnicek("jidelnicek.txt", ios::out);
+    
+    if(!outFileJidelnicek) {
+        cout << "Chyba" << endl;
+    } else {
+        
+        
+        
+        for(Jidlo* jidlo : seznam->getSeznamJidel()) {
+            outFileJidelnicek << jidelnicek2->vypis();
+            /*
+            jidlo->getId() << ";" << jidlo->getNazev() << ";" << jidlo->getCena() << ";"
+                         << jidlo->getTrida() << ";" << jidlo->vypisIngredience() << ";" << jidlo->getObjem() << ";"
+                         << endl;
+                          */
+        }
+        outFileJidelnicek.close();
+        
+        
+    }
+}
+
 
 /*
 int Soubor::getIdJidlo()

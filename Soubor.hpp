@@ -6,6 +6,8 @@
 #include "Jidlo.hpp"
 #include "SeznamJidel.hpp"
 #include "Napoj.hpp"
+#include "Jidelnicek.hpp"
+#include "CelyJidelnicek.hpp"
 using namespace std;
 
 class Soubor
@@ -19,4 +21,5 @@ public:
     void nacteniJidelZeSouboru();
     int getIdJidlo();
     int getIdNapoj();
+    void vytiskniJidelnicek();
 };

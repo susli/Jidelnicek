@@ -191,7 +191,8 @@ bool Jidlo::najdiShodu(int hledanyPrvek, vector<int> seznamPrvku)
 }
 
 int kontrola = 0;
-int poslednijidlo = NULL;
+int poslednijidlo = 0;
+
 bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
 {
     if(seznamJidel2->getPouzitePokrmy().size() == seznamJidel2->getSeznamJidel().size()) {
@@ -234,6 +235,7 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
             if(it2 != ingrediencePredchozihoJidla.cend()) {
                 cout << "podminka if" << endl;
                 nepravda++;
+                seznamJidel2->vlozPredchoziIngredience(nahodneJidlo);
                 return true;
             }else{
                 continue;
@@ -247,9 +249,9 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
 
     cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
     kontrola++;
-    /*
+    
     if(kontrola == 2) {
         seznamJidel2->vynulujPredchoziIngredience();
     }
-     */
+     
 }
