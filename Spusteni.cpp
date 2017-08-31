@@ -18,7 +18,7 @@ void Spusteni::moznostiPokrmu()
     cout << "Zadej 5, pro ulozeni seznamu Jidel" << endl;
     cout << "Zadej 6, pro nacteni jidel ze souboru" << endl;
     cout << "Zadej 7, po vytisknuti Jidelnicku" << endl;
-    cout << "Zadej 8, po nahodne serazeni seznamu jidel" << endl;
+    cout << "Zadej 8, pro odstraneni jidla ze seznamu" << endl;
     cout << "Zadej 9, pro vygenerovani jidelnicku na tyden" << endl;
     cout << "Zadej Q, pro konec programu" << endl;
     cin >> volba;
