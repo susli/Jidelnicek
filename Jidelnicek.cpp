@@ -78,52 +78,13 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
         }
     }
     cout << endl;
+
     bool pokracovat = true;
     while(pokracovat) {
         cout << endl;
         for(int i = 0; i < pocetJidel; ++i) {
             Jidlo* ulozJidlo;
 
-<<<<<<< HEAD
-                int pocetJidel = 0;
-                cout << "kolik jidel bude na den?" << endl;
-                cin.clear();
-                // cin >> pocetJidel;
-                bool chyba = true;
-                string vstup = "";
-                while(chyba) {
-                    try {
-                        cin >> vstup;
-                        pocetJidel = stoi(vstup);
-                        chyba = false;
-                    } catch(invalid_argument& exception) {
-                        cout << "Nebylo zadano cislo" << endl;
-                    } catch(out_of_range& exception) {
-                        cout << "Cislo je prilis velke (nebo prilis male)" << endl;
-                    }
-                }
-                cout << endl;
-                bool pokracovat = true;
-                while(pokracovat) {
-                    cout << endl;
-                    for(int i = 0; i < pocetJidel; ++i) {
-                        Jidlo* ulozJidlo;
-
-                        ulozJidlo = seznamJidel->vyberNahodneJidlo();
-                        if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
-                            jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
-
-                            cout << "pred ulozenim nahodneho jidla: ";
-                            seznamJidel->vypisPouzitePokrmy();
-
-                            den.push_back(ulozJidlo);
-                            seznamJidel->vlozPouzityPokrm(ulozJidlo);
-
-                            cout << "po ulozeni nahodneho jidla: ";
-                            seznamJidel->vypisPouzitePokrmy();
-
-                        } else {
-=======
             ulozJidlo = seznamJidel->vyberNahodneJidlo();
             if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true && jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
 
@@ -138,81 +99,27 @@ vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
 
             } else {
 
-                cout << endl << "else cyklus když if neprošel, trida Jidelnicek - generujJidelnicekProDen" << endl;
+                cout << endl << "else cyklus kdyÅ¾ if neproÅ¡el, trida Jidelnicek - generujJidelnicekProDen" << endl;
                 ulozJidlo = seznamJidel->vyberNahodneJidlo();
                 if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
                     jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
 
+                    cout << "pred ulozenim nahodneho jidla po else: ";
                     seznamJidel->vypisPouzitePokrmy();
->>>>>>> parent of ea33569... uprava generovani při prázdném seznamu, jinak nefunguje
 
-                            cout << endl
-                                 << "else cyklus když if neprošel, trida Jidelnicek - generujJidelnicekProDen" << endl;
+                    den.push_back(ulozJidlo);
+                    seznamJidel->vlozPouzityPokrm(ulozJidlo);
 
-<<<<<<< HEAD
-                            ulozJidlo = seznamJidel->vyberNahodneJidlo();
-                            if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
-                                jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
-
-                                cout << "pred ulozenim nahodneho jidla: ";
-                                seznamJidel->vypisPouzitePokrmy();
-
-                                den.push_back(ulozJidlo);
-                                seznamJidel->vlozPouzityPokrm(ulozJidlo);
-
-                                cout << "po ulozeni nahodneho jidla: ";
-                                seznamJidel->vypisPouzitePokrmy();
-
-                            } else {
-
-                                cout << endl
-                                     << "else cyklus když if neprošel, trida Jidelnicek - generujJidelnicekProDen"
-                                     << endl;
-                                ulozJidlo = seznamJidel->vyberNahodneJidlo();
-                                if(jidlo->kontrolaPouzitiJidla(ulozJidlo) == true &&
-                                    jidlo->kontrolaIngredienciJidla(ulozJidlo) == true) {
-
-                                    cout << "pred ulozenim nahodneho jidla po else: ";
-                                    seznamJidel->vypisPouzitePokrmy();
-
-                                    den.push_back(ulozJidlo);
-                                    seznamJidel->vlozPouzityPokrm(ulozJidlo);
-
-                                    cout << "po ulozeni nahodneho jidla po else: ";
-                                    seznamJidel->vypisPouzitePokrmy();
-                                }
-                            }
-                        }
-                        pokracovat = false;
-                    }
-                    return den;
-=======
+                    cout << "po ulozeni nahodneho jidla po else: ";
                     seznamJidel->vypisPouzitePokrmy();
->>>>>>> parent of ea33569... uprava generovani při prázdném seznamu, jinak nefunguje
                 }
-                // cout << "Seznam jidel je prazdy, nelze vytvořit jidelnicek." << endl;
             }
         }
-<<<<<<< HEAD
-    }
-}
-
-        void Jidelnicek::generujJidelnicek()
-        {
-            char generovatJidelnicek = 0;
-            string den = " ";
-            Jidelnicek* jidelnicek = new Jidelnicek;
-            cout << "chcete vytvorit jidelnicek? a/n " << endl;
-            cin >> generovatJidelnicek;
-            if(generovatJidelnicek != 'a') {
-                return;
-            }
-            if(seznamJidel->getSeznamJidel().size() != NULL) {
-=======
         pokracovat = false;
     }
-
     return den;
+
+    seznamJidel->vypisPouzitePokrmy();
 }
 
 void Jidelnicek::generujJidelnicek()
@@ -225,134 +132,120 @@ void Jidelnicek::generujJidelnicek()
     if(generovatJidelnicek != 'a') {
         return;
     }
-    cout << "Zadej pocet jidel na Pondeli" << endl;
-    jidelnicek->pondeli = generujJidelnicekProDen();
-    cout << "Zadej pocet jidel na Utery" << endl;
-    jidelnicek->utery = generujJidelnicekProDen();
-    cout << "Zadej pocet jidel na Stredu" << endl;
-    jidelnicek->streda = generujJidelnicekProDen();
-    cout << "Zadej pocet jidel na Ctvrtek" << endl;
-    jidelnicek->ctvrtek = generujJidelnicekProDen();
-    cout << "Zadej pocet jidel na Patek" << endl;
-    jidelnicek->patek = generujJidelnicekProDen();
-    celyJidelnicek->vlozJidelnicek(jidelnicek);
-    pocetGenerovaniJidelnicku++;
-    cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
+    if(seznamJidel->getSeznamJidel().size() != NULL) {
+
+        cout << "Zadej pocet jidel na Pondeli" << endl;
+        jidelnicek->pondeli = generujJidelnicekProDen();
+        cout << "Zadej pocet jidel na Utery" << endl;
+        jidelnicek->utery = generujJidelnicekProDen();
+        cout << "Zadej pocet jidel na Stredu" << endl;
+        jidelnicek->streda = generujJidelnicekProDen();
+        cout << "Zadej pocet jidel na Ctvrtek" << endl;
+        jidelnicek->ctvrtek = generujJidelnicekProDen();
+        cout << "Zadej pocet jidel na Patek" << endl;
+        jidelnicek->patek = generujJidelnicekProDen();
+        celyJidelnicek->vlozJidelnicek(jidelnicek);
+        pocetGenerovaniJidelnicku++;
+        cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
+    }
+    cout << "Seznam jidel je prazdy, nelze vytvořit jidelnicek." << endl;
 }
->>>>>>> parent of ea33569... uprava generovani při prázdném seznamu, jinak nefunguje
 
-                cout << "Zadej pocet jidel na Pondeli" << endl;
-                jidelnicek->pondeli = generujJidelnicekProDen();
-                cout << "Zadej pocet jidel na Utery" << endl;
-                jidelnicek->utery = generujJidelnicekProDen();
-                cout << "Zadej pocet jidel na Stredu" << endl;
-                jidelnicek->streda = generujJidelnicekProDen();
-                cout << "Zadej pocet jidel na Ctvrtek" << endl;
-                jidelnicek->ctvrtek = generujJidelnicekProDen();
-                cout << "Zadej pocet jidel na Patek" << endl;
-                jidelnicek->patek = generujJidelnicekProDen();
-                celyJidelnicek->vlozJidelnicek(jidelnicek);
-                pocetGenerovaniJidelnicku++;
-                cout << endl << "vygenerovan tydenni jidelnicek" << pocetGenerovaniJidelnicku << endl;
-            }
-            cout << "Seznam jidel je prazdy, nelze vytvořit jidelnicek." << endl;
+void Jidelnicek::vytiskniJidelnicek()
+{
+    stringstream ss;
+    ofstream outFile("jidelnicek.txt");
+    if(!outFile) {
+        cout << "Chyba" << endl;
+    } else {
+        for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
+            outFile << jidelnicek->vypis();
         }
+        outFile.close();
+    }
+}
 
-        void Jidelnicek::vytiskniJidelnicek()
-        {
-            stringstream ss;
-            ofstream outFile("jidelnicek.txt");
-            if(!outFile) {
-                cout << "Chyba" << endl;
-            } else {
-                for(Jidelnicek* jidelnicek : celyJidelnicek->getCelyJidelnicek()) {
-                    outFile << jidelnicek->vypis();
-                }
-                outFile.close();
+vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
+{
+    int x = 0;
+    int velikostVectoru = seznamJidel->getSeznamJidel().size();
+    vector<Pokrm*> den;
+    bool pokracovat = true;
+    char dalsi = 0;
+    while(pokracovat) {
+        jidlo->vypisJidlo();
+        cout << endl;
+        cout << "zadejte Id jidla" << endl;
+        // cin >> x;
+        bool chyba = true;
+        string vstup = "";
+        while(chyba) {
+            try {
+                cin >> vstup;
+                x = stoi(vstup);
+                chyba = false;
+            } catch(invalid_argument& exception) {
+                cout << "Nebylo zadano cislo" << endl;
+            } catch(out_of_range& exception) {
+                cout << "Cislo je prilis velke (nebo prilis male)" << endl;
             }
         }
+        if(x > velikostVectoru) {
+            cout << "jidlo neexistuje" << endl;
+            cout << "zadejte spravne Id pokrmu" << endl;
+            continue;
+        }
+        den.push_back(seznamJidel->getSeznamJidel()[x]);
+        cout << "prejete si zadat dalsi pokrm? a/n" << endl;
+        cin >> dalsi;
+        if(dalsi != 'a') {
+            pokracovat = false;
+        }
+    }
+    return den;
+}
 
-        vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
-        {
-            int x = 0;
-            int velikostVectoru = seznamJidel->getSeznamJidel().size();
-            vector<Pokrm*> den;
-            bool pokracovat = true;
-            char dalsi = 0;
-            while(pokracovat) {
-                jidlo->vypisJidlo();
-                cout << endl;
-                cout << "zadejte Id jidla" << endl;
-                // cin >> x;
-                bool chyba = true;
-                string vstup = "";
-                while(chyba) {
-                    try {
-                        cin >> vstup;
-                        x = stoi(vstup);
-                        chyba = false;
-                    } catch(invalid_argument& exception) {
-                        cout << "Nebylo zadano cislo" << endl;
-                    } catch(out_of_range& exception) {
-                        cout << "Cislo je prilis velke (nebo prilis male)" << endl;
-                    }
-                }
-                if(x > velikostVectoru) {
-                    cout << "jidlo neexistuje" << endl;
-                    cout << "zadejte spravne Id pokrmu" << endl;
-                    continue;
-                }
-                den.push_back(seznamJidel->getSeznamJidel()[x]);
-                cout << "prejete si zadat dalsi pokrm? a/n" << endl;
-                cin >> dalsi;
-                if(dalsi != 'a') {
-                    pokracovat = false;
-                }
-            }
-            return den;
+void Jidelnicek::vytvorJidelnicek()
+{
+    char vytvoritJidelnicek = 0;
+    string den = "";
+    bool pokracovat = true;
+    Jidelnicek* jidelnicek = new Jidelnicek;
+    cout << "chcete vytvorit jidelnicek? a/n " << endl;
+    cin >> vytvoritJidelnicek;
+    if(vytvoritJidelnicek != 'a') {
+        return;
+    }
+    while(pokracovat) {
+        cout << "Pro jaky den si prejete jidelnicek vytvorit?" << endl;
+        cout << "pro vyber dne zadejte prvni dve pismena dne" << endl;
+        cin >> den;
+        if(den == "po") {
+            cout << "vytvarim jidelnicek pro pondeli" << endl;
+            jidelnicek->pondeli = vytvorJidelnicekProDen();
         }
-
-        void Jidelnicek::vytvorJidelnicek()
-        {
-            char vytvoritJidelnicek = 0;
-            string den = "";
-            bool pokracovat = true;
-            Jidelnicek* jidelnicek = new Jidelnicek;
-            cout << "chcete vytvorit jidelnicek? a/n " << endl;
-            cin >> vytvoritJidelnicek;
-            if(vytvoritJidelnicek != 'a') {
-                return;
-            }
-            while(pokracovat) {
-                cout << "Pro jaky den si prejete jidelnicek vytvorit?" << endl;
-                cout << "pro vyber dne zadejte prvni dve pismena dne" << endl;
-                cin >> den;
-                if(den == "po") {
-                    cout << "vytvarim jidelnicek pro pondeli" << endl;
-                    jidelnicek->pondeli = vytvorJidelnicekProDen();
-                }
-                if(den == "ut") {
-                    cout << "vytvarim jidelnicek pro utery" << endl;
-                    jidelnicek->utery = vytvorJidelnicekProDen();
-                }
-                if(den == "st") {
-                    cout << "vytvarim jidelnicek pro streda" << endl;
-                    jidelnicek->streda = vytvorJidelnicekProDen();
-                }
-                if(den == "ct") {
-                    cout << "vytvarim jidelnicek pro ctvrtek" << endl;
-                    jidelnicek->ctvrtek = vytvorJidelnicekProDen();
-                }
-                if(den == "pa") {
-                    cout << "vytvarim jidelnicek pro patek" << endl;
-                    jidelnicek->patek = vytvorJidelnicekProDen();
-                }
-                cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
-                char dalsiDen;
-                cin >> dalsiDen;
-                if(dalsiDen != 'a') {
-                    pokracovat = false;
-                }
-            }
-            celyJidelnicek->vlozJidelnicek(jidelnicek); // celyJidelnicek.push_back(jidelnicek);
+        if(den == "ut") {
+            cout << "vytvarim jidelnicek pro utery" << endl;
+            jidelnicek->utery = vytvorJidelnicekProDen();
         }
+        if(den == "st") {
+            cout << "vytvarim jidelnicek pro streda" << endl;
+            jidelnicek->streda = vytvorJidelnicekProDen();
+        }
+        if(den == "ct") {
+            cout << "vytvarim jidelnicek pro ctvrtek" << endl;
+            jidelnicek->ctvrtek = vytvorJidelnicekProDen();
+        }
+        if(den == "pa") {
+            cout << "vytvarim jidelnicek pro patek" << endl;
+            jidelnicek->patek = vytvorJidelnicekProDen();
+        }
+        cout << "prejete si nastavit pokrmy pro dalsi den? a/n" << endl;
+        char dalsiDen;
+        cin >> dalsiDen;
+        if(dalsiDen != 'a') {
+            pokracovat = false;
+        }
+    }
+    celyJidelnicek->vlozJidelnicek(jidelnicek); // celyJidelnicek.push_back(jidelnicek);
+}
