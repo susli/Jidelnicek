@@ -6,10 +6,11 @@
 #include "Jidlo.hpp"
 #include "SeznamJidel.hpp"
 #include "Napoj.hpp"
-namespace std
-{
+using namespace std;
+
 class Soubor
 {
+  
 public:
     Soubor();
     ~Soubor();
@@ -19,4 +20,3 @@ public:
     int getIdJidlo();
     int getIdNapoj();
 };
-}

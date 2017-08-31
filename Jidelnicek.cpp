@@ -57,7 +57,6 @@ Jidelnicek::vypis()
     }
 }
 
-int predchoziPocetJidel = 0;
 vector<Pokrm*> Jidelnicek::generujJidelnicekProDen()
 {
     vector<Pokrm*> den;

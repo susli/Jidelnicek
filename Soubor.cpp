@@ -1,4 +1,5 @@
 #include "Soubor.hpp"
+using namespace std;
 
 int IDJidlo = 0;
 int IDNapoj = 0;
