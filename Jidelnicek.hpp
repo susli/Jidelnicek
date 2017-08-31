@@ -9,6 +9,7 @@ using namespace std;
 
 class Jidelnicek
 {
+    
 public:
     vector<Pokrm*> pondeli;
     vector<Pokrm*> utery;

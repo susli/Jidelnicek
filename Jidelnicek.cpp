@@ -6,7 +6,7 @@
 #include "Jidlo.hpp"
 #include <iostream>
 #include <vector>
-#include <fstream>
+//#include <fstream>
 
 using namespace std;
 
@@ -134,7 +134,7 @@ void Jidelnicek::generujJidelnicek()
     if(generovatJidelnicek != 'a') {
         return;
     }
-    if(seznamJidel->getSeznamJidel().size() != NULL) {
+    if(seznamJidel->getSeznamJidel().size() != 0) {
 
         cout << "Zadej pocet jidel na Pondeli" << endl;
         jidelnicek->pondeli = generujJidelnicekProDen();
@@ -174,41 +174,40 @@ vector<Pokrm*> Jidelnicek::vytvorJidelnicekProDen()
     vector<Pokrm*> den;
     bool pokracovat = true;
     char dalsi = 0;
-    if(seznamJidel->getSeznamJidel().size() != NULL) {
-        
-    
-    while(pokracovat) {
-        jidlo->vypisJidlo();
-        cout << endl;
-        cout << "zadejte Id jidla" << endl;
-        // cin >> x;
-        bool chyba = true;
-        string vstup = "";
-        while(chyba) {
-            try {
-                cin >> vstup;
-                x = stoi(vstup);
-                chyba = false;
-            } catch(invalid_argument& exception) {
-                cout << "Nebylo zadano cislo" << endl;
-            } catch(out_of_range& exception) {
-                cout << "Cislo je prilis velke (nebo prilis male)" << endl;
+    if(seznamJidel->getSeznamJidel().size() != 0) {
+
+        while(pokracovat) {
+            jidlo->vypisJidlo();
+            cout << endl;
+            cout << "zadejte Id jidla" << endl;
+            // cin >> x;
+            bool chyba = true;
+            string vstup = "";
+            while(chyba) {
+                try {
+                    cin >> vstup;
+                    x = stoi(vstup);
+                    chyba = false;
+                } catch(invalid_argument& exception) {
+                    cout << "Nebylo zadano cislo" << endl;
+                } catch(out_of_range& exception) {
+                    cout << "Cislo je prilis velke (nebo prilis male)" << endl;
+                }
+            }
+            if(x > velikostVectoru) {
+                cout << "jidlo neexistuje" << endl;
+                cout << "zadejte spravne Id pokrmu" << endl;
+                continue;
+            }
+            den.push_back(seznamJidel->getSeznamJidel()[x]);
+            cout << "prejete si zadat dalsi pokrm? a/n" << endl;
+            cin >> dalsi;
+            if(dalsi != 'a') {
+                pokracovat = false;
             }
         }
-        if(x > velikostVectoru) {
-            cout << "jidlo neexistuje" << endl;
-            cout << "zadejte spravne Id pokrmu" << endl;
-            continue;
-        }
-        den.push_back(seznamJidel->getSeznamJidel()[x]);
-        cout << "prejete si zadat dalsi pokrm? a/n" << endl;
-        cin >> dalsi;
-        if(dalsi != 'a') {
-            pokracovat = false;
-        }
-    }
-    
-    return den;
+
+        return den;
     }
     cout << "Seznam jídel neobsahuje žádné jídla. Nejdříve vytvořte jídlo. " << endl;
 }
@@ -255,5 +254,5 @@ void Jidelnicek::vytvorJidelnicek()
             pokracovat = false;
         }
     }
-    celyJidelnicek->vlozJidelnicek(jidelnicek); // celyJidelnicek.push_back(jidelnicek);
+    celyJidelnicek->vlozJidelnicek(jidelnicek);
 }

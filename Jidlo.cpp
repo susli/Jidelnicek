@@ -68,9 +68,9 @@ void Jidlo::vypisJidlo()
         jidlo->vypis();
         cout << endl;
     }
-    
 }
-void Jidlo::vypisNapoje(){
+void Jidlo::vypisNapoje()
+{
     cout << "Dostupne napoje" << endl << "--------------------------------" << endl;
     for(Napoj* napoj : seznamJidel2->getSeznamNapoju()) {
         napoj->vypis();
@@ -198,7 +198,7 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
         poslednijidlo = seznamJidel2->getPouzitePokrmy().back();
         seznamJidel2->vynulujPouzitePokrmy();
     }
-    if(seznamJidel2->getPouzitePokrmy().size() == NULL) {
+    if(seznamJidel2->getPouzitePokrmy().size() == 0) {
         if(poslednijidlo != nahodneJidlo->getId()) {
             cout << "prazdny seznam pouzitych jidel: vracim true(pouzij jidlo)" << endl;
             return true;
@@ -206,13 +206,14 @@ bool Jidlo::kontrolaPouzitiJidla(Jidlo* nahodneJidlo)
             if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
                 return true;
             }
-        }
+        } 
 
     } else {
 
         if(najdiShodu(nahodneJidlo->getId(), seznamJidel2->getPouzitePokrmy()) == false) {
             return true;
         }
+        return false;
     }
     return false;
 }
@@ -227,12 +228,6 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
         cout << endl << "zkopirovani do vectoru, prvni forcyklus" << endl;
         ingrediencePredchozihoJidla.push_back(seznamJidel2->getPredchoziIngredience()[i]);
 
-        /*
-        vector<string>::const_iterator first = seznamJidel2->getPredchoziIngredience()[i].end() - predchoziPocetJidel;
-        vector<string>::const_iterator last = seznamJidel2->getPredchoziIngredience()[i].end();
-        vector<string> newVec(first, last);
-         */
-
         for(auto it1 = ingredienceNahodnehoJidla.cbegin(); it1 != ingredienceNahodnehoJidla.cend(); ++it1) {
             cout << "druhy forcyklus" << endl;
             auto it2 = find(ingrediencePredchozihoJidla.cbegin(), ingrediencePredchozihoJidla.cend(), *it1);
@@ -240,7 +235,10 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
                 cout << "podminka if" << endl;
                 nepravda++;
                 return true;
+            }else{
+                continue;
             }
+            continue;
         }
     }
 
@@ -249,17 +247,9 @@ bool Jidlo::kontrolaIngredienciJidla(Jidlo* nahodneJidlo)
 
     cout << "Kontrola ingredienci prosla: " << nepravda << " krat" << endl;
     kontrola++;
-    if(kontrola == 3) {
+    /*
+    if(kontrola == 2) {
         seznamJidel2->vynulujPredchoziIngredience();
     }
-    /*
-    for (auto it1 = v1.cbegin(); it1 != v1.cend(); ++it1)
-    {
-        auto it2 = find(v2.cbegin(), v2.cend(), *it1);
-        if (it2 != v2.cend())
-        {
-            matches.push_back(make_pair(it1 - v1.cbegin(), it2 - v2.cbegin()));
-        }
-    }
-    */
+     */
 }
